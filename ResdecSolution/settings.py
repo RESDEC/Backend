@@ -27,6 +27,7 @@ SECRET_KEY = 'l1^flac2r8sd3+6yiey%8u0o-jcnkr69v&dttid6to55s&(4gq'
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost',
+                 u'resdec-solution-web.herokuapp.com',
                  ]
 
 
