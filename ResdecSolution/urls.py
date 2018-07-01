@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from apps.resdec import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^resdec/', include('apps.resdec.urls')),
+    url(r'^', views.index, name="index"),
 ]

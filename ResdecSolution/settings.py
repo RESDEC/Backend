@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost',
                  u'resdec-solution-web.herokuapp.com',
+                 u'127.0.0.1',
                  ]
 
 
