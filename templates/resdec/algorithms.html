@@ -1,0 +1,117 @@
+{% extends 'base/main_base.html' %}
+{% load staticfiles %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+  <div id="SectionMain" class="container" style="padding-top: 50px">
+    <div class="card-panel grey lighten-5 z-depth-3">
+      <div class="row">
+        <h5>Define attributes to use:</h5>
+      </div>
+      <div class="row">
+        <div class="col s6">
+          <div class="row">
+            <div class="input-field col s12">
+              <select id="selRelTypes" onchange="relTypAlgorithms()">
+                <option value="" selected>Choose your option</option>
+                {% for rt in relTypes %}
+                  <option value="{{ rt.id }}">{{ rt.name }}</option>
+                {% endfor %}
+              </select>
+              <label>Relationship Type</label>
+            </div>
+          </div>
+        </div>
+        <div class="col s6">
+          <div class="row">
+            <div class="input-field col s12">
+              <select id="selVarEnvironment" onchange="varEnvData()">
+                <option value="" selected>Choose your option</option>
+                {% for ve in varEnvironments %}
+                  <option value="{{ ve.id }}">{{ ve.name }}</option>
+                {% endfor %}
+              </select>
+              <label>Variability Environment</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s6">
+          <div class="row">
+            <div class="input-field col s12">
+              <select id="selData">
+                <option value="" selected>Choose your option</option>
+                {% for ved in varEnvData %}
+                  <option value="{{ ved.id }}">{{ ved.name }}</option>
+                {% endfor %}
+              </select>
+              <label>Data</label>
+            </div>
+          </div>
+        </div>
+        <div class="col s6">
+          <div class="row">
+            <div class="input-field col s12">
+              <select id="selAlgorithms">
+                <option value="" selected>Select relationship type</option>
+              </select>
+              <label>Algorithm</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <a class="waves-effect waves-light btn green lighten-2" href="#!">Calculate</a>
+      </div>
+    </div>
+  </div>
+  {% block javascript %}
+    <script src="{% static 'js/algorithms.js' %}"></script>
+    <script type="application/javascript">
+      function relTypAlgorithms(){
+        var relationType = $("#selRelTypes").val(); //   Get the relationship type.
+        var select = document.getElementById('selAlgorithms');
+        console.log("Searching algorithms for the relationship type: " + relationType);
+        if (relationType!=''){
+          $.get('{% url "resdec:relationshipTypeAlgorithms" %}', {relationType: relationType}, function(data){
+            console.log(data);
+            var name;
+            select = document.getElementById('selAlgorithms');
+            select.options.length = 0;
+            select.options.add(new Option("Select relationship type", ""));
+            for (name in data){
+              if (data.hasOwnProperty(name)) {
+                select.options.add(new Option(data[name], name));
+              }
+            }
+            $('select').trigger('contentChanged');  //  Callback to the Materilize listener.
+          });
+        }else{
+          select.options.length = 0;
+          select.options.add(new Option("Select relationship type", ""));
+          $('select').trigger('contentChanged');  //  Callback to the Materilize listener.
+        }
+      }
+    </script>
+    <script>
+      function varEnvData(){
+        var variabilityEnvironment = $("#selVarEnvironment").val(); //  Get the variability environment
+        console.log("Searching data to use with the variability environment: " + variabilityEnvironment);
+        $.get('{% url "resdec:variabilityEnvironmentData" %}', {variabilityEnvironment: variabilityEnvironment}, function(data){
+          console.log(data);
+          var select;
+          select = document.getElementById('selData');
+          select.options.length = 0;
+          select.options.add(new Option("Choose your option", ""));
+          $('select').trigger('contentChanged');  //  Callback to the Materilize listener.
+        });
+      }
+    </script>
+  {% endblock %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
