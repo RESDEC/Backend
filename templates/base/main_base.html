@@ -44,37 +44,37 @@
             </div></li>
             <li class="no-padding">
                 <ul class="collapsible collapsible-accordion">
-                    <li><a class="collapsible-header waves-effect waves-cyan">
+                    <li><a href="{% url 'resdec:index' %}" class="collapsible-header waves-effect waves-cyan">
                             <i class="material-icons">home</i>
                             <span class="nav-text">Home</span>
                         </a>
                     </li>
                     <li><a class="collapsible-header waves-effect waves-cyan">
                             <i class="material-icons">widgets</i>
-                            <span class="nav-text">Deployment Environment</span>
+                            <span class="nav-text">Recommender Environment</span>
                         </a>
                         <div class="collapsible-body">
                             <ul>
-                            <li><a href="#!">Products</a></li>
+                            <li><a href="#!">User</a></li>
                             </ul>
                           <ul>
-                            <li><a href="#!">Users</a></li>
+                            <li><a href="#!">Product</a></li>
                             </ul>
                         </div>
                     </li>
                     <li><a class="collapsible-header waves-effect waves-cyan">
                             <i class="material-icons">insert_chart</i>
-                            <span class="nav-text">Recommendations</span>
+                            <span class="nav-text">Recommender Manager</span>
                         </a>
                         <div class="collapsible-body">
                           <ul>
-                            <li><a href="#!">Zero Start</a></li>
+                            <li><a href="{% url 'resdec:algorithms' %}">Cold Start</a></li>
                           </ul>
                           <ul>
-                            <li><a href="#!">Configuration Transition Based Ratings</a></li>
+                            <li><a href="{% url 'resdec:algorithms' %}">Transition of components based on ratings</a></li>
                           </ul>
                           <ul>
-                            <li><a href="#!">Configuration Transition Based Features</a></li>
+                            <li><a href="{% url 'resdec:algorithms' %}">Transition of components Based on features</a></li>
                           </ul>
                         </div>
                     </li>
