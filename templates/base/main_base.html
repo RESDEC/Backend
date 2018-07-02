@@ -7,26 +7,18 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
   <title>{% block title %} Resdec {% endblock %}</title>
+
+  <style>
+    .side-nav{
+      width: 350px !important;
+    }
+  </style>
+
+  {# Contenedor del header para demás recursos #}
+  {% block header %}
+  {% endblock %}
 </head>
 <body>
-    {% block header %}
-    {% endblock %}
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function() {
-            jQuery('select').material_select();
-            $('select').on('contentChanged', function() {
-              $(this).material_select();
-            });
-        });
-    </script>
-    <style>
-      .side-nav{
-        width: 350px !important;
-      }
-    </style>
     <!-- Dropdown Structure -->
     <ul id='dropdown1' class='dropdown-content'>
         <li><a href="#!"><i class="material-icons">exit_to_app</i>Exit</a></li>
@@ -68,13 +60,13 @@
                         </a>
                         <div class="collapsible-body">
                           <ul>
-                            <li><a href="{% url 'resdec:algorithms' %}">Cold Start</a></li>
+                            <li><a href="{% url 'resdec:algorithms' 1 %}">Cold Start</a></li>
                           </ul>
                           <ul>
-                            <li><a href="{% url 'resdec:algorithms' %}">Transition of components based on ratings</a></li>
+                            <li><a href="{% url 'resdec:algorithms' 2 %}">Transition of components based on ratings</a></li>
                           </ul>
                           <ul>
-                            <li><a href="{% url 'resdec:algorithms' %}">Transition of components Based on features</a></li>
+                            <li><a href="{% url 'resdec:algorithms' 3 %}">Transition of components Based on features</a></li>
                           </ul>
                         </div>
                     </li>
@@ -96,23 +88,40 @@
         <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">cloud</i></a>
         <a href="" style="font-style: italic; font-weight: bold; font-size: large">Resdec Solution</a>
     </nav>
-    <script type="text/javascript">
-        jQuery('.button-collapse').sideNav({
-            menuWidth: 300, // Default is 240
-            edge: 'left', // Choose the horizontal origin
-            closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-        });
-        jQuery('.collapsible').collapsible();
-    </script>
 
-    {% block javascript %}
-    {% endblock %}
-
+    {#  Contenedor del body  #}
     <div id="main_container" class="container">
     {% block content %}
     {% endblock %}
     </div>
 
+    {#  JS al final del body  #}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function() {
+        jQuery('select').material_select();
+          $('select').on('contentChanged', function() {
+          $(this).material_select();
+          {% block js_document_ready %}
+          {% endblock %}
+        });
+      });
+    </script>
+    <script type="text/javascript">
+      jQuery('.button-collapse').sideNav({
+        menuWidth: 300, // Default is 240
+        edge: 'left', // Choose the horizontal origin
+        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      });
+      jQuery('.collapsible').collapsible();
+    </script>
+
+    {#  Bloque adicional a ser llamado  #}
+    {% block javascript %}
+    {% endblock %}
+
+    {#  Bloque del footer  #}
     {% block footer %}
     {% endblock %}
 </body>

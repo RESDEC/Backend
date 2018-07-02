@@ -15,7 +15,6 @@
           <div class="row">
             <div class="input-field col s12">
               <select id="selRelTypes" onchange="relTypAlgorithms()">
-                <option value="" selected>Choose your option</option>
                 {% for rt in relTypes %}
                   <option value="{{ rt.id }}">{{ rt.name }}</option>
                 {% endfor %}
@@ -64,7 +63,7 @@
         </div>
       </div>
       <div class="row">
-        <a class="waves-effect waves-light btn green lighten-2" href="#!">Calculate</a>
+        <a class="waves-effect waves-light btn teal darken-3" href="#!">Calculate</a>
       </div>
     </div>
   </div>
@@ -76,7 +75,8 @@
         var select = document.getElementById('selAlgorithms');
         console.log("Searching algorithms for the relationship type: " + relationType);
         if (relationType!=''){
-          $.get('{% url "resdec:relationshipTypeAlgorithms" %}', {relationType: relationType}, function(data){
+          $.get('{% url "resdec:relationshipTypeAlgorithms" %}',
+                  {relationType: relationType}, function(data){
             console.log(data);
             var name;
             select = document.getElementById('selAlgorithms');
@@ -87,12 +87,12 @@
                 select.options.add(new Option(data[name], name));
               }
             }
-            $('select').trigger('contentChanged');  //  Callback to the Materilize listener.
+            $('select').trigger('contentChanged');  //  Callback to the Materialize listener.
           });
         }else{
           select.options.length = 0;
           select.options.add(new Option("Select relationship type", ""));
-          $('select').trigger('contentChanged');  //  Callback to the Materilize listener.
+          $('select').trigger('contentChanged');  //  Callback to the Materialize listener.
         }
       }
     </script>
@@ -109,6 +109,11 @@
           $('select').trigger('contentChanged');  //  Callback to the Materilize listener.
         });
       }
+    </script>
+    <script>
+      window.onload = function() {
+        relTypAlgorithms();
+      };
     </script>
   {% endblock %}
 {% endblock %}

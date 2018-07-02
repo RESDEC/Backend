@@ -12,21 +12,23 @@ COLD_START = [
 ]
 
 COLLABORATIVE = [
-    ('bso', 'Base Only'),
-    ('coc', 'CoClustering'),
-    ('kne', 'K-Nearest Neighbors'),
-    ('knb', 'KNN BaseLine'),
-    ('knc', 'KNN Basic'),
-    ('knw', 'KNN With Means'),
-    ('nmf', 'NMF'),
-    ('nmp', 'Normal Prediction'),
-    ('slo', 'Slop One'),
+    # ('bso', 'Base Only'),
+    # ('coc', 'CoClustering'),
+    # ('kne', 'K-Nearest Neighbors'),
+    # ('knb', 'KNN BaseLine'),
+    # ('knc', 'KNN Basic'),
+    # ('knw', 'KNN With Means'),
+    # ('nmf', 'NMF'),
+    # ('nmp', 'Normal Prediction'),
+    # ('slo', 'Slop One'),
     ('svd', 'SVD'),
-    ('svp', 'SVDpp'),
+    # ('svp', 'SVDpp'),
+    ('utu', 'User to user'),
+    ('iti', 'Item to item'),
 ]
 
 CONTENT = [
-    ('roc', 'Rocchio'),
+    # ('roc', 'Rocchio'),
     ('tfd', 'TF-IDF Cosine Similarity'),
 ]
 
@@ -36,8 +38,8 @@ def index(request):
     return render(request, 'index.html', )
 
 
-def algorithms(request):
-    relTypes = RelationshipType.objects.all()
+def algorithms(request, relation_type=None):
+    relTypes = RelationshipType.objects.filter(pk=relation_type)
     varEnvironments = VariabilityEnvironment.objects.all()
     varEnvData = VariabilityEnvironmentData.objects.all()
     return render(request, 'resdec/algorithms.html',
