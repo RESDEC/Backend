@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.core import serializers
 
+from algorithms import SVD
 from .models import RelationshipType, VariabilityEnvironment, VariabilityEnvironmentData
 
 import json
@@ -70,3 +71,15 @@ def variability_environment_data(request):
 
 def data_serializer(data):
     return {'id': data.id, 'name': data.name}
+
+
+def calling_algorithm(request):
+    algorith_var_env = request.GET.get('algorith_var_env', '')
+    algorithm_data = request.GET.get('algorithm_data', '')
+    algorithm_id = request.GET.get('algorithm_id', '')
+
+    print("Using Variavility Environment: " + algorith_var_env)
+    print("Using Data: " + algorithm_data)
+    print("Using Algorithm: " + algorithm_id)
+
+    return None

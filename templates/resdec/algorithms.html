@@ -60,7 +60,7 @@
           </div>
         </div>
       </div>
-      <a class="waves-effect waves-light btn teal darken-3" href="#!">Calculate</a>
+      <a class="waves-effect waves-light btn teal darken-3" href="#" onclick="calculate_algorithm()">Calculate</a>
     </div>
   </div>
   {% block javascript %}
@@ -110,6 +110,19 @@
       window.onload = function() {
         relTypAlgorithms();
       };
+    </script>
+    <script type="application/javascript">
+      function calculate_algorithm(){
+        var algorith_var_env = $("#selVarEnvironment").val();
+        var algorithm_data = $("#selData").val();
+        var algorithm_id = $("#selAlgorithms").val();
+        console.log("Calculating...");
+        $.get('{% url "resdec:calling_algorithm" %}', {
+          algorith_var_env: algorith_var_env,
+          algorithm_data: algorithm_data,
+          algorithm_id: algorithm_id
+        }, function(){});
+      }
     </script>
   {% endblock %}
 {% endblock %}
