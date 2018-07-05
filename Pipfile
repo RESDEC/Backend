@@ -21,6 +21,7 @@ requests = "==2.13.0"
 Cycler = "==0.10.0"
 Django = "==1.11.4"
 gunicorn = "*"
+scikit-surprise = "==1.0.6"
 
 [dev-packages]
 
