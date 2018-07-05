@@ -1,12 +1,12 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.core import serializers
 
-from algorithms import SVD
+from algorithms import CollaborativeFilterAlgorithmsFun
 from .models import RelationshipType, VariabilityEnvironment, VariabilityEnvironmentData
 
 import json
-
+import random
 
 COLD_START = [
     ('cst', 'Cold Start'),
@@ -40,13 +40,13 @@ def index(request):
 
 
 def algorithms(request, relation_type=None):
-    relTypes = RelationshipType.objects.filter(pk=relation_type)
-    varEnvironments = VariabilityEnvironment.objects.all()
-    varEnvData = VariabilityEnvironmentData.objects.all()
+    rel_type = get_object_or_404(RelationshipType, pk=relation_type)
+    var_environments = VariabilityEnvironment.objects.all()
+    var_env_data = VariabilityEnvironmentData.objects.all()
     return render(request, 'resdec/algorithms.html',
-                  {'relTypes': relTypes,
-                   'varEnvironments': varEnvironments,
-                   'varEnvData': varEnvData,
+                  {'rel_type': rel_type,
+                   'var_environments': var_environments,
+                   'var_env_data': var_env_data,
                    })
 
 
@@ -74,12 +74,46 @@ def data_serializer(data):
 
 
 def calling_algorithm(request):
-    algorith_var_env = request.GET.get('algorith_var_env', '')
+    algorithm_rel_type = request.GET.get('algorithm_rel_typ', '')
+    algorithm_var_env = request.GET.get('algorithm_var_env', '')
     algorithm_data = request.GET.get('algorithm_data', '')
     algorithm_id = request.GET.get('algorithm_id', '')
+    algorithm_str = request.GET.get('algorithm_str', '')
 
-    print("Using Variavility Environment: " + algorith_var_env)
+    print("Using Variavility Environment: " + algorithm_var_env)
     print("Using Data: " + algorithm_data)
     print("Using Algorithm: " + algorithm_id)
 
-    return None
+    str_relation_type = get_object_or_404(RelationshipType, pk=int(algorithm_rel_type)).name
+    str_varibility_env = get_object_or_404(VariabilityEnvironment, pk=int(algorithm_var_env)).name
+
+    # message = CollaborativeFilterAlgorithmsFun.start()
+
+    dict_result = {"google": random.uniform(0, 1),
+                   "facebook": random.uniform(0, 1),
+                   "youtube": random.uniform(0, 1),
+                   }
+
+    data = [('html_response_table', create_table_html(variability_env=str_varibility_env, dict_data=dict_result,
+                                                      str_algorithm=algorithm_str)), ]
+
+    return HttpResponse(json.dumps(dict(data)),
+                        content_type='application/json'
+                        )
+
+
+def create_table_html(variability_env=None, dict_data=None, str_algorithm=None):
+    print(dict_data)
+    # Cabecera de la tabla.
+    html_table = '<table id="datatable" class="striped">' \
+                 '<thead>' \
+                 '<tr>' \
+                 '<th></th>' \
+                 '<th style="text-align: center;">' + str_algorithm + '</th>' \
+                                                                      '</thead>' \
+                                                                      '<tbody>'
+
+    for x in dict_data:
+        html_table += '<tr><td>' + x + '</td><td style="text-align: center;">' + str(dict_data[x]) + '</td></tr>'
+    html_table += '</tbody></table>'
+    return html_table

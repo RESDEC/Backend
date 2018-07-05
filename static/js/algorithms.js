@@ -2,7 +2,7 @@
  * Created by Rostan on 01/04/2018.
  */
 
-$(document).ready(function(){
+// $(document).ready(function(){
     // $("#selRelTypes").change(function(e){
     //     e.preventDefault();
     //     $.ajax({
@@ -22,4 +22,4 @@ $(document).ready(function(){
     //         }
     //     });
     // });
-});
+// });
