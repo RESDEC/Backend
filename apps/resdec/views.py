@@ -5,7 +5,6 @@ from django.core import serializers
 
 from algorithms import CollaborativeFilterAlgorithmsFun, SVD
 from .models import RelationshipType, VariabilityEnvironment, VariabilityEnvironmentData, Algorithm
-from ResdecSolution.settings import BASE_DIR
 
 import json
 import random
