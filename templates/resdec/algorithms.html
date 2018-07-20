@@ -117,16 +117,17 @@
         if (relationType!=''){
           $.get('{% url "resdec:relationshipTypeAlgorithms" %}',
                   {relationType: relationType}, function(data){
-            console.log(data);
-            var name;
+
             select = document.getElementById('selAlgorithms');
             select.options.length = 0;
             select.options.add(new Option("-- Select --", ""));
-            for (name in data){
-              if (data.hasOwnProperty(name)) {
-                select.options.add(new Option(data[name], name));
-              }
-            }
+
+            var json = JSON.parse(data);
+
+            $.each(json, function (key, value) {
+              select.options.add(new Option(value.fields.name, value.pk));
+            });
+
             $('select').trigger('contentChanged');  //  Callback to the Materialize listener.
           });
         }else{

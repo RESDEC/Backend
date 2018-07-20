@@ -8,7 +8,7 @@ from surprise import evaluate, print_perf
 def svd(file_path=None, sep=","):
     print('Using SVD algorithm...')
 
-    # Funcion de encoding para no tener error de lectura del archivo.
+    # Encoding function to avoid reading errors in the file.
     reload(sys)
     sys.setdefaultencoding('utf8')
 
