@@ -39,7 +39,7 @@
             </div></li>
             <li class="no-padding">
                 <ul class="collapsible collapsible-accordion">
-                    <li><a href="{% url 'resdec:index' %}" class="collapsible-header waves-effect waves-cyan">
+                    <li><a href="{% url 'index' %}" class="collapsible-header waves-effect waves-cyan">
                             <i class="material-icons">home</i>
                             <span class="nav-text">Home</span>
                         </a>
@@ -73,10 +73,10 @@
                           </ul>
                         </div>
                     </li>
-{#                    <li><div class="divider"></div></li>#}
-{#                    <li><a href="#!" class="collapsible-header waves-effect waves-cyan">#}
-{#                        <i class="material-icons">exit_to_app</i>Salir</a>#}
-{#                    </li>#}
+                    <li><div class="divider"></div></li>
+                    <li><a href="{% url 'logout' %}" class="collapsible-header waves-effect waves-cyan">
+                        <i class="material-icons">exit_to_app</i>Salir</a>
+                    </li>
                 </ul>
             </li>
         </ul>

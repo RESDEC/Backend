@@ -1,0 +1,365 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width" />
+	<link rel="stylesheet" id="style-css" href="{% static 'css/style.css' %}" type="text/css" media="all">
+	<link rel="stylesheet" id="style-css" href="{% static 'css/stylesheet.min.css' %}" type="text/css" media="all">
+	<link rel="stylesheet" id="composer" href="{% static 'css/js_composer.css' %}" type="text/css" media="all">
+	<link rel="stylesheet" id="style-dynamic" href="{% static 'css/style_dynamic.css' %}" type="text/css" media="all">
+	<link rel="stylesheet" id="style-dynamic-responsive" href="{% static 'css/style_dynamic_responsive.css' %}"
+        type="text/css" media="all">
+	<link rel="stylesheet" id="responsive" href="{% static 'css/responsive.min.css' %}" type="text/css" media="all">
+	<link rel="stylesheet" id="font-awesome" href="{% static 'css/font-awesome/font-awesome.min.css' %}" type="text/css" media="all">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link rel="stylesheet" id="layerslider" href="{% static 'css/layerslider.css' %}" type="text/css" media="all">
+	<!--[if gte IE 9]>
+		<style type="text/css">
+			.gradient {
+				 filter: none;
+			}
+		</style>
+	<![endif]-->
+
+<noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript>	
+</head>
+<body class="home page page-id-14869 page-template page-template-full_width page-template-full_width-php ajax_fade  qode-title-hidden qode-theme-ver-7.1 wpb-js-composer js-comp-ver-4.5.1 vc_responsive" style="height: auto; overflow: auto;">
+	<div class="ajax_loader">
+		<div class="ajax_loader_1">
+			<div class="two_rotating_circles">
+				<div class="dot1"></div>
+				<div class="dot2"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="wrapper">
+		<div class="wrapper_inner">
+			<header class="scroll_header_top_area  fixed scrolled_not_transparent with_border page_header" style="top: 0px;">
+				<div class="header_inner clearfix">
+						<!-- search form!-->
+						<form role="search" id="searchform" action="#" class="qode_search_form" method="get" style="height: 0px;">
+							<div class="container">
+								<div class="container_inner clearfix">
+									<i class="fa fa-search"></i>
+									<input type="text" placeholder="Search" name="s" class="qode_search_field" autocomplete="off">
+									<input type="submit" value="Search">
+									<div class="qode_search_close">
+										<a href="#">
+											<i class="fa fa-times"></i>
+										</a>
+									</div>
+								</div>
+								
+							</div>
+
+						</form>
+						<div class="header_top_bottom_holder" style="top: 0px;">
+							<div class="header_bottom clearfix" style=" background-color:rgba(255, 255, 255, 1);">
+								<div class="container">
+									<div class="container_inner clearfix">
+										<div class="header_inner_left">
+											<div class="mobile_menu_button"><span><i class="fa fa-bars"></i></span></div>
+											<div class="logo_wrapper" style="height: 100px;">
+												<div class="q_logo">
+													<a href="{% url 'index' %}" style="height: 90px; visibility: visible;">
+														<img class="normal" src="{% static 'images/logo.png' %}" alt="Logo" style="height: 100%;">
+														<img class="light" src="{% static 'images/logo.png' %}" style="height: 100%;">
+														<img class="dark" src="{% static 'images/logo.png' %}" style="height: 100%;">
+														<img class="sticky" src="{% static 'images/logo.png' %}" style="height: 100%;">
+														<img class="mobile" src="{% static 'images/logo.png' %}" style="height: 100%;">
+													</a>
+												</div>
+											</div>
+										</div>
+
+										<div class="header_inner_right">
+											<div class="side_menu_button_wrapper right">
+												<div class="side_menu_button" style="height: 100px;">
+													<a class="search_button search_slides_from_window_top normal" href="javascript:void(0)">
+														<i class="fa fa-search"></i>
+													</a>
+												</div>
+											</div>
+											
+										</div>
+										
+										<nav class="main_menu drop_down right">
+											<ul id="menu-main_menu" class="">
+												<li id="nav-menu-item-15252" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-14869 current_page_item  narrow active">
+													<a href="{% url 'index' %}" class="current" style="line-height: 100px;"><i class="menu_icon fa blank"></i><span>Home</span><span class="plus"></span>
+													</a>
+												</li>
+												<li id="nav-menu-item-15278" class="menu-item menu-item-type-post_type menu-item-object-page  narrow">
+													<a href="{% url 'login' %}" class="" style="line-height: 100px;"><i class="menu_icon fa blank"></i><span>Login</span><span class="plus"></span></a>
+												</li>
+											</ul>						
+										</nav>
+										<nav class="mobile_menu">
+											<ul id="menu-main_menu-1">
+												<li id="mobile-menu-item-15252" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-14869 current_page_item active">
+													<a href="{% url 'index' %}" class="current">
+														<span>Home</span>
+													</a>
+													<span class="mobile_arrow">
+														<i class="fa fa-angle-right"></i>
+														<i class="fa fa-angle-down"></i>
+													</span>
+												</li> 
+												<li id="mobile-menu-item-15278" class="menu-item menu-item-type-post_type menu-item-object-page">
+													<a href="{% url 'login' %}" class="">
+														<span>Login</span>
+													</a>
+													<span class="mobile_arrow">
+														<i class="fa fa-angle-right"></i>
+														<i class="fa fa-angle-down"></i>
+													</span>
+												</li>
+											</ul>
+										</nav>
+								</div>
+							</div>
+						</div>
+				  </div>
+        </div>
+			</header>
+
+			<a id="back_to_top" href="#" class="on">
+				<span class="fa-stack">
+					<i class="fa fa-arrow-up" style=""></i>
+				</span>
+			</a>
+
+			<!-- Beadcrumb-->
+			<div class="content-login" style="min-height: 34px;">
+				<div class="content_inner" style="position: relative; visibility: visible; display: block;">
+					<div class="title_outer title_without_animation" data-height="220">
+						<div class="title title_size_small  position_left has_background" style="background-size:1920px auto;height:220px;">
+							<div class="title_holder" style="padding-top:100px;height:50px;background-color: #efefef;">
+								<div class="container">
+									<div class="container_inner clearfix">
+										<div class="title_subtitle_holder">
+											<div class="title_subtitle_holder_inner">
+												<div class="breadcrumb">
+													<div class="breadcrumbs">
+														<div class="breadcrumbs_inner">
+															<span style="margin-right: 10px;display: inline-block;">
+																Usted está en:
+															</span>
+															<a href="{% url 'index' %}">Home</a>
+															<span class="delimiter">&nbsp;-&nbsp;</span>
+															<span class="current">Login</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="full_width" >
+				<div class="full_width_inner">
+
+					<!-- Title !-->
+					<div class="vc_row wpb_row section vc_row-fluid grid_section" style=" padding-bottom:30px; text-align:center;">
+						<div class="section_inner clearfix">
+							<div class="section_inner_margin clearfix">
+								<div class="vc_col-sm-12 wpb_column vc_column_container ">
+									<div class="wpb_wrapper">
+										<div class="wpb_text_column wpb_content_element ">
+											<div class="wpb_wrapper">
+												<h2>Acceso al sistema</h2>
+											</div>
+										</div>
+										<div class="separator  small center  " style=""></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+          <!-- end Title !-->
+
+					<!-- Form !-->
+					<div class="vc_row wpb_row section vc_row-fluid grid_section" style=" padding-bottom:70px; text-align:left;">
+						<div class=" section_inner clearfix">
+							<div class="section_inner_margin clearfix">
+								<div class="vc_col-sm-2 wpb_column vc_column_container ">
+									<div class="wpb_wrapper">
+										
+									</div>
+								</div>
+								<div class="vc_col-sm-4 vc_col-sm-offset-2 wpb_column vc_column_container ">
+									<div class="wpb_wrapper">
+										<div role="form" class="wpcf7" lang="en-US" dir="ltr">
+											<div class="screen-reader-response"></div>
+											<form name="" action="#" method="post" class="wpcf7-form cf7_custom_style_1" novalidate="novalidate">
+                        {% csrf_token %}
+												<div>
+													<span class="wpcf7-form-control-wrap your-message">
+														<input type="email" name="username" value="" size="40"
+                                   class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
+                                   aria-required="true" aria-invalid="false" placeholder="Email*">
+													</span>
+												</div>
+												<div>
+													<span class="wpcf7-form-control-wrap your-message">
+														<input type="password" name="password" value="" size="40"
+                                   class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required"
+                                   aria-required="true" aria-invalid="false" placeholder="Password*">
+													</span>
+												</div>
+												<p style="text-align: center;">
+													<input type="submit" value="Ingresar" class="wpcf7-form-control wpcf7-submit">
+												</p>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- End Form !-->
+
+				</div>
+			</div>
+
+			<footer>
+				<div class="footer_inner clearfix">
+					<div class="footer_top_holder">
+						<div class="footer_top">
+							<div class="container">
+								<div class="container_inner">
+									<div class="four_columns clearfix">
+										
+										<div class="column1">
+											<div class="column_inner">
+												<div id="text-2" class="widget widget_text">
+													<h5>Lorem Ipsum</h5>
+													<div class="textwidget">
+														<div class="separator  small left  " style="margin-top: 25px;margin-bottom: 15px;width: 40px;"></div>
+													</div>
+												</div>
+
+												<div id="nav_menu-4" class="widget widget_nav_menu">
+													<div class="menu-footer_menu_1-container">
+														<ul id="menu-footer_menu_1" class="menu"> 
+															<li id="menu-item-15321" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15321">
+																<a href="#">Nulla elementum placerat imperdiet.</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div> <!-- end column !-->
+
+
+										<div class="column1">
+											<div class="column_inner">
+												<div id="text-3" class="widget widget_text">
+													<h5>Lorem Ipsum</h5>
+													<div class="textwidget">
+														<div class="separator  small left  " style="margin-top: 25px;margin-bottom: 15px;width: 40px;"></div>
+													</div>
+												</div>
+
+												<div id="nav_menu-5" class="widget widget_nav_menu">
+													<div class="menu-footer_menu_1-container">
+														<ul id="menu-footer_menu_1" class="menu"> 
+															<li id="menu-item-15321" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15321">
+																<a href="#">Nulla elementum placerat imperdiet.</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div> <!-- end column !-->
+
+										<div class="column3">
+											<div class="column_inner">
+												<div id="text-4" class="widget widget_text">
+													<h5>Lorem Ipsum</h5>
+													<div class="textwidget">
+														<div class="separator  small left  " style="margin-top: 25px;margin-bottom: 15px;width: 40px;"></div>
+													</div>
+												</div>
+
+												<div id="nav_menu-6" class="widget widget_nav_menu">
+													<div class="menu-footer_menu_1-container">
+														<ul id="menu-footer_menu_1" class="menu"> 
+															<li id="menu-item-15321" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15321">
+																<a href="#">Nulla elementum placerat imperdiet.</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div> <!-- end column !-->
+
+										<div class="column4">
+											<div class="column_inner">
+												<div id="text-4" class="widget widget_text">
+													<h5>Lorem Ipsum</h5>
+													<div class="textwidget">
+														<div class="separator  small left  " style="margin-top: 25px;margin-bottom: 15px;width: 40px;"></div>
+													</div>
+												</div>
+
+												<div id="nav_menu-6" class="widget widget_nav_menu">
+													<div class="menu-footer_menu_1-container">
+														<ul id="menu-footer_menu_1" class="menu"> 
+															<li id="menu-item-15321" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15321">
+																<a href="#">Nulla elementum placerat imperdiet.</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div> <!-- end column !-->
+
+									</div>
+								</div> <!-- end container_inner !-->
+							</div>
+						</div>
+					</div> <!-- end footer_top_holder !-->
+
+					<div class="footer_bottom_holder">
+						<div class="footer_bottom">
+							<div class="textwidget">
+								 <div class="separator  transparent center  " style="margin-top: 37px;margin-bottom: 0px;"></div>
+								 <p> <span style="font-weight: 300;">&copy; Copyright  RESDESC. Todos los derechos reservados.</span></p>
+								 <p></p>
+								 <div class="separator  transparent center  " style="margin-top: 37px;margin-bottom: 0px;"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+  <script type='text/javascript' src='{% static 'js/jquery.js' %}'></script>
+{#	<script type='text/javascript' src='{% static 'js/layerslider.kreaturamedia.jquery.js?ver=5.3.2' %}'></script>#}
+{#	<script type='text/javascript' src='{% static 'js/layerslider.transitions.js?ver=5.3.2' %}'></script>#}
+  <script type='text/javascript' src='{% static 'js/layerslider.kreaturamedia.jquery.js' %}'></script>
+	<script type='text/javascript' src='{% static 'js/layerslider.transitions.js' %}'></script>
+
+	<script type='text/javascript' src='{% static 'js/plugins.js' %}'></script>
+	<script type='text/javascript' src='{% static 'js/jquery.carouFredSel-6.2.1.min.js' %}'></script>
+	<script type='text/javascript' src='{% static 'js/lemmon-slider.min.js' %}'></script>
+	<script type='text/javascript' src='{% static 'js/jquery.fullPage.min.js' %}'></script>
+	<script type='text/javascript' src='{% static 'js/jquery.mousewheel.min.js' %}'></script>
+  <script type='text/javascript' src='{% static 'js/jquery.touchSwipe.min.js' %}'></script>
+  <script type='text/javascript' src='{% static 'js/default_dyamic.js' %}'></script>
+	<script type='text/javascript' src='{% static 'js/default.min.js' %}'></script>
+	<script type='text/javascript' src='{% static 'js/custom_js.js' %}'></script>
+	<script type='text/javascript' src='{% static 'js/ajax.min.js' %}'></script>
+	<script type='text/javascript' src='{% static 'js/js_composer_front.js' %}'></script>
+	<script type='text/javascript' src='{% static 'js/toolbar.js' %}'></script>
+</body>	

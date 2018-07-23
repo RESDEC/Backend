@@ -1,9 +1,566 @@
-{% extends 'base/main_base.html' %}
 {% load staticfiles %}
-{% block content %}
-  <div id="SectionMain" class="container center-align" style="padding-top: 50px">
-      <div class="card-panel white z-depth-3">
-          <img style="height: 100%; width: 100%" src="{% static 'images/resdec-barner.jpg' %}">
-      </div>
-  </div>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width" />
+	<link rel="stylesheet" id="style-css" href="{% static 'css/style.css' %}" type="text/css" media="all">
+	<link rel="stylesheet" id="style-css" href="{% static 'css/stylesheet.min.css' %}" type="text/css" media="all">
+	<link rel="stylesheet" id="composer" href="{% static 'css/js_composer.css' %}" type="text/css" media="all">
+	<link rel="stylesheet" id="style-dynamic" href="{% static 'css/style_dynamic.css' %}" type="text/css" media="all">
+	<link rel="stylesheet" id="style-dynamic-responsive" href="{% static 'css/style_dynamic_responsive.css' %}"
+        type="text/css" media="all">
+	<link rel="stylesheet" id="responsive" href="{% static 'css/responsive.min.css' %}" type="text/css" media="all">
+	<link rel="stylesheet" id="font-awesome" href="{% static 'css/font-awesome/font-awesome.min.css' %}" type="text/css" media="all">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link rel="stylesheet" id="layerslider" href="{% static 'css/layerslider.css' %}" type="text/css" media="all">
+  <!--[if gte IE 9]>
+		<style type="text/css">
+			.gradient {
+				 filter: none;
+			}
+		</style>
+	<![endif]-->
+
+  <noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript>
+</head>
+<body class="home page page-id-14869 page-template page-template-full_width page-template-full_width-php ajax_fade  qode-title-hidden qode-theme-ver-7.1 wpb-js-composer js-comp-ver-4.5.1 vc_responsive" style="height: auto; overflow: auto;">
+	<div class="ajax_loader">
+		<div class="ajax_loader_1">
+			<div class="two_rotating_circles">
+				<div class="dot1"></div>
+				<div class="dot2"></div>
+			</div>
+			
+		</div>
+	</div>
+
+	<div class="wrapper">
+		<div class="wrapper_inner">
+			<header class="scroll_header_top_area  fixed scrolled_not_transparent with_border page_header" style="top: 0px;">
+				<div class="header_inner clearfix">
+						<!-- search form!-->
+						<form role="search" id="searchform" action="#" class="qode_search_form" method="get" style="height: 0px;">
+							<div class="container">
+								<div class="container_inner clearfix">
+									<i class="fa fa-search"></i>
+									<input type="text" placeholder="Search" name="s" class="qode_search_field" autocomplete="off">
+									<input type="submit" value="Search">
+									<div class="qode_search_close">
+										<a href="#">
+											<i class="fa fa-times"></i>
+										</a>
+									</div>
+								</div>
+
+							</div>
+
+						</form>
+						<div class="header_top_bottom_holder" style="top: 0px;">
+							<div class="header_bottom clearfix" style=" background-color:rgba(255, 255, 255, 1);">
+								<div class="container">
+									<div class="container_inner clearfix">
+										<div class="header_inner_left">
+											<div class="mobile_menu_button"><span><i class="fa fa-bars"></i></span></div>
+											<div class="logo_wrapper" style="height: 100px;">
+												<div class="q_logo">
+													<a href="{% url 'index' %}" style="height: 90px; visibility: visible;">
+														<img class="normal" src="{% static 'images/logo.png' %}" alt="Logo" style="height: 100%;">
+														<img class="light" src="{% static 'images/logo.png' %}" style="height: 100%;">
+														<img class="dark" src="{% static 'images/logo.png' %}" style="height: 100%;">
+														<img class="sticky" src="{% static 'images/logo.png' %}" style="height: 100%;">
+														<img class="mobile" src="{% static 'images/logo.png' %}" style="height: 100%;">
+													</a>
+												</div>
+											</div>
+										</div>
+
+										<div class="header_inner_right">
+											<div class="side_menu_button_wrapper right">
+												<div class="side_menu_button" style="height: 100px;">
+													<a class="search_button search_slides_from_window_top normal" href="javascript:void(0)">
+														<i class="fa fa-search"></i>
+													</a>
+												</div>
+											</div>
+										</div>
+
+										<nav class="main_menu drop_down right">
+											<ul id="menu-main_menu" class="">
+												<li id="nav-menu-item-15252" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-14869 current_page_item  narrow active">
+													<a href="{% url 'index' %}" class="current" style="line-height: 100px;"><i class="menu_icon fa blank"></i><span>Home</span><span class="plus"></span>
+													</a>
+												</li>
+												<li id="nav-menu-item-15278" class="menu-item menu-item-type-post_type menu-item-object-page  narrow">
+													<a href="{% url 'login' %}" class="" style="line-height: 100px;"><i class="menu_icon fa blank"></i><span>Login</span><span class="plus"></span></a>
+												</li>
+											</ul>
+										</nav>
+										<nav class="mobile_menu">
+											<ul id="menu-main_menu-1">
+												<li id="mobile-menu-item-15252" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-14869 current_page_item active">
+													<a href="{% url 'index' %}" class="current">
+														<span>Home</span>
+													</a>
+													<span class="mobile_arrow">
+														<i class="fa fa-angle-right"></i>
+														<i class="fa fa-angle-down"></i>
+													</span>
+												</li>
+												<li id="mobile-menu-item-15278" class="menu-item menu-item-type-post_type menu-item-object-page">
+													<a href="{% url 'login' %}" class="">
+														<span>Login</span>
+													</a>
+													<span class="mobile_arrow">
+														<i class="fa fa-angle-right"></i>
+														<i class="fa fa-angle-down"></i>
+													</span>
+												</li>
+											</ul>
+										</nav>
+								</div>
+							</div>
+						</div>
+				  </div>
+        </div>
+			</header>
+
+			<a id="back_to_top" href="#" class="on">
+				<span class="fa-stack">
+					<i class="fa fa-arrow-up" style=""></i>
+				</span>
+			</a>
+
+			<div class="content  has_slider">
+				<div class="content_inner ">
+					<!-- slider !-->
+					<div class="q_slider">
+						<div class="q_slider_inner">
+						  <div id="qode-home" class="carousel slide   responsive_height q_auto_start   header_not_transparent" data-slide_animation="6000" data-height="901" data-parallax="yes"
+						    style="height: 901px;">
+						    <div class="qode_slider_preloader" style="height: 901px; display: none;">
+						      <div class="ajax_loader" style="margin-top: 50px; display: block;">
+						        <div class="ajax_loader_1">
+						          <div class="two_rotating_circles">
+						            <div class="dot1"></div>
+						            <div class="dot2"></div>
+						          </div>
+						        </div>
+						      </div>
+						    </div>
+
+						    <!-- carousel !-->
+						    <div class="carousel-inner " data-start="transform: translateY(0px);" data-1440="transform: translateY(-500px);">
+							<div class="item "  style="height: 901px;">
+								<div class="image" style="background-image:url(https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgb&h=4288&w=2848);">
+									<img src="https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgb&h=4288&w=2848" alt="Lorem ipsum">
+								</div>
+
+								<div class="slider_content_outer">
+									<div class="slider_content left" style="width:100%;left:0%;top:39%;"  data-0=" opacity: 1; width:100%; left:0%; top:39%;"  data-300=" opacity: 0; left:0%; top:29%;">
+										<div class="text all_at_once no_subtitle has_separator">
+											<div>
+												<h2 class="" style="color: #ba0000;font-size: 57px;font-style: normal;font-weight: 900;text-shadow: none;letter-spacing: 0px;text-transform: none;">
+												<span style="">Lorem ipsum</span>
+												</h2>
+											</div>
+
+											<div style="background-color: rgba(255, 255, 255, 1);width: 13%;" class="separator small" ></div>
+
+											<p style="color: #ffffff;font-size: 24px;font-style: normal;font-weight: 300;text-shadow: none;" >
+											<span>Nulla tincidunt sit amet mi non euismod</span>
+											</p><a class="qbutton green" href="#" >Read More</a><a class="qbutton white" style='border-color:#ffffff;color:#ffffff;' href="#"  >Read More</a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="item "  style="height: 901px;">
+								<div class="image" style="background-image:url(https://images.pexels.com/photos/860379/pexels-photo-860379.jpeg?auto=compress&cs=tinysrgb&h=5983&w=3853);">
+                  <img src="https://images.pexels.com/photos/860379/pexels-photo-860379.jpeg?auto=compress&cs=tinysrgb&h=5983&w=3853" alt="Lorem ipsum">
+								</div>
+
+								<div class="slider_content_outer">
+									<div class="slider_content left" style="width:100%;left:0%;top:39%;"  data-0=" opacity: 1; width:100%; left:0%; top:39%;"  data-300=" opacity: 0; left:0%; top:29%;">
+										<div class="text all_at_once no_subtitle has_separator">
+
+										<div >
+											<h2 class="" style="color: #ba0000;font-size: 57px;font-style: normal;font-weight: 900;text-shadow: none;letter-spacing: 0px;text-transform: none;">
+
+											<span style="">Lorem ipsum</span>
+											</h2>
+										</div>
+
+										<div style="background-color: rgba(255, 255, 255, 1);width: 13%;" class="separator small" ></div>
+
+										<p style="color: #ffffff;font-size: 24px;font-style: normal;font-weight: 300;text-shadow: none;" >
+
+										<span>Nulla tincidunt sit amet mi non euismod</span>
+										</p><a class="qbutton green" href="#" >Read More</a><a class="qbutton white" style='border-color:#ffffff;color:#ffffff;' href="#"  >Read More</a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="item "  style="height: 901px;">
+								<div class="image" style="background-image:url(https://images.pexels.com/photos/698808/pexels-photo-698808.jpeg?auto=compress&cs=tinysrgb&h=4000&w=3000);">
+                  <img src="https://images.pexels.com/photos/698808/pexels-photo-698808.jpeg?auto=compress&cs=tinysrgb&h=4000&w=3000" alt="Lorem ipsum">
+								</div>
+
+								<div class="slider_content_outer">
+									<div class="slider_content left" style="width:100%;left:0%;top:39%;"  data-0=" opacity: 1; width:100%; left:0%; top:39%;"  data-300=" opacity: 0; left:0%; top:29%;">
+
+									<div class="text all_at_once no_subtitle has_separator">
+										<div >
+											<h2 class="" style="color: #ffffff;font-size: 57px;font-style: normal;font-weight: 900;text-shadow: none;letter-spacing: 0px;text-transform: none;">
+
+											<span style="">Lorem ipsum</span></h2>
+										</div>
+
+										<div style="background-color: rgba(255, 255, 255, 1);width: 13%;" class="separator small" ></div>
+
+										<p style="color: #ffffff;font-size: 24px;font-style: normal;font-weight: 300;text-shadow: none;" >
+
+										<span>Nulla tincidunt sit amet mi non euismod</span>
+										</p><a class="qbutton green" href="#" >Read More</a><a class="qbutton white" style='border-color:#ffffff;color:#ffffff;' href="#"  >Read More</a>
+									</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="item "  style="height: 901px;">
+								<div class="image" style="background-image:url(https://images.pexels.com/photos/943096/pexels-photo-943096.jpeg?auto=compress&cs=tinysrgb&h=6000&w=4000);">
+                  <img src="https://images.pexels.com/photos/943096/pexels-photo-943096.jpeg?auto=compress&cs=tinysrgb&h=6000&w=4000" alt="Lorem ipsum">
+								</div>
+
+								<div class="slider_content_outer">
+									<div class="slider_content left" style="width:100%;left:0%;top:39%;"  data-0=" opacity: 1; width:100%; left:0%; top:39%;"  data-300=" opacity: 0; left:0%; top:29%;">
+
+										<div class="text all_at_once no_subtitle has_separator">
+											<div >
+												<h2 class="" style="color: #ffffff;font-size: 57px;font-style: normal;font-weight: 900;text-shadow: none;letter-spacing: 0px;text-transform: none;">
+												<span style="">Lorem ipsum</span>
+												</h2>
+											</div>
+
+											<div style="background-color: rgba(255, 255, 255, 1);width: 13%;" class="separator small" ></div>
+
+											<p style="color: #ffffff;font-size: 24px;font-style: normal;font-weight: 300;text-shadow: none;" >
+
+											<span>Nulla tincidunt sit amet mi non euismod
+											</span></p><a class="qbutton green" href="#" >Read More</a><a class="qbutton white" style='border-color:#ffffff;color:#ffffff;' href="#"  >Read More</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							</div>
+						    <!-- end carousel !-->
+
+						    <ol class="carousel-indicators skrollable skrollable-between" data-start="opacity: 1;" data-300="opacity:0;" style="opacity: 1;">
+						      <li data-target="#qode-home" data-slide-to="0" class=""></li>
+						      <li data-target="#qode-home" data-slide-to="1" class=""></li>
+						      <li data-target="#qode-home" data-slide-to="2" class="active"></li>
+						      <li data-target="#qode-home" data-slide-to="3" class=""></li>
+						    </ol>
+						    <a class="left carousel-control skrollable skrollable-between" href="#qode-home" data-slide="prev" data-start="opacity: 0.35;" data-300="opacity:0;"
+						      style="opacity: 0.35;"><span class="prev_nav" style="margin-top:20px;"><i class="fa fa-angle-left"></i></span><span class="thumb_holder" style="margin-top:20px;"><span class="thumb_top clearfix"><span class="arrow_left"><i class="fa fa-angle-left"></i></span><span class="numbers"><span class="prev"></span> / 4</span></span><span class="img_outer"><span class="img"></span></span></span></a>
+						    <a
+						      class="right carousel-control skrollable skrollable-between" href="#qode-home" data-slide="next" data-start="opacity: 0.35;" data-300="opacity:0;"
+						      style="opacity: 0.35;"><span class="next_nav" style="margin-top:20px;"><i class="fa fa-angle-right"></i></span><span class="thumb_holder" style="margin-top:20px;"><span class="thumb_top clearfix"><span class="numbers"> <span class="next"></span>      / 4</span><span class="arrow_right"><i class="fa fa-angle-right"></i></span></span><span class="img_outer"><span class="img"></span></span>
+						      </span>
+						      </a>
+						  </div>
+						</div>
+					</div>
+
+					<!-- slider !-->
+					<div class="full_width">
+						<div class="full_width_inner">
+							<div class="vc_row wpb_row section vc_row-fluid grid_section" style=" padding-top:84px; padding-bottom:30px; text-align:center;">
+								<div class=" section_inner clearfix">
+									<div class="section_inner_margin clearfix">
+										<div class="vc_col-sm-12 wpb_column vc_column_container">
+											<div class="wpb_wrapper">
+												<div class="wpb_text_column wpb_content_element ">
+													<div class="wpb_wrapper">
+														<h2>Lorem Impsum lorem</h2>
+													</div>
+												</div>
+												<div class="separator  small center  " style=""></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="vc_row wpb_row section vc_row-fluid grid_section">
+								<div class="section_inner clearfix">
+									<div class="section_inner_margin clearfix">
+										<div class="vc_col-sm-3 wpb_column vc_column_container ">
+											<div class="wpb_wrapper">
+												<div class="wpb_single_image wpb_content_element vc_align_center  element_from_fade element_from_fade_on">
+													<div style="transition-delay:0.2s">
+														<div class="wpb_wrapper">
+															<div class="vc_single_image-wrapper   vc_box_border_grey">
+																<img width="150" height="150" src="{% static 'images/icon-security-circle.svg' %}" class="vc_single_image-img attachment-full" alt="t">
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<div class="separator  transparent center  " style="margin-top: 39px;margin-bottom: 0px;"></div>
+
+												<div class="wpb_text_column wpb_content_element">
+													<div class="wpb_wrapper" style="text-align: center;">
+														<h3>Lorem ipsum</h3>
+													</div>
+												</div>
+
+												<div class="separator  transparent center  " style="margin-top: 17px;margin-bottom: 0px;"></div>
+
+												<div class="wpb_text_column wpb_content_element ">
+													<div class="wpb_wrapper">
+														<h6>Learn The 10 Principles Of Design From These Gorgeous</h6>
+													</div>
+												</div>
+
+												<div class="separator  transparent center  " style="margin-top: 30px;margin-bottom: 0px;"></div>
+											</div>
+										</div>
+
+										<div class="vc_col-sm-3 wpb_column vc_column_container ">
+											<div class="wpb_wrapper">
+												<div class="wpb_single_image wpb_content_element vc_align_center  element_from_fade element_from_fade_on">
+													<div style="transition-delay:0.2s">
+														<div class="wpb_wrapper">
+															<div class="vc_single_image-wrapper   vc_box_border_grey">
+																<img width="150" height="150" src="{% static 'images/icon-security-circle.svg' %}" class="vc_single_image-img attachment-full" alt="t">
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<div class="separator  transparent center  " style="margin-top: 39px;margin-bottom: 0px;"></div>
+
+												<div class="wpb_text_column wpb_content_element">
+													<div class="wpb_wrapper" style="text-align: center;">
+														<h3>Lorem ipsum</h3>
+													</div>
+												</div>
+
+												<div class="separator  transparent center  " style="margin-top: 17px;margin-bottom: 0px;"></div>
+
+												<div class="wpb_text_column wpb_content_element ">
+													<div class="wpb_wrapper">
+														<h6>Learn The 10 Principles Of Design From These Gorgeous</h6>
+													</div>
+												</div>
+
+												<div class="separator  transparent center  " style="margin-top: 30px;margin-bottom: 0px;"></div>
+											</div>
+										</div>
+
+										<div class="vc_col-sm-3 wpb_column vc_column_container ">
+											<div class="wpb_wrapper">
+												<div class="wpb_single_image wpb_content_element vc_align_center  element_from_fade element_from_fade_on">
+													<div style="transition-delay:0.2s">
+														<div class="wpb_wrapper">
+															<div class="vc_single_image-wrapper   vc_box_border_grey">
+																<img width="150" height="150" src="{% static 'images/icon-security-circle.svg' %}" class="vc_single_image-img attachment-full" alt="t">
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<div class="separator  transparent center  " style="margin-top: 39px;margin-bottom: 0px;"></div>
+
+												<div class="wpb_text_column wpb_content_element">
+													<div class="wpb_wrapper" style="text-align: center;">
+														<h3>Lorem ipsum</h3>
+													</div>
+												</div>
+
+												<div class="separator  transparent center  " style="margin-top: 17px;margin-bottom: 0px;"></div>
+
+												<div class="wpb_text_column wpb_content_element ">
+													<div class="wpb_wrapper">
+														<h6>Learn The 10 Principles Of Design From These Gorgeous</h6>
+													</div>
+												</div>
+
+												<div class="separator  transparent center  " style="margin-top: 30px;margin-bottom: 0px;"></div>
+											</div>
+										</div>
+
+										<div class="vc_col-sm-3 wpb_column vc_column_container ">
+											<div class="wpb_wrapper">
+												<div class="wpb_single_image wpb_content_element vc_align_center  element_from_fade element_from_fade_on">
+													<div style="transition-delay:0.2s">
+														<div class="wpb_wrapper">
+															<div class="vc_single_image-wrapper   vc_box_border_grey">
+																<img width="150" height="150" src="{% static 'images/icon-security-circle.svg' %}" class="vc_single_image-img attachment-full" alt="t">
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<div class="separator  transparent center  " style="margin-top: 39px;margin-bottom: 0px;"></div>
+
+												<div class="wpb_text_column wpb_content_element">
+													<div class="wpb_wrapper" style="text-align: center;">
+														<h3>Lorem ipsum</h3>
+													</div>
+												</div>
+
+												<div class="separator  transparent center  " style="margin-top: 17px;margin-bottom: 0px;"></div>
+												<div class="wpb_text_column wpb_content_element ">
+													<div class="wpb_wrapper">
+														<h6>Learn The 10 Principles Of Design From These Gorgeous</h6>
+													</div>
+												</div>
+												<div class="separator  transparent center  " style="margin-top: 30px;margin-bottom: 0px;"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div> <!-- end  full_width_inner!-->
+					</div> <!-- end  full_width!-->
+				</div>
+
+			</div> <!-- end content has slider !-->
+
+			<footer>
+				<div class="footer_inner clearfix">
+					<div class="footer_top_holder">
+						<div class="footer_top">
+							<div class="container">
+								<div class="container_inner">
+									<div class="four_columns clearfix">
+
+										<div class="column1">
+											<div class="column_inner">
+												<div id="text-2" class="widget widget_text">
+													<h5>Lorem Ipsum</h5>
+													<div class="textwidget">
+														<div class="separator  small left  " style="margin-top: 25px;margin-bottom: 15px;width: 40px;"></div>
+													</div>
+												</div>
+
+												<div id="nav_menu-4" class="widget widget_nav_menu">
+													<div class="menu-footer_menu_1-container">
+														<ul id="menu-footer_menu_1" class="menu">
+															<li id="menu-item-15321" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15321">
+																<a href="#">Nulla elementum placerat imperdiet.</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div> <!-- end column !-->
+
+										<div class="column1">
+											<div class="column_inner">
+												<div id="text-3" class="widget widget_text">
+													<h5>Lorem Ipsum</h5>
+													<div class="textwidget">
+														<div class="separator  small left  " style="margin-top: 25px;margin-bottom: 15px;width: 40px;"></div>
+													</div>
+												</div>
+
+												<div id="nav_menu-5" class="widget widget_nav_menu">
+													<div class="menu-footer_menu_1-container">
+														<ul id="menu-footer_menu_1" class="menu">
+															<li id="menu-item-15321" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15321">
+																<a href="#">Nulla elementum placerat imperdiet.</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div> <!-- end column !-->
+
+										<div class="column3">
+											<div class="column_inner">
+												<div id="text-4" class="widget widget_text">
+													<h5>Lorem Ipsum</h5>
+													<div class="textwidget">
+														<div class="separator  small left  " style="margin-top: 25px;margin-bottom: 15px;width: 40px;"></div>
+													</div>
+												</div>
+
+												<div id="nav_menu-6" class="widget widget_nav_menu">
+													<div class="menu-footer_menu_1-container">
+														<ul id="menu-footer_menu_1" class="menu">
+															<li id="menu-item-15321" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15321">
+																<a href="#">Nulla elementum placerat imperdiet.</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div> <!-- end column !-->
+
+										<div class="column4">
+											<div class="column_inner">
+												<div id="text-4" class="widget widget_text">
+													<h5>Lorem Ipsum</h5>
+													<div class="textwidget">
+														<div class="separator  small left  " style="margin-top: 25px;margin-bottom: 15px;width: 40px;"></div>
+													</div>
+												</div>
+
+												<div id="nav_menu-6" class="widget widget_nav_menu">
+													<div class="menu-footer_menu_1-container">
+														<ul id="menu-footer_menu_1" class="menu">
+															<li id="menu-item-15321" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15321">
+																<a href="#">Nulla elementum placerat imperdiet.</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div> <!-- end column !-->
+
+									</div>
+								</div> <!-- end container_inner !-->
+							</div>
+						</div>
+					</div> <!-- end footer_top_holder !-->
+
+					<div class="footer_bottom_holder">
+						<div class="footer_bottom">
+							<div class="textwidget">
+								 <div class="separator  transparent center  " style="margin-top: 37px;margin-bottom: 0px;"></div>
+								 <p><span style="font-weight:300;">&copy; Copyright  RESDEC. Todos los derechos reservados.</span></p>
+								 <p></p>
+								 <div class="separator  transparent center  " style="margin-top: 37px;margin-bottom: 0;"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+
+  <script type='text/javascript' src='{% static 'js/jquery.js' %}'></script>
+{#	<script type='text/javascript' src='{% static 'js/layerslider.kreaturamedia.jquery.js?ver=5.3.2' %}'></script>#}
+{#	<script type='text/javascript' src='{% static 'js/layerslider.transitions.js?ver=5.3.2' %}'></script>#}
+  <script type='text/javascript' src='{% static 'js/layerslider.kreaturamedia.jquery.js' %}'></script>
+	<script type='text/javascript' src='{% static 'js/layerslider.transitions.js' %}'></script>
+
+	<script type='text/javascript' src='{% static 'js/plugins.js' %}'></script>
+	<script type='text/javascript' src='{% static 'js/jquery.carouFredSel-6.2.1.min.js' %}'></script>
+	<script type='text/javascript' src='{% static 'js/lemmon-slider.min.js' %}'></script>
+	<script type='text/javascript' src='{% static 'js/jquery.fullPage.min.js' %}'></script>
+	<script type='text/javascript' src='{% static 'js/jquery.mousewheel.min.js' %}'></script>
+  <script type='text/javascript' src='{% static 'js/jquery.touchSwipe.min.js' %}'></script>
+  <script type='text/javascript' src='{% static 'js/default_dyamic.js' %}'></script>
+	<script type='text/javascript' src='{% static 'js/default.min.js' %}'></script>
+	<script type='text/javascript' src='{% static 'js/custom_js.js' %}'></script>
+	<script type='text/javascript' src='{% static 'js/ajax.min.js' %}'></script>
+	<script type='text/javascript' src='{% static 'js/js_composer_front.js' %}'></script>
+	<script type='text/javascript' src='{% static 'js/toolbar.js' %}'></script>
+</body>

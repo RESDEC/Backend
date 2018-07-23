@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
@@ -10,11 +11,6 @@ import json
 import random
 import pandas as pd
 import numpy as np
-
-
-# Create your views here.
-def index(request):
-    return render(request, 'index.html', )
 
 
 def using_algorithms(request, relation_type=None):
@@ -31,6 +27,7 @@ def using_algorithms(request, relation_type=None):
                                                       })
 
 
+@login_required
 def cold_start_form(request):
     # Getting relationship type Cold Start
     rel_type = get_object_or_404(RelationshipType, pk=1)

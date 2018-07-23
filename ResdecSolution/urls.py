@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from apps.resdec import views
+from django.contrib.auth.views import login, logout, logout_then_login
+from .views import index
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', index, name="index"),
+    url(r'^accounts/login/$', login, {'template_name': 'login.html'}, name='login'),
+    url(r'^logout/$', logout, name='logout'),
     url(r'^resdec/', include('apps.resdec.urls')),
-    url(r'^$', views.index, name="index"),
 ]

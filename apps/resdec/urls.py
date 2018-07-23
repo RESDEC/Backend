@@ -5,7 +5,6 @@ from . import views
 app_name = 'resdec'
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
     url(r'^algorithms/(?P<relation_type>[0-9]+)/$', views.using_algorithms, name='algorithms'),
     url(r'^cold_start/$', views.cold_start_form, name='cold_start_form'),
     url(r'^list_relationship_type_algorithms', views.relationship_type_algorithms, name='relationshipTypeAlgorithms'),
