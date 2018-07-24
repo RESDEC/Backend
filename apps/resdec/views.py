@@ -247,3 +247,33 @@ def create_table_html(variability_env=None, dict_data=None, str_algorithm=None):
         html_table += '<tr><td>' + x + '</td><td style="text-align: center;">' + str(dict_data[x]) + '</td></tr>'
     html_table += '</tbody></table>'
     return html_table
+
+
+# This function respond a collection with the variability environments
+def list_variability_environment(request):
+    return None
+
+
+# Function what respond a collection with the actives interests in the system
+def list_interests(request):
+    return None
+
+
+# Function what respond a collection with the features in the data file.
+def list_features(request):
+    return None
+
+
+# Function to calculate the first Cold Start's stage
+def cold_start_all(request):
+    return None
+
+
+# Function to calculate the second Cold Start's stage
+def cold_start_interest(request):
+    return None
+
+
+# Function to calculate the third Cold Start's stage
+def cold_start_features(request):
+    return None
