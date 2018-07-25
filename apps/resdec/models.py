@@ -6,18 +6,19 @@ of the searchings"""
 ACTIVE = "A"
 INACTIVE = "I"
 
-
 STATUS = [(ACTIVE, "Active"),
           (INACTIVE, "Inactive"),
           ]
 
 """Data files (csv), can be based on two different types"""
 FEATURES = 'F'
+GROUPED_FEATURES = 'G'
 RATINGS = 'R'
 
 BASE_ON = [(FEATURES, "Features"),
-       (RATINGS, "Ratings")
-       ]
+           (GROUPED_FEATURES, "Grouped Features"),
+           (RATINGS, "Ratings")
+           ]
 
 
 class VariabilityEnvironment(models.Model):
@@ -72,7 +73,7 @@ class Interest(models.Model):
 
 class InterestItemsNames(models.Model):
     interest = models.ForeignKey(Interest, on_delete=models.CASCADE)
-    item_name = models.CharField(max_length=40,)
+    item_name = models.CharField(max_length=40, )
 
     def __str__(self):
         return self.item_name + " - " + self.interest.name

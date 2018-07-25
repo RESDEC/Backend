@@ -5,7 +5,8 @@ from django.shortcuts import render, get_object_or_404
 from django.core import serializers
 
 from algorithms import CollaborativeFilterAlgorithmsFun, SVD
-from .models import RelationshipType, VariabilityEnvironment, VariabilityEnvironmentData, Algorithm
+from .models import RelationshipType, VariabilityEnvironment, VariabilityEnvironmentData, Algorithm, \
+    Interest
 
 import json
 import random
@@ -249,19 +250,74 @@ def create_table_html(variability_env=None, dict_data=None, str_algorithm=None):
     return html_table
 
 
+# Function to get variability environment's data file
+def get_variability_environment_data(variability_environment=None, relationship_type=None, base_on=None):
+    variability_environment_data_list = VariabilityEnvironmentData.objects.filter(
+        variability_environment=variability_environment,
+        relationship_type=relationship_type,
+        base_on=base_on,
+        status__contains="A").order_by('-pub_date')
+
+    return variability_environment_data_list[0]
+
+
 # This function respond a collection with the variability environments
 def list_variability_environment(request):
-    return None
+    var_env_serializer = serializers.serialize('json', VariabilityEnvironment.objects.filter(status__contains='A'))
+    return HttpResponse(json.dumps(var_env_serializer), content_type="application/json")
 
 
 # Function what respond a collection with the actives interests in the system
 def list_interests(request):
-    return None
+    variability_environment_id = request.GET.get('variability_environment_id', 0)
+    variability_environment = get_object_or_404(VariabilityEnvironment, pk=variability_environment_id)
+    # Interest with the variability environment defined from frontend
+    interests = Interest.objects.filter(variability_environment=variability_environment,
+                                        status__contains='A')
+    interests_serializer = serializers.serialize('jason', interests)
+    return HttpResponse(json.dumps(interests_serializer), content_type='application/json')
 
 
 # Function what respond a collection with the features in the data file.
 def list_features(request):
-    return None
+    variability_environment_id = request.GET.get('var_environment_id', 0)
+    relationship_type_id = request.GET.get('relationship_type_id', 0)
+    feature = request.GET.get('feature', '')
+
+    variability_environment = get_object_or_404(VariabilityEnvironment, pk=variability_environment_id)
+    relationship_type = get_object_or_404(RelationshipType, pk=relationship_type_id)
+
+    # Get data file
+    variability_environment_data = get_variability_environment_data(
+        variability_environment=variability_environment,
+        relationship_type=relationship_type,
+        base_on="F")
+
+    error = ''
+    dict_features = {}
+    if str(variability_environment_data.file) != '':
+        print("Variability Environment Data: " + str(variability_environment_data.file))
+        # DataFrame from reading the csv
+        df = pd.read_csv(str(variability_environment_data.file), encoding='latin-1', sep="|")
+        # Features distinct.
+        features = df[df.columns[1]].unique()
+        # Adding features to the dictionary
+        x = 0
+        for f in features:
+            # Check if the input feature, is inside the iterated feature.
+            if feature in f:
+                x += 1
+                dict_features[x] = f
+    else:
+        error = "ERROR: Ups! We don't have a data file with this specifications."
+
+    # Loading data response
+    data = {
+        'error': error,
+        'dict_features': dict_features
+    }
+
+    return HttpResponse(json.dumps(data), content_type='application/json')
 
 
 # Function to calculate the first Cold Start's stage
