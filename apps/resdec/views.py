@@ -6,7 +6,7 @@ from django.core import serializers
 
 from algorithms import CollaborativeFilterAlgorithmsFun, SVD
 from .models import RelationshipType, VariabilityEnvironment, VariabilityEnvironmentData, Algorithm, \
-    Interest
+    Interest, InterestItemsNames
 
 import json
 import random
@@ -52,14 +52,6 @@ def relationship_type_algorithms(request):
                                                                             status='A', ))
 
     return HttpResponse(json.dumps(algorithms_serializers), content_type="application/json")
-
-
-# def variability_environment_data(request):
-#     env = request.GET.get('variabilityEnvironment')
-#     print("Variability Environment: " + env)
-#     var_env_data = VariabilityEnvironmentData.objects.filter(variability_environment__id=env)
-#     var_env_data = [data_serializer(data) for data in var_env_data]
-#     return HttpResponse(json.dumps(var_env_data), content_type='application/json')
 
 
 def variability_environment_items(request):
@@ -255,27 +247,90 @@ def get_variability_environment_data(variability_environment=None, relationship_
     variability_environment_data_list = VariabilityEnvironmentData.objects.filter(
         variability_environment=variability_environment,
         relationship_type=relationship_type,
-        base_on=base_on,
+        base_on__contains=base_on,
         status__contains="A").order_by('-pub_date')
 
     return variability_environment_data_list[0]
 
 
+# Function to work with relationship type Cold Start. It only need some parameters to calculate in its all scenarios.
+def get_calculate_cold_start(dict_items=None, variability_environment_data=None, number_recommendations=None):
+    print("Calculating Cold Start >> Items to Evaluate: " + str(dict_items.__len__()))
+    print("Calculating Cold Start >> Variability Environment Data: " + variability_environment_data.name)
+    print("Calculating Cold Start >> Number of recommendations: " + str(number_recommendations))
+
+    # DataFrame from reading the csv
+    arr_data_csv = np.genfromtxt(str(variability_environment_data.file), delimiter='|', dtype=None)
+    # Dictionary with items and values
+    dict_items_values = {}
+    for key, value in dict_items.iteritems():
+        # Dictionary of items, to store counter and sum
+        dict_items_values[value] = [0, 0.00]
+
+    # Iterating csv file
+    for data in arr_data_csv:
+        if str(data[0]).strip() in dict_items_values.keys():
+            # Storing the counter
+            dict_items_values[str(data[0]).strip()][0] += 1
+            # Storing the value
+            dict_items_values[str(data[0]).strip()][1] += data[2]
+
+    list_result = []
+    for key, value in dict_items_values.iteritems():
+        if value[0] > 0:
+            tuple_result = (key, value[1]/value[0])
+            list_result.append(tuple_result)
+
+    # Sort list of tuples
+    sorted(list_result, key=lambda x: x[1])
+
+    # List of tuples to dictionary
+    dict_items_all = dict(list_result)
+
+    # Limiting number of recommendations
+    dict_items_result = {}
+    if dict_items_all.__len__() > 0:
+        row = 0
+        for key, value in dict_items_all.iteritems():
+            row += 1
+            dict_items_result[key] = value
+            if row >= int(number_recommendations):
+                break
+
+    return dict_items_result
+
+
 # This function respond a collection with the variability environments
 def list_variability_environment(request):
-    var_env_serializer = serializers.serialize('json', VariabilityEnvironment.objects.filter(status__contains='A'))
-    return HttpResponse(json.dumps(var_env_serializer), content_type="application/json")
+    variability_environment_list = VariabilityEnvironment.objects.filter(status__contains='A')
+    variability_environments = {}
+    for ve in variability_environment_list:
+        variability_environments[ve.pk] = ve.name
+
+    data = {
+        'variability_environments': variability_environments
+    }
+
+    return HttpResponse(json.dumps(data), content_type="application/json")
 
 
 # Function what respond a collection with the actives interests in the system
 def list_interests(request):
-    variability_environment_id = request.GET.get('variability_environment_id', 0)
+    variability_environment_id = request.GET.get('var_environment_id', 0)
     variability_environment = get_object_or_404(VariabilityEnvironment, pk=variability_environment_id)
     # Interest with the variability environment defined from frontend
     interests = Interest.objects.filter(variability_environment=variability_environment,
                                         status__contains='A')
-    interests_serializer = serializers.serialize('jason', interests)
-    return HttpResponse(json.dumps(interests_serializer), content_type='application/json')
+
+    interests_list = {}
+    for i in interests:
+        interests_list[i.pk] = i.name
+
+    data = {
+        'list_interests': interests_list
+    }
+
+    return HttpResponse(json.dumps(data), content_type='application/json')
 
 
 # Function what respond a collection with the features in the data file.
@@ -296,7 +351,7 @@ def list_features(request):
     error = ''
     dict_features = {}
     if str(variability_environment_data.file) != '':
-        print("Variability Environment Data: " + str(variability_environment_data.file))
+        print("List Features >> Variability Environment Data: " + str(variability_environment_data.file))
         # DataFrame from reading the csv
         df = pd.read_csv(str(variability_environment_data.file), encoding='latin-1', sep="|")
         # Features distinct.
@@ -314,7 +369,7 @@ def list_features(request):
     # Loading data response
     data = {
         'error': error,
-        'dict_features': dict_features
+        'list_features': dict_features
     }
 
     return HttpResponse(json.dumps(data), content_type='application/json')
@@ -322,14 +377,140 @@ def list_features(request):
 
 # Function to calculate the first Cold Start's stage
 def cold_start_all(request):
-    return None
+    relationship_type_id = request.GET.get('relationship_type_id', '')
+    variability_environment_id = request.GET.get('var_environment_id', '')
+    number_recommendations = request.GET.get('number_recommendations', 0)
+
+    relationship_type = get_object_or_404(RelationshipType, pk=relationship_type_id)
+    variability_environment = get_object_or_404(VariabilityEnvironment, pk=variability_environment_id)
+
+    variability_environment_data = get_variability_environment_data(
+        relationship_type=relationship_type,
+        variability_environment=variability_environment,
+        base_on='R')
+
+    cold_start_recommendations = {}
+    if str(variability_environment_data.name) != '':
+        print("Cold Start All >> Variability Environment Data: " + str(variability_environment_data.file))
+
+        # DataFrame from reading the csv
+        df = pd.read_csv(str(variability_environment_data.file), encoding='latin-1', sep="|")
+        # Distinct items in the cvs
+        items = df[df.columns[0]].unique()
+
+        # Adding items to the dictionary
+        dict_items = {}
+        x = 0
+        for i in items:
+            x += 1
+            dict_items[x] = i
+
+        cold_start_recommendations = get_calculate_cold_start(
+            dict_items=dict_items,
+            variability_environment_data=variability_environment_data,
+            number_recommendations=number_recommendations
+        )
+
+    data = {
+        'cold_start_recommendations': cold_start_recommendations
+    }
+
+    return HttpResponse(json.dumps(data), content_type='application/json')
 
 
 # Function to calculate the second Cold Start's stage
 def cold_start_interest(request):
-    return None
+    relationship_type_id = request.GET.get('relationship_type_id', '')
+    variability_environment_id = request.GET.get('var_environment_id', '')
+    interest_id = request.GET.get('interest_id', 0)
+    number_recommendations = request.GET.get('number_recommendations', '')
+
+    relationship_type = get_object_or_404(RelationshipType, pk=int(relationship_type_id))
+    variability_environment = get_object_or_404(VariabilityEnvironment, pk=int(variability_environment_id))
+    interest = get_object_or_404(Interest, pk=int(interest_id))
+    interest_items = InterestItemsNames.objects.filter(interest=interest)
+
+    variability_environment_data = get_variability_environment_data(
+        relationship_type=relationship_type,
+        variability_environment=variability_environment,
+        base_on='R')
+
+    cold_start_recommendations = {}
+    if str(variability_environment_data.name) != '':
+        print("Cold Start Interest >> Variability Environment Data: " + str(variability_environment_data.file))
+
+        # Loading interest's items to a dictionary
+        dict_items = {}
+        x = 0
+        for i in interest_items:
+            x += 1
+            dict_items[x] = i.item_name.strip()
+
+        # Call the function that resolve the cold start relationship type
+        cold_start_recommendations = get_calculate_cold_start(
+            dict_items=dict_items,
+            variability_environment_data=variability_environment_data,
+            number_recommendations=number_recommendations
+        )
+
+    data = {
+        'cold_start_recommendations': cold_start_recommendations
+    }
+
+    return HttpResponse(json.dumps(data), content_type='application/json')
 
 
 # Function to calculate the third Cold Start's stage
 def cold_start_features(request):
-    return None
+    relationship_type_id = request.GET.get('relationship_type_id', '')
+    variability_environment_id = request.GET.get('var_environment_id', '')
+    arr_features_filter = request.GET.getlist('selected_features[]')
+    number_recommendations = request.GET.get('number_recommendations', '')
+
+    relationship_type = get_object_or_404(RelationshipType, pk=relationship_type_id)
+    variability_environment = get_object_or_404(VariabilityEnvironment, pk=variability_environment_id)
+
+    # Loading csv file with the features for this relationship type and environment
+    variability_environment_data_features = get_variability_environment_data(
+        relationship_type=relationship_type,
+        variability_environment=variability_environment,
+        base_on="F"
+    )
+
+    print("Cold Start Features >> Variability Environment Data Features: " +
+          str(variability_environment_data_features.file))
+
+    # Getting data file with the features.
+    arr_data_fea_csv = np.genfromtxt(str(variability_environment_data_features.file), delimiter='|', dtype=None)
+
+    # Encoding features
+    arr_features = []
+    for f in arr_features_filter:
+        arr_features.append(f.encode('utf-8'))
+
+    # Getting items what have the features filtered
+    dict_items = {}
+    x = 0
+    for data in arr_data_fea_csv:
+        if data[1].strip() in arr_features:
+            x += 1
+            dict_items[x] = data[0]
+
+    # Getting the rating data to calculate cold start with the items filtered.
+    variability_environment_data_rating = get_variability_environment_data(
+        relationship_type=relationship_type,
+        variability_environment=variability_environment,
+        base_on='R')
+
+    # Call the function that resolve the cold start relationship type
+    cold_start_recommendations = get_calculate_cold_start(
+        dict_items=dict_items,
+        variability_environment_data=variability_environment_data_rating,
+        number_recommendations=number_recommendations
+    )
+
+    data = {
+        'cold_start_recommendations': cold_start_recommendations
+    }
+
+    return HttpResponse(json.dumps(data), content_type='application/json')
