@@ -6,7 +6,7 @@ from django.core import serializers
 
 from algorithms import CollaborativeFilterAlgorithmsFun, SVD
 from .models import RelationshipType, VariabilityEnvironment, VariabilityEnvironmentData, Algorithm, \
-    Interest, InterestItemsNames
+    Interest, InterestItemsNames, HistoryUserItems
 
 import json
 import random
@@ -242,6 +242,9 @@ def create_table_html(variability_env=None, dict_data=None, str_algorithm=None):
     return html_table
 
 
+"""Functions to use Relationship type: Cold Start"""
+
+
 # Function to get variability environment's data file
 def get_variability_environment_data(variability_environment=None, relationship_type=None, base_on=None):
     variability_environment_data_list = VariabilityEnvironmentData.objects.filter(
@@ -278,7 +281,7 @@ def get_calculate_cold_start(dict_items=None, variability_environment_data=None,
     list_result = []
     for key, value in dict_items_values.iteritems():
         if value[0] > 0:
-            tuple_result = (key, value[1]/value[0])
+            tuple_result = (key, value[1] / value[0])
             list_result.append(tuple_result)
 
     # Sort list of tuples
@@ -511,6 +514,39 @@ def cold_start_features(request):
 
     data = {
         'cold_start_recommendations': cold_start_recommendations
+    }
+
+    return HttpResponse(json.dumps(data), content_type='application/json')
+
+
+"""Functions to use Relationship type: Transition of components based on ratings"""
+
+
+# Getting the last 'n' of items used.
+def list_last_items_used(request):
+    user = None
+    if request.user.is_authenticated():
+        user = request.user
+
+    variability_environment_id = request.GET.get('var_environment_id', '')
+    number_items = request.GET.get('number_items', 0)
+
+    variability_environment = get_object_or_404(VariabilityEnvironment, pk=variability_environment_id)
+
+    # Loading a ver with a list of history of items used by the user and filtering a number of them.
+    history_user_items = HistoryUserItems.objects.filter(
+        user=user,
+        variability_environment=variability_environment,
+    ).order_by('-date_use')[:number_items]
+
+    dict_history_user_items = {}
+    x = 0
+    for h in history_user_items:
+        x += 1
+        dict_history_user_items[x] = h.item_name
+
+    data = {
+        'list_last_items_used': dict_history_user_items
     }
 
     return HttpResponse(json.dumps(data), content_type='application/json')

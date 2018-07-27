@@ -12,6 +12,8 @@ urlpatterns = [
     url(r'^cold_start_interest/$', views.cold_start_interest, name='cold_start_interest'),
     url(r'^cold_start_features/$', views.cold_start_features, name='cold_start_features'),
 
+    url(r'^list_last_items_used/$', views.list_last_items_used, name='list_last_items_used'),
+
     url(r'^algorithms/(?P<relation_type>[0-9]+)/$', views.using_algorithms, name='algorithms'),
     url(r'^cold_start/$', views.cold_start_form, name='cold_start_form'),
     url(r'^list_relationship_type_algorithms', views.relationship_type_algorithms, name='relationshipTypeAlgorithms'),

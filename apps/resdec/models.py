@@ -1,8 +1,9 @@
 from django.db import models
-from ResdecSolution.settings import BASE_DIR
+from django.contrib.auth.models import User
+
 
 """Status of objects in the system. If the object have a status 'Inactive', it not gonna take part
-of the searchings"""
+of the searching"""
 ACTIVE = "A"
 INACTIVE = "I"
 
@@ -48,6 +49,7 @@ class VariabilityEnvironmentData(models.Model):
     file = models.FileField(upload_to="user_data_uploaded", max_length=500)
     pub_date = models.DateTimeField(auto_now_add=True, blank=True)
     status = models.CharField(choices=STATUS, max_length=1, default='A')
+    separator = models.CharField(max_length=1, default='|')
 
     def __str__(self):
         return self.name
@@ -76,4 +78,15 @@ class InterestItemsNames(models.Model):
     item_name = models.CharField(max_length=40, )
 
     def __str__(self):
-        return self.item_name + " - " + self.interest.name
+        return self.item_name + " - " + self.interest.name.strip()
+
+
+class HistoryUserItems(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE,)
+    variability_environment = models.ForeignKey(VariabilityEnvironment, on_delete=models.CASCADE,)
+    item_name = models.CharField(max_length=40)
+    date_use = models.DateTimeField(auto_now_add=True, blank=True)
+
+    def __str__(self):
+        return self.user.first_name.strip() + " - " + self.variability_environment.name.strip() \
+               + self.item_name.strip() + " - " + self.date_use.__str__()

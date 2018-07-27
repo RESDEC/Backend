@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import VariabilityEnvironment, RelationshipType, VariabilityEnvironmentData, Algorithm, Interest, InterestItemsNames
+from .models import VariabilityEnvironment, RelationshipType, VariabilityEnvironmentData, \
+    Algorithm, Interest, InterestItemsNames, HistoryUserItems
 
 
 # Register your models here.
@@ -9,3 +10,4 @@ admin.site.register(VariabilityEnvironmentData)
 admin.site.register(Interest)
 admin.site.register(InterestItemsNames)
 admin.site.register(Algorithm)
+admin.site.register(HistoryUserItems)
