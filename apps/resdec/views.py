@@ -263,7 +263,9 @@ def get_calculate_cold_start(dict_items=None, variability_environment_data=None,
     print("Calculating Cold Start >> Number of recommendations: " + str(number_recommendations))
 
     # DataFrame from reading the csv
-    arr_data_csv = np.genfromtxt(str(variability_environment_data.file), delimiter='|', dtype=None)
+    arr_data_csv = np.genfromtxt(str(variability_environment_data.file),
+                                 delimiter=str(variability_environment_data.separator),
+                                 dtype=None)
     # Dictionary with items and values
     dict_items_values = {}
     for key, value in dict_items.iteritems():
@@ -281,24 +283,16 @@ def get_calculate_cold_start(dict_items=None, variability_environment_data=None,
     list_result = []
     for key, value in dict_items_values.iteritems():
         if value[0] > 0:
-            tuple_result = (key, value[1] / value[0])
+            tuple_result = (key, float(value[1] / value[0]))
             list_result.append(tuple_result)
 
     # Sort list of tuples
-    sorted(list_result, key=lambda x: x[1])
+    list_result.sort(key=lambda x: float(x[1]), reverse=True)
+
+    print("Cold Start Result: " + str(list_result[:int(number_recommendations)]))
 
     # List of tuples to dictionary
-    dict_items_all = dict(list_result)
-
-    # Limiting number of recommendations
-    dict_items_result = {}
-    if dict_items_all.__len__() > 0:
-        row = 0
-        for key, value in dict_items_all.iteritems():
-            row += 1
-            dict_items_result[key] = value
-            if row >= int(number_recommendations):
-                break
+    dict_items_result = dict(list_result[:int(number_recommendations)])
 
     return dict_items_result
 
@@ -356,7 +350,9 @@ def list_features(request):
     if str(variability_environment_data.file) != '':
         print("List Features >> Variability Environment Data: " + str(variability_environment_data.file))
         # DataFrame from reading the csv
-        df = pd.read_csv(str(variability_environment_data.file), encoding='latin-1', sep="|")
+        df = pd.read_csv(str(variability_environment_data.file),
+                         encoding='latin-1',
+                         sep=str(variability_environment_data.separator))
         # Features distinct.
         features = df[df.columns[1]].unique()
         # Adding features to the dictionary
@@ -397,7 +393,9 @@ def cold_start_all(request):
         print("Cold Start All >> Variability Environment Data: " + str(variability_environment_data.file))
 
         # DataFrame from reading the csv
-        df = pd.read_csv(str(variability_environment_data.file), encoding='latin-1', sep="|")
+        df = pd.read_csv(str(variability_environment_data.file),
+                         encoding='latin-1',
+                         sep=str(variability_environment_data.separator))
         # Distinct items in the cvs
         items = df[df.columns[0]].unique()
 
@@ -484,7 +482,9 @@ def cold_start_features(request):
           str(variability_environment_data_features.file))
 
     # Getting data file with the features.
-    arr_data_fea_csv = np.genfromtxt(str(variability_environment_data_features.file), delimiter='|', dtype=None)
+    arr_data_fea_csv = np.genfromtxt(str(variability_environment_data_features.file),
+                                     delimiter=str(variability_environment_data_features.separator),
+                                     dtype=None)
 
     # Encoding features
     arr_features = []
@@ -547,6 +547,49 @@ def list_last_items_used(request):
 
     data = {
         'list_last_items_used': dict_history_user_items
+    }
+
+    return HttpResponse(json.dumps(data), content_type='application/json')
+
+
+def list_items(request):
+    variability_environment_id = request.GET.get('var_environment_id', '')
+    relationship_type_id = request.GET.get('relationship_type_id', '')
+    item = request.GET.get('item', '')
+
+    variability_environment = get_object_or_404(VariabilityEnvironment, pk=variability_environment_id)
+    relationship_type = get_object_or_404(RelationshipType, pk=relationship_type_id)
+
+    # Get data file
+    variability_environment_data = get_variability_environment_data(
+        variability_environment=variability_environment,
+        relationship_type=relationship_type,
+        base_on="R")
+
+    error = ''
+    dict_items = {}
+    if str(variability_environment_data.file) != '':
+        print("List Items >> Variability Environment Data: " + str(variability_environment_data.file))
+        # DataFrame from reading the csv
+        df = pd.read_csv(str(variability_environment_data.file),
+                         encoding='latin-1',
+                         sep=str(variability_environment_data.separator))
+        # Items distinct
+        items = df[df.columns[0]].unique()
+        # Adding features to the dictionary
+        x = 0
+        for i in items:
+            # Check if the input feature, is inside the iterated feature.
+            if item in i:
+                x += 1
+                dict_items[x] = i
+    else:
+        error = "ERROR: Ups! We don't have a data file with this specifications."
+
+    # Loading data response
+    data = {
+        'erorr': error,
+        'list_items': dict_items
     }
 
     return HttpResponse(json.dumps(data), content_type='application/json')
