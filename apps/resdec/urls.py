@@ -14,6 +14,7 @@ urlpatterns = [
 
     url(r'^list_last_items_used/$', views.list_last_items_used, name='list_last_items_used'),
     url(r'^list_items/$', views.list_items, name='list_items'),
+    url(r'^list_algorithms', views.list_algorithms, name='list_algorithms'),
 
     url(r'^algorithms/(?P<relation_type>[0-9]+)/$', views.using_algorithms, name='algorithms'),
     url(r'^cold_start/$', views.cold_start_form, name='cold_start_form'),

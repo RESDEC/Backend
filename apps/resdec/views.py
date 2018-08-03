@@ -593,3 +593,24 @@ def list_items(request):
     }
 
     return HttpResponse(json.dumps(data), content_type='application/json')
+
+
+def list_algorithms(request):
+    relationship_type_id = request.GET.get('relationship_type_id', '')
+
+    relationship_type = get_object_or_404(RelationshipType, pk=relationship_type_id)
+
+    arr_algorithms = Algorithm.objects.filter(
+        relationship_type=relationship_type,
+        status__contains="A"
+    )
+
+    dict_algorithms = {}
+    for a in arr_algorithms:
+        dict_algorithms[a.pk] = a.name
+
+    data = {
+        'list_algorithms': dict_algorithms
+    }
+
+    return HttpResponse(json.dumps(data), content_type='application/json')
