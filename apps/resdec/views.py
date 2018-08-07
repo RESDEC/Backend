@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.core import serializers
 
-from algorithms import CollaborativeFilterAlgorithmsFun, SVD
+from algorithms import TransitionComponentsBasedRating as tcbr
 from .models import RelationshipType, VariabilityEnvironment, VariabilityEnvironmentData, Algorithm, \
     Interest, InterestItemsNames, HistoryUserItems
 
@@ -611,6 +611,43 @@ def list_algorithms(request):
 
     data = {
         'list_algorithms': dict_algorithms
+    }
+
+    return HttpResponse(json.dumps(data), content_type='application/json')
+
+
+def transition_components_based_ratings(request):
+    relationship_type_id = request.GET.get('relationship_type_id', '')
+    variability_environment_id = request.GET.get('var_environment_id', '')
+    algorithm_id = request.GET.get('algorithm_id', '')
+
+    relationship_type = get_object_or_404(RelationshipType, pk=relationship_type_id)
+    variability_environment = get_object_or_404(VariabilityEnvironment, pk=variability_environment_id)
+    algorithm = get_object_or_404(Algorithm, pk=algorithm_id)
+
+    variability_environment_data = get_variability_environment_data(
+        relationship_type=relationship_type,
+        variability_environment=variability_environment,
+        base_on='R')
+
+    tran_comp_rating_recommendation = {}
+    if str(variability_environment_data.name) != '':
+        print("Transition Component Based Rating >> Variability Environment Data: " +
+              str(variability_environment_data.file))
+
+        if algorithm.pk == 11:
+            tcbr.svd(file_path=str(variability_environment_data.file),
+                     sep=variability_environment_data.separator)
+        elif algorithm.pk == 13:
+            tcbr.knn_basic(file_path=str(variability_environment_data.file),
+                           sep=variability_environment_data.separator)
+        elif algorithm.pk == 14:
+            pass
+        else:
+            pass
+
+    data = {
+        'tran_comp_rating_recommendation': "Hola"
     }
 
     return HttpResponse(json.dumps(data), content_type='application/json')
