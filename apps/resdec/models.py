@@ -13,11 +13,9 @@ STATUS = [(ACTIVE, "Active"),
 
 """Data files (csv), can be based on two different types"""
 FEATURES = 'F'
-GROUPED_FEATURES = 'G'
 RATINGS = 'R'
 
 BASE_ON = [(FEATURES, "Features"),
-           (GROUPED_FEATURES, "Grouped Features"),
            (RATINGS, "Ratings")
            ]
 
@@ -50,6 +48,9 @@ class VariabilityEnvironmentData(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True, blank=True)
     status = models.CharField(choices=STATUS, max_length=1, default='A')
     separator = models.CharField(max_length=1, default='|')
+    item_column = models.CharField(max_length=20, default='')
+    feature_column = models.CharField(max_length=20, default='')
+    rating_column = models.CharField(max_length=20, default='')
 
     def __str__(self):
         return self.name
