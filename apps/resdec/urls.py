@@ -5,6 +5,9 @@ from . import views
 app_name = 'resdec'
 
 urlpatterns = [
+    url(r'^login/$', views.login_view, name='login'),
+    url(r'^logout/$', views.logout_view, name='logout'),
+
     url(r'^list_variability_environments/$', views.list_variability_environment, name='list_variability_environment'),
     url(r'^list_interests/$', views.list_interests, name='list_interests'),
     url(r'^list_features/$', views.list_features, name='list_features'),

@@ -1,3 +1,4 @@
+from django.contrib.auth import authenticate, logout
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 
@@ -14,6 +15,32 @@ import numpy as np
 
 
 """General Functions to the frontend or backend"""
+
+
+# Login function
+def login_view(request):
+    username = request.GET.get('username', '')
+    password = request.GET.get('password', '')
+
+    print(username)
+    print(password)
+
+    user = authenticate(username=username, password=password)
+
+    login = False
+    if user is not None:
+        login = True
+
+    data = {
+        "login": login
+    }
+
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+# Logout function
+def logout_view(request):
+    logout(request)
 
 
 # This function respond a collection with the variability environments
