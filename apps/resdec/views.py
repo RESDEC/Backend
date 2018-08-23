@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, logout
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 
@@ -22,16 +23,19 @@ def login_view(request):
     username = request.GET.get('username', '')
     password = request.GET.get('password', '')
 
-    print(username)
-    print(password)
-
     user = authenticate(username=username, password=password)
 
     login = False
+    error = 1
+    err_msg = 'Incorrect username or password.'
     if user is not None:
         login = True
+        error = 0
+        err_msg = ''
 
     data = {
+        'error': error,
+        'err_msg': err_msg,
         "login": login
     }
 
@@ -41,6 +45,13 @@ def login_view(request):
 # Logout function
 def logout_view(request):
     logout(request)
+    data = {
+        'error': 0,
+        'err_msg': '',
+        'logout': True
+    }
+
+    return HttpResponse(json.dumps(data), content_type="application/json")
 
 
 # This function respond a collection with the variability environments
@@ -122,30 +133,41 @@ def list_features(request):
 
 # Getting the last 'n' of items used.
 def list_last_items_used(request):
-    user = None
-    if request.user.is_authenticated():
-        user = request.user
-
+    username = request.GET.get('username', '')
     variability_environment_id = request.GET.get('var_environment_id', '')
     number_items = request.GET.get('number_items', 0)
 
+    try:
+        user = User.objects.get(username__contains=username)
+    except:
+        user = None
+
     variability_environment = get_object_or_404(VariabilityEnvironment, pk=variability_environment_id)
 
-    # Loading a ver with a list of history of items used by the user and filtering a number of them.
-    history_user_items = HistoryUserItems.objects.filter(
-        user=user,
-        variability_environment=variability_environment,
-    ).order_by('-date_use')[:number_items]
-
     dict_history_user_items = {}
-    x = 0
-    for h in history_user_items:
-        x += 1
-        dict_history_user_items[x] = h.item_name
+    if user is not None:
+        # Loading a ver with a list of history of items used by the user and filtering a number of them.
+        history_user_items = HistoryUserItems.objects.filter(
+            user=user,
+            variability_environment=variability_environment,
+        ).order_by('-date_use')[:number_items]
 
-    data = {
-        'list_last_items_used': dict_history_user_items
-    }
+        x = 0
+        for h in history_user_items:
+            x += 1
+            dict_history_user_items[x] = h.item_name
+
+        data = {
+            'error': 0,
+            'err_msg': '',
+            'list_last_items_used': dict_history_user_items
+        }
+    else:
+        data = {
+            'error': 1,
+            'err_msg': "Invalid user",
+            'list_last_items_used': dict_history_user_items
+        }
 
     return HttpResponse(json.dumps(data), content_type='application/json')
 
