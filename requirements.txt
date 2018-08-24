@@ -3,6 +3,7 @@ cachetools==2.0.1
 click==6.7
 cycler==0.10.0
 Django==1.11.4
+django-cors-headers==2.4.0
 Flask==0.12.2
 itsdangerous==0.24
 Jinja2==2.10

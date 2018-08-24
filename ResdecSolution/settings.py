@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'material.frontend',
     # apps
     'apps.resdec',
+    # cors
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +60,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # cors header
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'ResdecSolution.urls'
@@ -128,6 +133,9 @@ USE_TZ = True
 # Running url login
 LOGIN_REDIRECT_URL = reverse_lazy('resdec:cold_start_form')
 LOGOUT_REDIRECT_URL = reverse_lazy('index')
+
+# Supporting all cross-domain
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
