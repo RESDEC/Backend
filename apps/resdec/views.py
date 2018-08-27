@@ -193,7 +193,8 @@ def list_items(request):
         relationship_type=relationship_type,
         base_on=base_on)
 
-    error = ''
+    error = 0
+    err_msg = ''
     dict_items = {}
     if str(variability_environment_data.file) != '':
         print("List Items >> Variability Environment Data: " + str(variability_environment_data.file))
@@ -211,11 +212,12 @@ def list_items(request):
                 x += 1
                 dict_items[x] = i
     else:
-        error = "ERROR: Ups! We don't have a data file with this specifications."
+        err_msg = "ERROR: Ups! We don't have a data file with this specifications."
 
     # Loading data response
     data = {
-        'erorr': error,
+        'error': error,
+        'err_msg': err_msg,
         'list_items': dict_items
     }
 
