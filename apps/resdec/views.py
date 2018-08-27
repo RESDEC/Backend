@@ -181,17 +181,11 @@ def list_items(request):
     variability_environment = get_object_or_404(VariabilityEnvironment, pk=variability_environment_id)
     relationship_type = get_object_or_404(RelationshipType, pk=relationship_type_id)
 
-    # Base on evaluated by relationship type
-    if relationship_type_id == 1:
-        base_on = "R"
-    else:
-        base_on = "F"
-
     # Get data file
     variability_environment_data = get_variability_environment_data(
         variability_environment=variability_environment,
         relationship_type=relationship_type,
-        base_on=base_on)
+        base_on='R')
 
     error = 0
     err_msg = ''
@@ -203,7 +197,7 @@ def list_items(request):
                          encoding='latin-1',
                          sep=str(variability_environment_data.separator))
         # Items distinct
-        items = df[df.columns[0]].unique()
+        items = df[df.columns[1]].unique()
         # Adding features to the dictionary
         x = 0
         for i in items:
