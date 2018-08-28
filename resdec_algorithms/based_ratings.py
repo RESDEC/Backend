@@ -1,4 +1,6 @@
-import sys, io
+import sys
+import numpy as np
+import pandas as pd
 
 from collections import defaultdict
 
@@ -33,6 +35,15 @@ def get_top_n(predictions, n=10):
     return top_n
 
 
+def top_cosine_similarity(data, movie_id, top_n=10):
+    index = movie_id - 1  # Movie id starts from 1
+    movie_row = data[index, :]
+    magnitude = np.sqrt(np.einsum('ij, ij -> i', data, data))
+    similarity = np.dot(movie_row, data.T) / (magnitude[index] * magnitude)
+    sort_indexes = np.argsort(-similarity)
+    return sort_indexes[:top_n]
+
+
 class TransitionComponentsBasedFeatures:
     def __init__(self, file_path, delimiter, item_evaluated, number_recommendations):
         self.file_path = file_path
@@ -44,27 +55,33 @@ class TransitionComponentsBasedFeatures:
         sys.setdefaultencoding('latin1')
 
     def svd(self):
-        # Reader
-        reader = Reader(line_format='user item rating', sep=self.delimiter, skip_lines=1)
+        # Read the files with pandas
+        data = pd.read_csv(self.file_path, engine='python', delimiter=str(self.delimiter))
 
-        # Dataset
-        data = Dataset.load_from_file(self.file_path, reader=reader)
+        # Create the ratings matrix of shape (M x U) with rows as movies and columns as users
+        ratings_mat = np.ndarray(
+            shape=(np.max(data[0].values), np.max(data[1].values)),
+            dtype=np.uint8
+        )
+        ratings_mat[data[0].values - 1, data[1].values - 1] = data[2].values
 
-        # Creating the trainset
-        trainset = data.build_full_trainset()
+        # Normalise matrix (subtract mean off)
+        normalised_mat = ratings_mat - np.asarray([(np.mean(ratings_mat, 1))]).T
 
-        algo = SVD()
-        algo.fit(trainset)
+        # Compute SVD
+        A = normalised_mat.T / np.sqrt(ratings_mat.shape[0] - 1)
+        U, S, V = np.linalg.svd(A)
 
-        # Than predict ratings for all pairs (u, i) that are NOT in the training set.
-        testset = trainset.build_anti_testset()
-        predictions = algo.test(testset)
+        # Select K principal components to represent the items, a items to find recommendations
+        # and print the top_n results
+        k = 50
+        item = self.item_evaluated
+        top_n = self.number_recommendations
 
-        top_n = get_top_n(predictions, n=5)
+        sliced = V.T[:, :k]  # representative data
+        indexes = top_cosine_similarity(sliced, item, top_n)
 
-        # Print the recommended items for each user
-        # for uid, user_ratings in top_n.items():
-        #     print(uid, [iid for (iid, _) in user_ratings])
+        print(indexes)
 
     def knn_basic(self):
         print("calculating knn basic... File Rating: " + self.file_path)
