@@ -264,6 +264,7 @@ def cold_start_all(request):
     print("Cold Start All >> Variability Environment: " + variability_environment.name)
 
     cold_start_recommendations = {}
+    possible_interest_recommendations = {}
     if str(variability_environment_data.name) != '':
         # DataFrame from reading the csv
         df = pd.read_csv(str(variability_environment_data.file),
@@ -279,15 +280,24 @@ def cold_start_all(request):
             x += 1
             dict_items[x] = i
 
+        number_recommendations = int(number_recommendations)
+
         # Calling to the ColdStart class
         cs = ColdStart(file_rating_path=str(variability_environment_data.file),
                        delimiter=variability_environment_data.separator,
                        dict_items=dict_items,
-                       number_recommendations=number_recommendations)
-        cold_start_recommendations = cs.calculate_cold_start()
+                       number_recommendations=number_recommendations + 4)
+        recommendations = cs.calculate_cold_start()
+
+        for x in list(recommendations)[0:number_recommendations]:
+            cold_start_recommendations[x] = recommendations[x]
+
+        for x in list(recommendations)[number_recommendations:]:
+            possible_interest_recommendations[x] = recommendations[x]
 
     data = {
-        'cold_start_recommendations': cold_start_recommendations
+        'cold_start_recommendations': cold_start_recommendations,
+        'possible_interest_recommendations': possible_interest_recommendations
     }
 
     return HttpResponse(json.dumps(data), content_type='application/json')
@@ -314,6 +324,7 @@ def cold_start_interest(request):
     print("Cold Start Interest >> Interest: " + interest.name)
 
     cold_start_recommendations = {}
+    possible_interest_recommendations = {}
     if str(variability_environment_data.name) != '':
         # Loading interest's items to a dictionary
         dict_items = {}
@@ -322,15 +333,24 @@ def cold_start_interest(request):
             x += 1
             dict_items[x] = i.item_name.strip()
 
+        number_recommendations = int(number_recommendations)
+
         # Calling to the ColdStart class
         cs = ColdStart(file_rating_path=str(variability_environment_data.file),
                        delimiter=variability_environment_data.separator,
                        dict_items=dict_items,
-                       number_recommendations=number_recommendations)
-        cold_start_recommendations = cs.calculate_cold_start()
+                       number_recommendations=number_recommendations + 4)
+        recommendations = cs.calculate_cold_start()
+
+        for x in list(recommendations)[0:number_recommendations]:
+            cold_start_recommendations[x] = recommendations[x]
+
+        for x in list(recommendations)[number_recommendations:]:
+            possible_interest_recommendations[x] = recommendations[x]
 
     data = {
-        'cold_start_recommendations': cold_start_recommendations
+        'cold_start_recommendations': cold_start_recommendations,
+        'possible_interest_recommendations': possible_interest_recommendations
     }
 
     return HttpResponse(json.dumps(data), content_type='application/json')
@@ -382,15 +402,26 @@ def cold_start_features(request):
         variability_environment=variability_environment,
         base_on='R')
 
+    cold_start_recommendations = {}
+    possible_interest_recommendations = {}
+    number_recommendations = int(number_recommendations)
+
     # Calling to the ColdStart class
     cs = ColdStart(file_rating_path=str(variability_environment_data_rating.file),
                    delimiter=variability_environment_data_rating.separator,
                    dict_items=dict_items,
-                   number_recommendations=number_recommendations)
-    cold_start_recommendations = cs.calculate_cold_start()
+                   number_recommendations=number_recommendations + 4)
+    recommendations = cs.calculate_cold_start()
+
+    for x in list(recommendations)[0:number_recommendations]:
+        cold_start_recommendations[x] = recommendations[x]
+
+    for x in list(recommendations)[number_recommendations:]:
+        possible_interest_recommendations[x] = recommendations[x]
 
     data = {
-        'cold_start_recommendations': cold_start_recommendations
+        'cold_start_recommendations': cold_start_recommendations,
+        'possible_interest_recommendations': possible_interest_recommendations
     }
 
     return HttpResponse(json.dumps(data), content_type='application/json')
@@ -419,32 +450,44 @@ def transition_components_based_ratings(request):
     print("Transition Component Based Rating >> Item to evaluated: " + item_evaluated)
     print("Transition Component Based Rating >> Algorithm: " + algorithm.name)
 
+    number_recommendations = int(number_recommendations)
+
     tran_comp_rating_recommendation = {}
+    possible_interest_recommendations = {}
+    recommendations = {}
+
     if str(variability_environment_data.name) != '':
         if algorithm.pk == 11:
-            tran_comp_rating_recommendation = \
+            recommendations = \
                 tcbr(file_path=str(variability_environment_data.file),
                      delimiter=variability_environment_data.separator,
                      item_evaluated=item_evaluated,
-                     number_recommendations=number_recommendations).svd()
+                     number_recommendations=number_recommendations + 4).svd()
         elif algorithm.pk == 13:
-            tran_comp_rating_recommendation = \
+            recommendations = \
                 tcbr(file_path=str(variability_environment_data.file),
                      delimiter=variability_environment_data.separator,
                      item_evaluated=item_evaluated,
-                     number_recommendations=number_recommendations).knn_basic()
+                     number_recommendations=number_recommendations + 4).knn_basic()
         elif algorithm.pk == 14:
-            tran_comp_rating_recommendation = \
+            recommendations = \
                 tcbr(file_path=str(variability_environment_data.file),
                      delimiter=variability_environment_data.separator,
                      item_evaluated=item_evaluated,
-                     number_recommendations=number_recommendations).knn_centered()
+                     number_recommendations=number_recommendations + 4).knn_centered()
 
         else:
             pass
 
+    for x in list(recommendations)[0:number_recommendations]:
+        tran_comp_rating_recommendation[x] = recommendations[x]
+
+    for x in list(recommendations)[number_recommendations:]:
+        possible_interest_recommendations[x] = recommendations[x]
+
     data = {
-        'tran_comp_rating_recommendation': tran_comp_rating_recommendation
+        'tran_comp_rating_recommendation': tran_comp_rating_recommendation,
+        'possible_interest_recommendations': possible_interest_recommendations
     }
 
     return HttpResponse(json.dumps(data), content_type='application/json')
@@ -473,24 +516,36 @@ def transition_components_based_features(request):
     print("Transition Component Based Features >> Item to evaluated: " + item_evaluated)
     print("Transition Component Based Features >> Algorithm: " + algorithm.name)
 
+    number_recommendations = int(number_recommendations)
+
     tran_comp_featuring_recommendation = {}
+    possible_interest_recommendations = {}
+    recommendations = {}
+
     if str(variability_environment_data.name) != '':
         # Calling the algorithm
         if algorithm.pk == 16:
             tran_comp_bas_fea = tcbf(file_path=str(variability_environment_data.file),
                                      delimiter=variability_environment_data.separator,
                                      item_evaluated=item_evaluated,
-                                     number_recommendations=number_recommendations)
+                                     number_recommendations=number_recommendations + 4)
 
-            tran_comp_featuring_recommendation = tran_comp_bas_fea.tf_idf_cosine_similarity(
+            recommendations = tran_comp_bas_fea.tf_idf_cosine_similarity(
                 item_col=variability_environment_data.item_column,
                 features_col=variability_environment_data.feature_column)
 
         else:
             pass
 
+    for x in list(recommendations)[0:number_recommendations]:
+        tran_comp_featuring_recommendation[x] = recommendations[x]
+
+    for x in list(recommendations)[number_recommendations:]:
+        possible_interest_recommendations[x] = recommendations[x]
+
     data = {
-        'tran_comp_featuring_recommendation': tran_comp_featuring_recommendation
+        'tran_comp_featuring_recommendation': tran_comp_featuring_recommendation,
+        'possible_interest_recommendations': possible_interest_recommendations
     }
 
     return HttpResponse(json.dumps(data), content_type='application/json')
