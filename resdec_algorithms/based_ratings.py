@@ -55,8 +55,12 @@ class TransitionComponentsBasedFeatures:
         sys.setdefaultencoding('latin1')
 
     def svd(self):
+        print("calculating svd... File Rating: " + self.file_path)
+        print("calculating svd... Item to Evaluate: " + self.item_evaluated)
+        print("calculating svd... Number of recommendations: " + str(self.number_recommendations))
+
         # Read the files with pandas
-        data = pd.read_csv(self.file_path, engine='python', delimiter=str(self.delimiter))
+        data = pd.read_csv(self.file_path, engine='python', delimiter=str(self.delimiter), header=None)
 
         # Create the ratings matrix of shape (M x U) with rows as movies and columns as users
         ratings_mat = np.ndarray(
@@ -89,7 +93,7 @@ class TransitionComponentsBasedFeatures:
         print("calculating knn basic... Number of recommendations: " + str(self.number_recommendations))
 
         # Reader
-        reader = Reader(line_format='user item rating', sep=self.delimiter, skip_lines=1)
+        reader = Reader(line_format='item user rating', sep=self.delimiter, skip_lines=1)
 
         # Dataset
         data = Dataset.load_from_file(self.file_path, reader=reader)
@@ -120,7 +124,7 @@ class TransitionComponentsBasedFeatures:
         print("calculating knn centered... Number of recommendations: " + str(self.number_recommendations))
 
         # Reader
-        reader = Reader(line_format='user item rating', sep=self.delimiter, skip_lines=1)
+        reader = Reader(line_format='item user rating', sep=self.delimiter, skip_lines=1)
 
         # Dataset
         data = Dataset.load_from_file(self.file_path, reader=reader)

@@ -38,7 +38,6 @@ class RelationshipType(models.Model):
 
 class VariabilityEnvironmentData(models.Model):
     variability_environment = models.ForeignKey(VariabilityEnvironment, on_delete=models.CASCADE)
-    relationship_type = models.ForeignKey(RelationshipType, on_delete=models.CASCADE)
     base_on = models.CharField(choices=BASE_ON, max_length=1, default='')
     name = models.CharField(max_length=40)
     extension = models.CharField(max_length=4)
@@ -48,9 +47,10 @@ class VariabilityEnvironmentData(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True, blank=True)
     status = models.CharField(choices=STATUS, max_length=1, default='A')
     separator = models.CharField(max_length=1, default='|')
-    item_column = models.CharField(max_length=20, default='')
-    feature_column = models.CharField(max_length=20, default='')
-    rating_column = models.CharField(max_length=20, default='')
+    item_column = models.CharField(max_length=20, default='', blank=True)
+    user_column = models.CharField(max_length=20, default='', blank=True)
+    feature_column = models.CharField(max_length=20, default='', blank=True)
+    rating_column = models.CharField(max_length=20, default='', blank=True)
 
     def __str__(self):
         return self.name

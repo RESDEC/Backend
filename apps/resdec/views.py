@@ -90,16 +90,13 @@ def list_interests(request):
 # Function what respond a collection with the features in the data file.
 def list_features(request):
     variability_environment_id = request.GET.get('var_environment_id', 0)
-    relationship_type_id = request.GET.get('relationship_type_id', 0)
     feature = request.GET.get('feature', '')
 
     variability_environment = get_object_or_404(VariabilityEnvironment, pk=variability_environment_id)
-    relationship_type = get_object_or_404(RelationshipType, pk=relationship_type_id)
 
     # Get data file
     variability_environment_data = get_variability_environment_data(
         variability_environment=variability_environment,
-        relationship_type=relationship_type,
         base_on="F")
 
     error = ''
@@ -175,16 +172,13 @@ def list_last_items_used(request):
 # List of the items with a specific variability environment and relationship type
 def list_items(request):
     variability_environment_id = request.GET.get('var_environment_id', '')
-    relationship_type_id = request.GET.get('relationship_type_id', '')
     item = request.GET.get('item', '')
 
     variability_environment = get_object_or_404(VariabilityEnvironment, pk=variability_environment_id)
-    relationship_type = get_object_or_404(RelationshipType, pk=relationship_type_id)
 
     # Get data file
     variability_environment_data = get_variability_environment_data(
         variability_environment=variability_environment,
-        relationship_type=relationship_type,
         base_on='R')
 
     error = 0
@@ -197,7 +191,7 @@ def list_items(request):
                          encoding='latin-1',
                          sep=str(variability_environment_data.separator))
         # Items distinct
-        items = df[df.columns[1]].unique()
+        items = df[df.columns[0]].unique()
         # Adding features to the dictionary
         x = 0
         for i in items:
@@ -241,10 +235,9 @@ def list_algorithms(request):
 
 
 # Function to get variability environment's data file
-def get_variability_environment_data(variability_environment=None, relationship_type=None, base_on=None):
+def get_variability_environment_data(variability_environment=None, base_on=None):
     variability_environment_data_list = VariabilityEnvironmentData.objects.filter(
         variability_environment=variability_environment,
-        relationship_type=relationship_type,
         base_on__contains=base_on,
         status__contains="A").order_by('-pub_date')
 
@@ -264,7 +257,6 @@ def cold_start_all(request):
     variability_environment = get_object_or_404(VariabilityEnvironment, pk=variability_environment_id)
 
     variability_environment_data = get_variability_environment_data(
-        relationship_type=relationship_type,
         variability_environment=variability_environment,
         base_on='R')
 
@@ -314,7 +306,6 @@ def cold_start_interest(request):
     interest_items = InterestItemsNames.objects.filter(interest=interest)
 
     variability_environment_data = get_variability_environment_data(
-        relationship_type=relationship_type,
         variability_environment=variability_environment,
         base_on='R')
 
@@ -357,7 +348,6 @@ def cold_start_features(request):
 
     # Loading csv file with the features for this relationship type and environment
     variability_environment_data_features = get_variability_environment_data(
-        relationship_type=relationship_type,
         variability_environment=variability_environment,
         base_on="F"
     )
@@ -389,7 +379,6 @@ def cold_start_features(request):
 
     # Getting the rating data to calculate cold start with the items filtered.
     variability_environment_data_rating = get_variability_environment_data(
-        relationship_type=relationship_type,
         variability_environment=variability_environment,
         base_on='R')
 
@@ -422,7 +411,6 @@ def transition_components_based_ratings(request):
     algorithm = get_object_or_404(Algorithm, pk=algorithm_id)
 
     variability_environment_data = get_variability_environment_data(
-        relationship_type=relationship_type,
         variability_environment=variability_environment,
         base_on='R')
 
@@ -477,7 +465,6 @@ def transition_components_based_features(request):
     algorithm = get_object_or_404(Algorithm, pk=algorithm_id)
 
     variability_environment_data = get_variability_environment_data(
-        relationship_type=relationship_type,
         variability_environment=variability_environment,
         base_on='F')
 
