@@ -62,12 +62,20 @@ class TransitionComponentsBasedFeatures:
         # Read the files with pandas
         data = pd.read_csv(self.file_path, engine='python', delimiter=str(self.delimiter), header=None)
 
-        # Create the ratings matrix of shape (M x U) with rows as movies and columns as users
+        # Getting the unique values for the items and the users
+        unique_items = data[data.columns[0]].unique()
+        unique_users = data[data.columns[1]].unique()
+
+        # Getting max values for items and users
+        item_max = len(unique_items)
+        user_max = len(unique_users)
+
+        # Create the ratings matrix of shape (M x U) with rows as items and columns as users
         ratings_mat = np.ndarray(
-            shape=(np.max(data[0].values), np.max(data[1].values)),
+            shape=(item_max, user_max),
             dtype=np.uint8
         )
-        ratings_mat[data[0].values - 1, data[1].values - 1] = data[2].values
+        ratings_mat[data[0] - 1, data[1] - 1] = data[2].values
 
         # Normalise matrix (subtract mean off)
         normalised_mat = ratings_mat - np.asarray([(np.mean(ratings_mat, 1))]).T
