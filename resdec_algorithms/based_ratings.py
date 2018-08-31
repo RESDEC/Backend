@@ -35,11 +35,11 @@ def get_top_n(predictions, n=10):
     return top_n
 
 
-def top_cosine_similarity(data, movie_id, top_n=10):
-    index = movie_id - 1  # Movie id starts from 1
-    movie_row = data[index, :]
+def top_cosine_similarity(data, item_id, top_n=10):
+    index = item_id - 1  # Movie id starts from 1
+    item_row = data[index, :]
     magnitude = np.sqrt(np.einsum('ij, ij -> i', data, data))
-    similarity = np.dot(movie_row, data.T) / (magnitude[index] * magnitude)
+    similarity = np.dot(item_row, data.T) / (magnitude[index] * magnitude)
     sort_indexes = np.argsort(-similarity)
     return sort_indexes[:top_n]
 
@@ -104,6 +104,9 @@ class TransitionComponentsBasedFeatures:
         merged_items = pd.merge(df, df_items, left_on='item', right_on='item_name', how='inner')
         merged_all = pd.merge(merged_items, df_users, left_on='user', right_on='user_name', how='inner')
 
+        print("calculating svd... Total items to evaluated: " + str(np.max(merged_all.item_id.values)))
+        print("calculating svd... Total users to evaluated: " + str(np.max(merged_all.user_id.values)))
+
         # Create the ratings matrix of shape (M x U) with rows as items and columns as users
         ratings_mat = np.ndarray(
             shape=(np.max(merged_all.item_id.values), np.max(merged_all.user_id.values)),
@@ -116,19 +119,26 @@ class TransitionComponentsBasedFeatures:
         normalised_mat = ratings_mat - np.asarray([(np.mean(ratings_mat, 1))]).T
 
         # Compute SVD
-        A = normalised_mat.T / np.sqrt(ratings_mat.shape[0] - 1)
-        U, S, V = np.linalg.svd(A)
+        a = normalised_mat.T / np.sqrt(ratings_mat.shape[0] - 1)
+        U, S, V = np.linalg.svd(a)
 
         # Select K principal components to represent the items, a items to find recommendations
         # and print the top_n results
         k = 50
-        item = self.item_evaluated
         top_n = self.number_recommendations
+        item = df_items.loc[df_items['item_name'] == self.item_evaluated].item_id.values[0]
 
         sliced = V.T[:, :k]  # representative data
         indexes = top_cosine_similarity(sliced, item, top_n)
 
-        print(indexes)
+        # Return the result
+        dictionary_svd = {}
+        x = 0
+        for i in indexes + 1:
+            x += 1
+            dictionary_svd[x] = df_items.loc[df_items['item_id'] == i].item_name.values[0]
+
+        return dictionary_svd
 
     def knn_basic(self):
         print("calculating knn basic... File Rating: " + self.file_path)
