@@ -60,22 +60,57 @@ class TransitionComponentsBasedFeatures:
         print("calculating svd... Number of recommendations: " + str(self.number_recommendations))
 
         # Read the files with pandas
-        data = pd.read_csv(self.file_path, engine='python', delimiter=str(self.delimiter), header=None)
+        df = pd.read_csv(self.file_path, engine='python',
+                         names=['item', 'user', 'rating'],
+                         delimiter=str(self.delimiter), header=None)
 
-        # Getting the unique values for the items and the users
-        unique_items = data[data.columns[0]].unique()
-        unique_users = data[data.columns[1]].unique()
+        """Preparing data with indexes, items and users"""
 
-        # Getting max values for items and users
-        item_max = len(unique_items)
-        user_max = len(unique_users)
+        # Unique items and users
+        unique_items = pd.unique(df.item.values)
+        unique_users = pd.unique(df.user.values)
+
+        # Dictionaries
+        arr_items_index = []
+        arr_items_names = []
+        dict_items = {}
+        x = 0
+        for i in unique_items:
+            x += 1
+            arr_items_index.append(x)
+            arr_items_names.append(i)
+            dict_items[x] = i
+
+        arr_users_index = []
+        arr_users_names = []
+        dict_users = {}
+        y = 0
+        for u in unique_users:
+            y += 1
+            arr_users_index.append(y)
+            arr_users_names.append(u)
+            dict_users[y] = u
+
+        dict_id_items = {'item_id': arr_items_index,
+                         'item_name': arr_items_names}
+        dict_id_users = {'user_id': arr_users_index,
+                         'user_name': arr_users_names}
+
+        # DataFrames Items and Users with id's
+        df_items = pd.DataFrame(data=dict_id_items)
+        df_users = pd.DataFrame(data=dict_id_users)
+
+        # Merging
+        merged_items = pd.merge(df, df_items, left_on='item', right_on='item_name', how='inner')
+        merged_all = pd.merge(merged_items, df_users, left_on='user', right_on='user_name', how='inner')
 
         # Create the ratings matrix of shape (M x U) with rows as items and columns as users
         ratings_mat = np.ndarray(
-            shape=(item_max, user_max),
+            shape=(np.max(merged_all.item_id.values), np.max(merged_all.user_id.values)),
             dtype=np.uint8
         )
-        ratings_mat[data[0] - 1, data[1] - 1] = data[2].values
+        ratings_mat[merged_all.item_id.values - 1,
+                    merged_all.user_id.values - 1] = merged_all.rating.values
 
         # Normalise matrix (subtract mean off)
         normalised_mat = ratings_mat - np.asarray([(np.mean(ratings_mat, 1))]).T
