@@ -25,9 +25,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'l1^flac2r8sd3+6yiey%8u0o-jcnkr69v&dttid6to55s&(4gq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost',
+                 u'www.resdec.com',
+                 u'186.5.39.187',
                  u'resdec-solution-web.herokuapp.com',
                  u'127.0.0.1',
                  u'192.168.0.7',
