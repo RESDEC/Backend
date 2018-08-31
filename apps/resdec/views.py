@@ -128,6 +128,53 @@ def list_features(request):
     return HttpResponse(json.dumps(data), content_type='application/json')
 
 
+# Function to get the features of an item.
+def list_features_item(request):
+    variability_environment_id = request.GET.get('var_environment_id', '')
+    item = request.GET.get('item', '')
+
+    variability_environment = get_object_or_404(VariabilityEnvironment, pk=variability_environment_id)
+
+    # Get data file
+    variability_environment_data = get_variability_environment_data(
+        variability_environment=variability_environment,
+        base_on="F")
+
+    error = 0
+    err_msg = ''
+    dict_features = {}
+    if str(variability_environment_data.file) != '':
+        print("List features of item>> Variability Environment Data: " + str(variability_environment_data.file))
+
+        # DataFrame from reading the csv
+        df = pd.read_csv(str(variability_environment_data.file),
+                         encoding='latin-1',
+                         sep=str(variability_environment_data.separator),
+                         names=['plugins', 'tags'])
+
+        # Getting the tags of the item
+        x = 9
+        for f in df.loc[df['plugins'] == item].tags.values:
+            x += 1
+            dict_features[x] = f
+
+        if len(dict_features) == 0:
+            error = 1
+            err_msg = 'No features found for the item: ' + item
+    else:
+        error = 3
+        err_msg = 'No file found to read !!'
+
+    # Loading data response
+    data = {
+        'error': error,
+        'err_msg': err_msg,
+        'list_features_item': dict_features
+    }
+
+    return HttpResponse(json.dumps(data), content_type='application/json')
+
+
 # Getting the last 'n' of items used.
 def list_last_items_used(request):
     username = request.GET.get('username', '')
