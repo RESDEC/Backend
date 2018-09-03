@@ -27,13 +27,7 @@ SECRET_KEY = 'l1^flac2r8sd3+6yiey%8u0o-jcnkr69v&dttid6to55s&(4gq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost',
-                 u'www.resdec.com',
-                 u'186.5.39.187',
-                 u'resdec-solution-web.herokuapp.com',
-                 u'127.0.0.1',
-                 u'192.168.0.7',
-                 ]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -118,6 +112,25 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Log
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'log/debug.log'),
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
