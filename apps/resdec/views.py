@@ -291,6 +291,13 @@ def get_variability_environment_data(variability_environment=None, base_on=None)
     return variability_environment_data_list[0]
 
 
+# Function to save the item searched
+def save_historic_user_item(user=None, variability_environment=None, item_name=None):
+    history = HistoryUserItems(user=user, variability_environment=variability_environment,
+                               item_name=item_name)
+    history.save()
+
+
 """Functions to use Relationship type: Cold Start"""
 
 
@@ -483,10 +490,12 @@ def transition_components_based_ratings(request):
     algorithm_id = request.GET.get('algorithm_id', '')
     item_evaluated = request.GET.get('item_evaluated', '')
     number_recommendations = request.GET.get('number_recommendations', '')
+    username = request.GET.get('username', '')
 
     relationship_type = get_object_or_404(RelationshipType, pk=relationship_type_id)
     variability_environment = get_object_or_404(VariabilityEnvironment, pk=variability_environment_id)
     algorithm = get_object_or_404(Algorithm, pk=algorithm_id)
+    user = User.objects.get(username__contains=username)
 
     variability_environment_data = get_variability_environment_data(
         variability_environment=variability_environment,
@@ -526,6 +535,9 @@ def transition_components_based_ratings(request):
         else:
             pass
 
+    # Saving item used
+    save_historic_user_item(user=user, variability_environment=variability_environment, item_name=item_evaluated)
+
     for x in list(recommendations)[0:number_recommendations]:
         tran_comp_rating_recommendation[x] = recommendations[x]
 
@@ -549,10 +561,12 @@ def transition_components_based_features(request):
     algorithm_id = request.GET.get('algorithm_id', '')
     item_evaluated = request.GET.get('item_evaluated', '')
     number_recommendations = request.GET.get('number_recommendations', '')
+    username = request.GET.get('username', '')
 
     relationship_type = get_object_or_404(RelationshipType, pk=relationship_type_id)
     variability_environment = get_object_or_404(VariabilityEnvironment, pk=variability_environment_id)
     algorithm = get_object_or_404(Algorithm, pk=algorithm_id)
+    user = User.objects.get(username__contains=username)
 
     variability_environment_data = get_variability_environment_data(
         variability_environment=variability_environment,
@@ -583,6 +597,9 @@ def transition_components_based_features(request):
 
         else:
             pass
+
+    # Saving item used
+    save_historic_user_item(user=user, variability_environment=variability_environment, item_name=item_evaluated)
 
     for x in list(recommendations)[0:number_recommendations]:
         tran_comp_featuring_recommendation[x] = recommendations[x]
