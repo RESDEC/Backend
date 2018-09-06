@@ -177,6 +177,7 @@ def list_features_item(request):
 
 # Getting the last 'n' of items used.
 def list_last_items_used(request):
+    print('hola!')
     username = request.GET.get('username', '')
     variability_environment_id = request.GET.get('var_environment_id', '')
     number_items = request.GET.get('number_items', 0)
@@ -194,12 +195,19 @@ def list_last_items_used(request):
         history_user_items = HistoryUserItems.objects.filter(
             user=user,
             variability_environment=variability_environment,
-        ).order_by('-date_use')[:number_items]
+        ).order_by('-date_use')
 
+        # Distinct the items
+        arr_item = []
+        for hui in history_user_items:
+            if hui.item_name not in arr_item:
+                arr_item.append(hui.item_name)
+
+        # Items to respond
         x = 0
-        for h in history_user_items:
+        for h in arr_item:
             x += 1
-            dict_history_user_items[x] = h.item_name
+            dict_history_user_items[x] = h
 
         data = {
             'error': 0,
