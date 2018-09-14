@@ -91,3 +91,8 @@ class HistoryUserItems(models.Model):
     def __str__(self):
         return self.user.first_name.strip() + " - " + self.variability_environment.name.strip() \
                + self.item_name.strip() + " - " + self.date_use.__str__()
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User)
+    avatar = models.ImageField()

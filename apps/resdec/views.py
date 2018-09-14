@@ -54,6 +54,49 @@ def logout_view(request):
     return HttpResponse(json.dumps(data), content_type="application/json")
 
 
+# Function to get the user data
+def user_get(request):
+    username = request.GET.get('username', '')
+    user = User.objects.get(username__contains=username)
+
+    dict_user_data = {
+        'first_name': user.first_name,
+        'last_name': user.last_name,
+        'email': user.email
+    }
+
+    data = {
+        'user_data': dict_user_data
+    }
+
+    return HttpResponse(json.dumps(data), content_type='application/json')
+
+
+# Function to update the user data
+def user_put(request):
+    username = request.GET.get('username', '')
+    first_name = request.GET.get('first_name', '')
+    last_name = request.GET.get('last_name', '')
+    email = request.GET.get('email', '')
+    password = request.GET.get('password', '')
+
+    # Getting the user form the data base
+    user = User.objects.get(username__contains=username)
+
+    user.first_name = first_name
+    user.last_name = last_name
+    user.email = email
+    user.set_password(password)
+    user.save()
+
+    data = {
+        'error': 0,
+        'err_msg': ''
+    }
+
+    return HttpResponse(json.dumps(data), content_type='application/json')
+
+
 # This function respond a collection with the variability environments
 def list_variability_environment(request):
     variability_environment_list = VariabilityEnvironment.objects.filter(status__contains='A')
@@ -177,7 +220,6 @@ def list_features_item(request):
 
 # Getting the last 'n' of items used.
 def list_last_items_used(request):
-    print('hola!')
     username = request.GET.get('username', '')
     variability_environment_id = request.GET.get('var_environment_id', '')
     number_items = request.GET.get('number_items', 0)
