@@ -159,7 +159,7 @@ class TransitionComponentsBasedFeatures:
 
         item_inner_id = algo.trainset.to_inner_iid(self.item_evaluated)
 
-        item_neighbors = algo.get_neighbors(item_inner_id, k=5)
+        item_neighbors = algo.get_neighbors(item_inner_id, k=int(self.number_recommendations))
 
         item_neighbors = (algo.trainset.to_raw_iid(inner_id) for inner_id in item_neighbors)
 
