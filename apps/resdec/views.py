@@ -1,10 +1,11 @@
 from django.contrib.auth import authenticate, logout
 from django.contrib.auth.models import User
+from django.core.files.storage import default_storage
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 
 from .models import RelationshipType, VariabilityEnvironment, VariabilityEnvironmentData, Algorithm, \
-    Interest, InterestItemsNames, HistoryUserItems
+    Interest, InterestItemsNames, HistoryUserItems, UserProfile
 
 from resdec_algorithms.cold_start import ColdStart
 from resdec_algorithms.based_ratings import TransitionComponentsBasedFeatures as tcbr
@@ -58,11 +59,17 @@ def logout_view(request):
 def user_get(request):
     username = request.GET.get('username', '')
     user = User.objects.get(username__contains=username)
+    user_profile = UserProfile.objects.filter(user=user)
+
+    url_photo = ''
+    if user_profile:
+        url_photo = user_profile[0].avatar.url
 
     dict_user_data = {
         'first_name': user.first_name,
         'last_name': user.last_name,
-        'email': user.email
+        'email': user.email,
+        'photo': url_photo
     }
 
     data = {
@@ -88,6 +95,30 @@ def user_put(request):
     user.email = email
     user.set_password(password)
     user.save()
+
+    data = {
+        'error': 0,
+        'err_msg': ''
+    }
+
+    return HttpResponse(json.dumps(data), content_type='application/json')
+
+
+# Function to update the user photo
+def user_photo_upload(request):
+    username = request.GET.get('username', '')
+    photo = request.FILES['photo']
+
+    user = User.objects.get(username=username)
+    user_profile = UserProfile.objects.filter(user=user)
+
+    save_path = 'user_photos/'
+    path = default_storage.save(save_path, photo)
+
+    if user_profile:
+        user_profile[0].avatar = path
+    else:
+        UserProfile.objects.create(user=user, avatar=path)
 
     data = {
         'error': 0,

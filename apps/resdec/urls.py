@@ -10,6 +10,7 @@ urlpatterns = [
 
     url(r'^user_get/', views.user_get, name='user_get'),
     url(r'^user_put/', views.user_put, name='user_put'),
+    url(r'^user_photo_upload/', views.user_photo_upload, name='user_photo_upload'),
 
     url(r'^list_variability_environments/$', views.list_variability_environment, name='list_variability_environment'),
     url(r'^list_interests/$', views.list_interests, name='list_interests'),

@@ -95,4 +95,4 @@ class HistoryUserItems(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
-    avatar = models.ImageField()
+    avatar = models.ImageField(upload_to='user_photos/', blank=True)
