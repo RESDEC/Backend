@@ -43,7 +43,7 @@ class VariabilityEnvironmentData(models.Model):
     extension = models.CharField(max_length=4)
     size = models.IntegerField(default=0)
     number_records = models.IntegerField(default=0)
-    file = models.FileField(upload_to="media/user_data_uploaded/", max_length=500)
+    file = models.FileField(upload_to="user_data_uploaded", max_length=500)
     pub_date = models.DateTimeField(auto_now_add=True, blank=True)
     status = models.CharField(choices=STATUS, max_length=1, default='A')
     separator = models.CharField(max_length=1, default='|')
@@ -95,4 +95,4 @@ class HistoryUserItems(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
-    avatar = models.ImageField(upload_to="media/user_photos/", blank=True, max_length=500)
+    avatar = models.ImageField(upload_to="user_photos", blank=True, max_length=500)
