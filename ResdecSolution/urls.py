@@ -13,7 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.conf.urls import url, include
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth.views import login, logout, logout_then_login
 from .views import index
@@ -24,4 +26,4 @@ urlpatterns = [
     url(r'^accounts/login/$', login, {'template_name': 'login.html'}, name='login'),
     url(r'^logout/$', logout, name='logout'),
     url(r'^resdec/', include('apps.resdec.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

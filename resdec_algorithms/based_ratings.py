@@ -125,7 +125,7 @@ class TransitionComponentsBasedFeatures:
         # Select K principal components to represent the items, a items to find recommendations
         # and print the top_n results
         k = 50
-        top_n = self.number_recommendations
+        top_n = int(self.number_recommendations) + 1
         item = df_items.loc[df_items['item_name'] == self.item_evaluated].item_id.values[0]
 
         sliced = V.T[:, :k]  # representative data
@@ -135,8 +135,11 @@ class TransitionComponentsBasedFeatures:
         dictionary_svd = {}
         x = 0
         for i in indexes + 1:
-            x += 1
-            dictionary_svd[x] = df_items.loc[df_items['item_id'] == i].item_name.values[0]
+            item_str = df_items.loc[df_items['item_id'] == i].item_name.values[0]
+            if item_str != self.item_evaluated:
+                print(item_str)
+                x += 1
+                dictionary_svd[x] = item_str
 
         return dictionary_svd
 
