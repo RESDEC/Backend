@@ -38,10 +38,11 @@ class ColdStart:
         list_result.sort(key=lambda x: float(x[1]), reverse=True)
 
         print("\nCold Start >> Recommended items:")
+        dict_items_result = {}
+        x = 0
         for i in list_result[:int(self.number_recommendations)]:
+            x += 1
+            dict_items_result[x] = i[0]
             print("- " + i[0])
-
-        # List of tuples to dictionary
-        dict_items_result = dict(list_result[:int(self.number_recommendations)])
 
         return dict_items_result
