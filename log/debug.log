@@ -131,3 +131,1096 @@ TypeError: list indices must be integers, not tuple
             WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
             ORDER BY name; args=None
 (0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+"GET /resdec/cold_start_features?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5 HTTP/1.1" 301 0
+(0.000) SELECT "resdec_relationshiptype"."id", "resdec_relationshiptype"."name", "resdec_relationshiptype"."status" FROM "resdec_relationshiptype" WHERE "resdec_relationshiptype"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.001) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE ("resdec_variabilityenvironmentdata"."base_on" LIKE '%F%' ESCAPE '\' AND "resdec_variabilityenvironmentdata"."variability_environment_id" = 1 AND "resdec_variabilityenvironmentdata"."status" LIKE '%A%' ESCAPE '\') ORDER BY "resdec_variabilityenvironmentdata"."pub_date" DESC LIMIT 1; args=(u'%F%', 1, u'%A%')
+(0.000) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE ("resdec_variabilityenvironmentdata"."base_on" LIKE '%R%' ESCAPE '\' AND "resdec_variabilityenvironmentdata"."variability_environment_id" = 1 AND "resdec_variabilityenvironmentdata"."status" LIKE '%A%' ESCAPE '\') ORDER BY "resdec_variabilityenvironmentdata"."pub_date" DESC LIMIT 1; args=(u'%R%', 1, u'%A%')
+"GET /resdec/cold_start_features/?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5 HTTP/1.1" 200 289
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+"GET /resdec/cold_start_all?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5 HTTP/1.1" 301 0
+(0.001) SELECT "resdec_relationshiptype"."id", "resdec_relationshiptype"."name", "resdec_relationshiptype"."status" FROM "resdec_relationshiptype" WHERE "resdec_relationshiptype"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.001) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE ("resdec_variabilityenvironmentdata"."base_on" LIKE '%R%' ESCAPE '\' AND "resdec_variabilityenvironmentdata"."variability_environment_id" = 1 AND "resdec_variabilityenvironmentdata"."status" LIKE '%A%' ESCAPE '\') ORDER BY "resdec_variabilityenvironmentdata"."pub_date" DESC LIMIT 1; args=(u'%R%', 1, u'%A%')
+"GET /resdec/cold_start_all/?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5 HTTP/1.1" 200 326
+(0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+"GET / HTTP/1.1" 200 26625
+"GET /static/css/style_dynamic_responsive.css HTTP/1.1" 200 427
+"GET /static/css/style_dynamic.css HTTP/1.1" 200 27295
+"GET /static/css/font-awesome/font-awesome.min.css HTTP/1.1" 200 23742
+"GET /static/css/responsive.min.css HTTP/1.1" 200 50784
+"GET /static/css/layerslider.css HTTP/1.1" 200 16602
+"GET /static/js/layerslider.kreaturamedia.jquery.js HTTP/1.1" 200 56434
+"GET /static/js/layerslider.transitions.js HTTP/1.1" 200 21106
+"GET /static/js/lemmon-slider.min.js HTTP/1.1" 200 6059
+"GET /static/css/style.css HTTP/1.1" 200 4686
+"GET /static/js/jquery.mousewheel.min.js HTTP/1.1" 200 1392
+"GET /static/js/default_dyamic.js HTTP/1.1" 200 4207
+"GET /static/js/custom_js.js HTTP/1.1" 200 90
+"GET /static/js/jquery.touchSwipe.min.js HTTP/1.1" 200 11819
+"GET /static/js/jquery.fullPage.min.js HTTP/1.1" 200 23739
+"GET /static/js/jquery.carouFredSel-6.2.1.min.js HTTP/1.1" 200 62633
+"GET /static/js/ajax.min.js HTTP/1.1" 200 20360
+"GET /static/js/default.min.js HTTP/1.1" 200 201498
+"GET /static/js/jquery.js HTTP/1.1" 200 95955
+"GET /static/js/toolbar.js HTTP/1.1" 200 355
+"GET /static/css/stylesheet.min.css HTTP/1.1" 304 0
+"GET /static/css/js_composer.css HTTP/1.1" 304 0
+"GET /static/js/plugins.js HTTP/1.1" 304 0
+"GET /static/images/logo.png HTTP/1.1" 200 68966
+"GET /static/images/icon-security-circle.svg HTTP/1.1" 200 1141
+"GET /static/js/js_composer_front.js HTTP/1.1" 200 27303
+"GET /static/css/fonts/fontawesome-webfont.woff2?v=4.3.0 HTTP/1.1" 404 1726
+"GET /static/css/fonts/fontawesome-webfont.woff?v=4.3.0 HTTP/1.1" 200 44432
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u'<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'apps.resdec.urls' from 'C:\\Users\\HP\\Documents\\Programming\\Python\\Repositorios\\resdec-web-master\\apps\\resdec\\urls.pyc'> (resdec:resdec) ^resdec/>"
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2576
+(0.041) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'w3w42zafe1e6iszzrza6txg0lrxpk9ba' AND "django_session"."expire_date" > '2018-09-18 22:44:59.224000'); args=('w3w42zafe1e6iszzrza6txg0lrxpk9ba', u'2018-09-18 22:44:59.224000')
+(0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+Exception while resolving variable 'is_popup' in template 'admin/index.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [is_popup] in u"[{'False': False, 'None': None, 'True': True}, {'current_module': None, u'csrf_token': <SimpleLazyObject: <function _get_val at 0x000000002A6BAAC8>>, 'user': <SimpleLazyObject: <User: admin>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x000000002A987978>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'WARNING': 30, 'SUCCESS': 25, 'ERROR': 40}, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x000000002A84B1D0>, u'request': <WSGIRequest: GET '/admin/'>, 'modules': []}, {}, {'site_header': u'Django administration', 'available_apps': [{'app_url': u'/admin/auth/', 'models': [{'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/auth/group/', 'object_name': 'Group', 'name': u'Groups', 'add_url': u'/admin/auth/group/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/auth/user/', 'object_name': 'User', 'name': u'Users', 'add_url': u'/admin/auth/user/add/'}], 'has_module_perms': True, 'name': u'Authentication and Authorization', 'app_label': 'auth'}, {'app_url': u'/admin/frontend/', 'models': [{'perms': {u'add': False, u'change': True, u'delete': False}, 'admin_url': u'/admin/frontend/module/', 'object_name': 'Module', 'name': u'Modules'}], 'has_module_perms': True, 'name': u'Frontend', 'app_label': 'frontend'}, {'app_url': u'/admin/resdec/', 'models': [{'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/algorithm/', 'object_name': 'Algorithm', 'name': u'Algorithms', 'add_url': u'/admin/resdec/algorithm/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/historyuseritems/', 'object_name': 'HistoryUserItems', 'name': u'History user itemss', 'add_url': u'/admin/resdec/historyuseritems/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/interestitemsnames/', 'object_name': 'InterestItemsNames', 'name': u'Interest items namess', 'add_url': u'/admin/resdec/interestitemsnames/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/interest/', 'object_name': 'Interest', 'name': u'Interests', 'add_url': u'/admin/resdec/interest/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/relationshiptype/', 'object_name': 'RelationshipType', 'name': u'Relationship types', 'add_url': u'/admin/resdec/relationshiptype/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/userprofile/', 'object_name': 'UserProfile', 'name': u'User profiles', 'add_url': u'/admin/resdec/userprofile/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/variabilityenvironmentdata/', 'object_name': 'VariabilityEnvironmentData', 'name': u'Variability environment datas', 'add_url': u'/admin/resdec/variabilityenvironmentdata/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/variabilityenvironment/', 'object_name': 'VariabilityEnvironment', 'name': u'Variability environments', 'add_url': u'/admin/resdec/variabilityenvironment/add/'}], 'has_module_perms': True, 'name': 'Resdec', 'app_label': 'resdec'}], 'site_title': u'Django site admin', 'title': u'Site administration', 'has_permission': True, 'app_list': [{'app_url': u'/admin/auth/', 'models': [{'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/auth/group/', 'object_name': 'Group', 'name': u'Groups', 'add_url': u'/admin/auth/group/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/auth/user/', 'object_name': 'User', 'name': u'Users', 'add_url': u'/admin/auth/user/add/'}], 'has_module_perms': True, 'name': u'Authentication and Authorization', 'app_label': 'auth'}, {'app_url': u'/admin/frontend/', 'models': [{'perms': {u'add': False, u'change': True, u'delete': False}, 'admin_url': u'/admin/frontend/module/', 'object_name': 'Module', 'name': u'Modules'}], 'has_module_perms': True, 'name': u'Frontend', 'app_label': 'frontend'}, {'app_url': u'/admin/resdec/', 'models': [{'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/algorithm/', 'object_name': 'Algorithm', 'name': u'Algorithms', 'add_url': u'/admin/resdec/algorithm/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/historyuseritems/', 'object_name': 'HistoryUserItems', 'name': u'History user itemss', 'add_url': u'/admin/resdec/historyuseritems/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/interestitemsnames/', 'object_name': 'InterestItemsNames', 'name': u'Interest items namess', 'add_url': u'/admin/resdec/interestitemsnames/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/interest/', 'object_name': 'Interest', 'name': u'Interests', 'add_url': u'/admin/resdec/interest/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/relationshiptype/', 'object_name': 'RelationshipType', 'name': u'Relationship types', 'add_url': u'/admin/resdec/relationshiptype/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/userprofile/', 'object_name': 'UserProfile', 'name': u'User profiles', 'add_url': u'/admin/resdec/userprofile/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/variabilityenvironmentdata/', 'object_name': 'VariabilityEnvironmentData', 'name': u'Variability environment datas', 'add_url': u'/admin/resdec/variabilityenvironmentdata/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/variabilityenvironment/', 'object_name': 'VariabilityEnvironment', 'name': u'Variability environments', 'add_url': u'/admin/resdec/variabilityenvironment/add/'}], 'has_module_perms': True, 'name': 'Resdec', 'app_label': 'resdec'}], u'LANGUAGE_CODE': 'en-us', u'LANGUAGE_BIDI': False, 'site_url': '/'}]"
+Exception while resolving variable 'is_popup' in template 'admin/index.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [is_popup] in u"[{'False': False, 'None': None, 'True': True}, {'current_module': None, u'csrf_token': <SimpleLazyObject: <function _get_val at 0x000000002A6BAAC8>>, 'user': <SimpleLazyObject: <User: admin>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x000000002A987978>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'WARNING': 30, 'SUCCESS': 25, 'ERROR': 40}, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x000000002A84B1D0>, u'request': <WSGIRequest: GET '/admin/'>, 'modules': []}, {}, {'site_header': u'Django administration', 'available_apps': [{'app_url': u'/admin/auth/', 'models': [{'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/auth/group/', 'object_name': 'Group', 'name': u'Groups', 'add_url': u'/admin/auth/group/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/auth/user/', 'object_name': 'User', 'name': u'Users', 'add_url': u'/admin/auth/user/add/'}], 'has_module_perms': True, 'name': u'Authentication and Authorization', 'app_label': 'auth'}, {'app_url': u'/admin/frontend/', 'models': [{'perms': {u'add': False, u'change': True, u'delete': False}, 'admin_url': u'/admin/frontend/module/', 'object_name': 'Module', 'name': u'Modules'}], 'has_module_perms': True, 'name': u'Frontend', 'app_label': 'frontend'}, {'app_url': u'/admin/resdec/', 'models': [{'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/algorithm/', 'object_name': 'Algorithm', 'name': u'Algorithms', 'add_url': u'/admin/resdec/algorithm/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/historyuseritems/', 'object_name': 'HistoryUserItems', 'name': u'History user itemss', 'add_url': u'/admin/resdec/historyuseritems/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/interestitemsnames/', 'object_name': 'InterestItemsNames', 'name': u'Interest items namess', 'add_url': u'/admin/resdec/interestitemsnames/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/interest/', 'object_name': 'Interest', 'name': u'Interests', 'add_url': u'/admin/resdec/interest/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/relationshiptype/', 'object_name': 'RelationshipType', 'name': u'Relationship types', 'add_url': u'/admin/resdec/relationshiptype/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/userprofile/', 'object_name': 'UserProfile', 'name': u'User profiles', 'add_url': u'/admin/resdec/userprofile/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/variabilityenvironmentdata/', 'object_name': 'VariabilityEnvironmentData', 'name': u'Variability environment datas', 'add_url': u'/admin/resdec/variabilityenvironmentdata/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/variabilityenvironment/', 'object_name': 'VariabilityEnvironment', 'name': u'Variability environments', 'add_url': u'/admin/resdec/variabilityenvironment/add/'}], 'has_module_perms': True, 'name': 'Resdec', 'app_label': 'resdec'}], 'site_title': u'Django site admin', 'title': u'Site administration', 'has_permission': True, 'app_list': [{'app_url': u'/admin/auth/', 'models': [{'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/auth/group/', 'object_name': 'Group', 'name': u'Groups', 'add_url': u'/admin/auth/group/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/auth/user/', 'object_name': 'User', 'name': u'Users', 'add_url': u'/admin/auth/user/add/'}], 'has_module_perms': True, 'name': u'Authentication and Authorization', 'app_label': 'auth'}, {'app_url': u'/admin/frontend/', 'models': [{'perms': {u'add': False, u'change': True, u'delete': False}, 'admin_url': u'/admin/frontend/module/', 'object_name': 'Module', 'name': u'Modules'}], 'has_module_perms': True, 'name': u'Frontend', 'app_label': 'frontend'}, {'app_url': u'/admin/resdec/', 'models': [{'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/algorithm/', 'object_name': 'Algorithm', 'name': u'Algorithms', 'add_url': u'/admin/resdec/algorithm/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/historyuseritems/', 'object_name': 'HistoryUserItems', 'name': u'History user itemss', 'add_url': u'/admin/resdec/historyuseritems/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/interestitemsnames/', 'object_name': 'InterestItemsNames', 'name': u'Interest items namess', 'add_url': u'/admin/resdec/interestitemsnames/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/interest/', 'object_name': 'Interest', 'name': u'Interests', 'add_url': u'/admin/resdec/interest/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/relationshiptype/', 'object_name': 'RelationshipType', 'name': u'Relationship types', 'add_url': u'/admin/resdec/relationshiptype/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/userprofile/', 'object_name': 'UserProfile', 'name': u'User profiles', 'add_url': u'/admin/resdec/userprofile/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/variabilityenvironmentdata/', 'object_name': 'VariabilityEnvironmentData', 'name': u'Variability environment datas', 'add_url': u'/admin/resdec/variabilityenvironmentdata/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/variabilityenvironment/', 'object_name': 'VariabilityEnvironment', 'name': u'Variability environments', 'add_url': u'/admin/resdec/variabilityenvironment/add/'}], 'has_module_perms': True, 'name': 'Resdec', 'app_label': 'resdec'}], u'LANGUAGE_CODE': 'en-us', u'LANGUAGE_BIDI': False, 'site_url': '/'}]"
+Exception while resolving variable 'add_url' in template 'admin/index.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [add_url] in u"{'perms': {u'add': False, u'change': True, u'delete': False}, 'admin_url': u'/admin/frontend/module/', 'object_name': 'Module', 'name': u'Modules'}"
+(0.019) SELECT "django_admin_log"."id", "django_admin_log"."action_time", "django_admin_log"."user_id", "django_admin_log"."content_type_id", "django_admin_log"."object_id", "django_admin_log"."object_repr", "django_admin_log"."action_flag", "django_admin_log"."change_message", "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined", "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_admin_log" INNER JOIN "auth_user" ON ("django_admin_log"."user_id" = "auth_user"."id") LEFT OUTER JOIN "django_content_type" ON ("django_admin_log"."content_type_id" = "django_content_type"."id") WHERE "django_admin_log"."user_id" = 1 ORDER BY "django_admin_log"."action_time" DESC LIMIT 10; args=(1,)
+"GET /admin/ HTTP/1.1" 200 10198
+"GET /static/admin/css/dashboard.css HTTP/1.1" 200 412
+"GET /static/admin/css/base.css HTTP/1.1" 200 16066
+"GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u'<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'apps.resdec.urls' from 'C:\\Users\\HP\\Documents\\Programming\\Python\\Repositorios\\resdec-web-master\\apps\\resdec\\urls.pyc'> (resdec:resdec) ^resdec/>"
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2576
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+"GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+"GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+"GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+"GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+(0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'w3w42zafe1e6iszzrza6txg0lrxpk9ba' AND "django_session"."expire_date" > '2018-09-18 22:45:01.961000'); args=('w3w42zafe1e6iszzrza6txg0lrxpk9ba', u'2018-09-18 22:45:01.961000')
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT COUNT(*) AS "__count" FROM "resdec_variabilityenvironmentdata"; args=()
+(0.000) SELECT COUNT(*) AS "__count" FROM "resdec_variabilityenvironmentdata"; args=()
+(0.001) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" ORDER BY "resdec_variabilityenvironmentdata"."id" DESC; args=()
+Exception while resolving variable 'errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [errors] in u'None'
+Exception while resolving variable 'show' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [show] in u"[{'False': False, 'None': None, 'True': True, 'csrf_token': <SimpleLazyObject: <function _get_val at 0x000000002A77CF28>>}]"
+Exception while resolving variable 'is_multipart' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [is_multipart] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+"GET /admin/resdec/variabilityenvironmentdata/ HTTP/1.1" 200 7731
+"GET /static/admin/css/base.css HTTP/1.1" 304 0
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 200 363
+"GET /static/admin/css/fonts.css HTTP/1.1" 304 0
+(0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'w3w42zafe1e6iszzrza6txg0lrxpk9ba' AND "django_session"."expire_date" > '2018-09-18 22:45:02.114000'); args=('w3w42zafe1e6iszzrza6txg0lrxpk9ba', u'2018-09-18 22:45:02.114000')
+(0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+"GET /admin/jsi18n/ HTTP/1.1" 200 3217
+"GET /static/admin/css/changelists.css HTTP/1.1" 200 6170
+"GET /static/admin/js/core.js HTTP/1.1" 304 0
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+"GET /static/admin/js/actions.js HTTP/1.1" 304 0
+"GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u'<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'apps.resdec.urls' from 'C:\\Users\\HP\\Documents\\Programming\\Python\\Repositorios\\resdec-web-master\\apps\\resdec\\urls.pyc'> (resdec:resdec) ^resdec/>"
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2576
+(0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'w3w42zafe1e6iszzrza6txg0lrxpk9ba' AND "django_session"."expire_date" > '2018-09-18 22:45:04.079000'); args=('w3w42zafe1e6iszzrza6txg0lrxpk9ba', u'2018-09-18 22:45:04.079000')
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) BEGIN; args=None
+(0.000) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE "resdec_variabilityenvironmentdata"."id" = 18; args=(18,)
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."model" = 'variabilityenvironmentdata' AND "django_content_type"."app_label" = 'resdec'); args=('variabilityenvironmentdata', 'resdec')
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment"; args=()
+Exception while resolving variable 'can_delete_related' in template 'admin/widgets/related_widget_wrapper.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [can_delete_related] in u'[{\'False\': False, \'None\': None, \'True\': True}, {u\'url_params\': u\'_to_field=id&_popup=1\', \'add_related_url\': u\'/admin/resdec/variabilityenvironment/add/\', u\'name\': \'variability_environment\', \'can_change_related\': True, \'can_add_related\': True, u\'model\': u\'variability environment\', \'change_related_template_url\': u\'/admin/resdec/variabilityenvironment/__fk__/change/\', u\'rendered_widget\': u\'<select name="variability_environment" required id="id_variability_environment">\\n  <option value="">---------</option>\\n\\n  <option value="1" selected>WordPress</option>\\n\\n  <option value="2">Android</option>\\n\\n</select>\'}, {\'block\': <Block Node: links. Contents: [<TextNode: u\'\\n        \'>, <django.template.defaulttags.SpacelessNode object at 0x000000002AA335C0>, <TextNode: u\'\\n    \'>]>}]'
+"GET /admin/resdec/variabilityenvironmentdata/18/change/ HTTP/1.1" 200 11220
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+"GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 495
+(0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'w3w42zafe1e6iszzrza6txg0lrxpk9ba' AND "django_session"."expire_date" > '2018-09-18 22:45:04.255000'); args=('w3w42zafe1e6iszzrza6txg0lrxpk9ba', u'2018-09-18 22:45:04.255000')
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+"GET /admin/jsi18n/ HTTP/1.1" 200 3217
+"GET /static/admin/css/forms.css HTTP/1.1" 200 8173
+"GET /static/admin/js/change_form.js HTTP/1.1" 200 712
+"GET /static/admin/css/widgets.css HTTP/1.1" 200 10340
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u'<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'apps.resdec.urls' from 'C:\\Users\\HP\\Documents\\Programming\\Python\\Repositorios\\resdec-web-master\\apps\\resdec\\urls.pyc'> (resdec:resdec) ^resdec/>"
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2576
+"GET /media/user_data_uploaded/plugin_ratings_500i_20u.csv HTTP/1.1" 200 308237
+"GET /resdec/cold_start_all?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5 HTTP/1.1" 301 0
+(0.002) SELECT "resdec_relationshiptype"."id", "resdec_relationshiptype"."name", "resdec_relationshiptype"."status" FROM "resdec_relationshiptype" WHERE "resdec_relationshiptype"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.001) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE ("resdec_variabilityenvironmentdata"."base_on" LIKE '%R%' ESCAPE '\' AND "resdec_variabilityenvironmentdata"."variability_environment_id" = 1 AND "resdec_variabilityenvironmentdata"."status" LIKE '%A%' ESCAPE '\') ORDER BY "resdec_variabilityenvironmentdata"."pub_date" DESC LIMIT 1; args=(u'%R%', 1, u'%A%')
+Internal Server Error: /resdec/cold_start_all/
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python27-64\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27-64\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\HP\Documents\Programming\Python\Repositorios\resdec-web-master\apps\resdec\views.py", line 407, in cold_start_all
+    sep=str(variability_environment_data.separator))
+  File "C:\Python27-64\lib\site-packages\pandas\io\parsers.py", line 678, in parser_f
+    return _read(filepath_or_buffer, kwds)
+  File "C:\Python27-64\lib\site-packages\pandas\io\parsers.py", line 440, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "C:\Python27-64\lib\site-packages\pandas\io\parsers.py", line 787, in __init__
+    self._make_engine(self.engine)
+  File "C:\Python27-64\lib\site-packages\pandas\io\parsers.py", line 1014, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "C:\Python27-64\lib\site-packages\pandas\io\parsers.py", line 1708, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas\_libs\parsers.pyx", line 384, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas\_libs\parsers.pyx", line 695, in pandas._libs.parsers.TextReader._setup_parser_source
+IOError: File user_data_uploaded/plugin_ratings_500i_10u.csv does not exist
+"GET /resdec/cold_start_all/?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5 HTTP/1.1" 500 107950
+(0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'w3w42zafe1e6iszzrza6txg0lrxpk9ba' AND "django_session"."expire_date" > '2018-09-18 22:49:42.974000'); args=('w3w42zafe1e6iszzrza6txg0lrxpk9ba', u'2018-09-18 22:49:42.974000')
+(0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+Exception while resolving variable 'is_popup' in template 'admin/index.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [is_popup] in u"[{'False': False, 'None': None, 'True': True}, {'current_module': None, u'csrf_token': <SimpleLazyObject: <function _get_val at 0x000000002A75F0B8>>, 'user': <SimpleLazyObject: <User: admin>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x000000002AACE518>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'WARNING': 30, 'SUCCESS': 25, 'ERROR': 40}, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x000000002AA24588>, u'request': <WSGIRequest: GET '/admin/'>, 'modules': []}, {}, {'site_header': u'Django administration', 'available_apps': [{'app_url': u'/admin/auth/', 'models': [{'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/auth/group/', 'object_name': 'Group', 'name': u'Groups', 'add_url': u'/admin/auth/group/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/auth/user/', 'object_name': 'User', 'name': u'Users', 'add_url': u'/admin/auth/user/add/'}], 'has_module_perms': True, 'name': u'Authentication and Authorization', 'app_label': 'auth'}, {'app_url': u'/admin/frontend/', 'models': [{'perms': {u'add': False, u'change': True, u'delete': False}, 'admin_url': u'/admin/frontend/module/', 'object_name': 'Module', 'name': u'Modules'}], 'has_module_perms': True, 'name': u'Frontend', 'app_label': 'frontend'}, {'app_url': u'/admin/resdec/', 'models': [{'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/algorithm/', 'object_name': 'Algorithm', 'name': u'Algorithms', 'add_url': u'/admin/resdec/algorithm/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/historyuseritems/', 'object_name': 'HistoryUserItems', 'name': u'History user itemss', 'add_url': u'/admin/resdec/historyuseritems/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/interestitemsnames/', 'object_name': 'InterestItemsNames', 'name': u'Interest items namess', 'add_url': u'/admin/resdec/interestitemsnames/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/interest/', 'object_name': 'Interest', 'name': u'Interests', 'add_url': u'/admin/resdec/interest/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/relationshiptype/', 'object_name': 'RelationshipType', 'name': u'Relationship types', 'add_url': u'/admin/resdec/relationshiptype/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/userprofile/', 'object_name': 'UserProfile', 'name': u'User profiles', 'add_url': u'/admin/resdec/userprofile/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/variabilityenvironmentdata/', 'object_name': 'VariabilityEnvironmentData', 'name': u'Variability environment datas', 'add_url': u'/admin/resdec/variabilityenvironmentdata/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/variabilityenvironment/', 'object_name': 'VariabilityEnvironment', 'name': u'Variability environments', 'add_url': u'/admin/resdec/variabilityenvironment/add/'}], 'has_module_perms': True, 'name': 'Resdec', 'app_label': 'resdec'}], 'site_title': u'Django site admin', 'title': u'Site administration', 'has_permission': True, 'app_list': [{'app_url': u'/admin/auth/', 'models': [{'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/auth/group/', 'object_name': 'Group', 'name': u'Groups', 'add_url': u'/admin/auth/group/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/auth/user/', 'object_name': 'User', 'name': u'Users', 'add_url': u'/admin/auth/user/add/'}], 'has_module_perms': True, 'name': u'Authentication and Authorization', 'app_label': 'auth'}, {'app_url': u'/admin/frontend/', 'models': [{'perms': {u'add': False, u'change': True, u'delete': False}, 'admin_url': u'/admin/frontend/module/', 'object_name': 'Module', 'name': u'Modules'}], 'has_module_perms': True, 'name': u'Frontend', 'app_label': 'frontend'}, {'app_url': u'/admin/resdec/', 'models': [{'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/algorithm/', 'object_name': 'Algorithm', 'name': u'Algorithms', 'add_url': u'/admin/resdec/algorithm/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/historyuseritems/', 'object_name': 'HistoryUserItems', 'name': u'History user itemss', 'add_url': u'/admin/resdec/historyuseritems/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/interestitemsnames/', 'object_name': 'InterestItemsNames', 'name': u'Interest items namess', 'add_url': u'/admin/resdec/interestitemsnames/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/interest/', 'object_name': 'Interest', 'name': u'Interests', 'add_url': u'/admin/resdec/interest/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/relationshiptype/', 'object_name': 'RelationshipType', 'name': u'Relationship types', 'add_url': u'/admin/resdec/relationshiptype/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/userprofile/', 'object_name': 'UserProfile', 'name': u'User profiles', 'add_url': u'/admin/resdec/userprofile/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/variabilityenvironmentdata/', 'object_name': 'VariabilityEnvironmentData', 'name': u'Variability environment datas', 'add_url': u'/admin/resdec/variabilityenvironmentdata/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/variabilityenvironment/', 'object_name': 'VariabilityEnvironment', 'name': u'Variability environments', 'add_url': u'/admin/resdec/variabilityenvironment/add/'}], 'has_module_perms': True, 'name': 'Resdec', 'app_label': 'resdec'}], u'LANGUAGE_CODE': 'en-us', u'LANGUAGE_BIDI': False, 'site_url': '/'}]"
+Exception while resolving variable 'is_popup' in template 'admin/index.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [is_popup] in u"[{'False': False, 'None': None, 'True': True}, {'current_module': None, u'csrf_token': <SimpleLazyObject: <function _get_val at 0x000000002A75F0B8>>, 'user': <SimpleLazyObject: <User: admin>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x000000002AACE518>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'WARNING': 30, 'SUCCESS': 25, 'ERROR': 40}, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x000000002AA24588>, u'request': <WSGIRequest: GET '/admin/'>, 'modules': []}, {}, {'site_header': u'Django administration', 'available_apps': [{'app_url': u'/admin/auth/', 'models': [{'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/auth/group/', 'object_name': 'Group', 'name': u'Groups', 'add_url': u'/admin/auth/group/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/auth/user/', 'object_name': 'User', 'name': u'Users', 'add_url': u'/admin/auth/user/add/'}], 'has_module_perms': True, 'name': u'Authentication and Authorization', 'app_label': 'auth'}, {'app_url': u'/admin/frontend/', 'models': [{'perms': {u'add': False, u'change': True, u'delete': False}, 'admin_url': u'/admin/frontend/module/', 'object_name': 'Module', 'name': u'Modules'}], 'has_module_perms': True, 'name': u'Frontend', 'app_label': 'frontend'}, {'app_url': u'/admin/resdec/', 'models': [{'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/algorithm/', 'object_name': 'Algorithm', 'name': u'Algorithms', 'add_url': u'/admin/resdec/algorithm/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/historyuseritems/', 'object_name': 'HistoryUserItems', 'name': u'History user itemss', 'add_url': u'/admin/resdec/historyuseritems/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/interestitemsnames/', 'object_name': 'InterestItemsNames', 'name': u'Interest items namess', 'add_url': u'/admin/resdec/interestitemsnames/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/interest/', 'object_name': 'Interest', 'name': u'Interests', 'add_url': u'/admin/resdec/interest/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/relationshiptype/', 'object_name': 'RelationshipType', 'name': u'Relationship types', 'add_url': u'/admin/resdec/relationshiptype/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/userprofile/', 'object_name': 'UserProfile', 'name': u'User profiles', 'add_url': u'/admin/resdec/userprofile/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/variabilityenvironmentdata/', 'object_name': 'VariabilityEnvironmentData', 'name': u'Variability environment datas', 'add_url': u'/admin/resdec/variabilityenvironmentdata/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/variabilityenvironment/', 'object_name': 'VariabilityEnvironment', 'name': u'Variability environments', 'add_url': u'/admin/resdec/variabilityenvironment/add/'}], 'has_module_perms': True, 'name': 'Resdec', 'app_label': 'resdec'}], 'site_title': u'Django site admin', 'title': u'Site administration', 'has_permission': True, 'app_list': [{'app_url': u'/admin/auth/', 'models': [{'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/auth/group/', 'object_name': 'Group', 'name': u'Groups', 'add_url': u'/admin/auth/group/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/auth/user/', 'object_name': 'User', 'name': u'Users', 'add_url': u'/admin/auth/user/add/'}], 'has_module_perms': True, 'name': u'Authentication and Authorization', 'app_label': 'auth'}, {'app_url': u'/admin/frontend/', 'models': [{'perms': {u'add': False, u'change': True, u'delete': False}, 'admin_url': u'/admin/frontend/module/', 'object_name': 'Module', 'name': u'Modules'}], 'has_module_perms': True, 'name': u'Frontend', 'app_label': 'frontend'}, {'app_url': u'/admin/resdec/', 'models': [{'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/algorithm/', 'object_name': 'Algorithm', 'name': u'Algorithms', 'add_url': u'/admin/resdec/algorithm/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/historyuseritems/', 'object_name': 'HistoryUserItems', 'name': u'History user itemss', 'add_url': u'/admin/resdec/historyuseritems/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/interestitemsnames/', 'object_name': 'InterestItemsNames', 'name': u'Interest items namess', 'add_url': u'/admin/resdec/interestitemsnames/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/interest/', 'object_name': 'Interest', 'name': u'Interests', 'add_url': u'/admin/resdec/interest/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/relationshiptype/', 'object_name': 'RelationshipType', 'name': u'Relationship types', 'add_url': u'/admin/resdec/relationshiptype/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/userprofile/', 'object_name': 'UserProfile', 'name': u'User profiles', 'add_url': u'/admin/resdec/userprofile/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/variabilityenvironmentdata/', 'object_name': 'VariabilityEnvironmentData', 'name': u'Variability environment datas', 'add_url': u'/admin/resdec/variabilityenvironmentdata/add/'}, {'perms': {u'add': True, u'change': True, u'delete': True}, 'admin_url': u'/admin/resdec/variabilityenvironment/', 'object_name': 'VariabilityEnvironment', 'name': u'Variability environments', 'add_url': u'/admin/resdec/variabilityenvironment/add/'}], 'has_module_perms': True, 'name': 'Resdec', 'app_label': 'resdec'}], u'LANGUAGE_CODE': 'en-us', u'LANGUAGE_BIDI': False, 'site_url': '/'}]"
+Exception while resolving variable 'add_url' in template 'admin/index.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [add_url] in u"{'perms': {u'add': False, u'change': True, u'delete': False}, 'admin_url': u'/admin/frontend/module/', 'object_name': 'Module', 'name': u'Modules'}"
+(0.001) SELECT "django_admin_log"."id", "django_admin_log"."action_time", "django_admin_log"."user_id", "django_admin_log"."content_type_id", "django_admin_log"."object_id", "django_admin_log"."object_repr", "django_admin_log"."action_flag", "django_admin_log"."change_message", "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined", "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_admin_log" INNER JOIN "auth_user" ON ("django_admin_log"."user_id" = "auth_user"."id") LEFT OUTER JOIN "django_content_type" ON ("django_admin_log"."content_type_id" = "django_content_type"."id") WHERE "django_admin_log"."user_id" = 1 ORDER BY "django_admin_log"."action_time" DESC LIMIT 10; args=(1,)
+"GET /admin/ HTTP/1.1" 200 10198
+"GET /static/admin/css/base.css HTTP/1.1" 200 8192
+"GET /static/admin/css/dashboard.css HTTP/1.1" 200 412
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u'<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'apps.resdec.urls' from 'C:\\Users\\HP\\Documents\\Programming\\Python\\Repositorios\\resdec-web-master\\apps\\resdec\\urls.pyc'> (resdec:resdec) ^resdec/>"
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+"GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2576
+"GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+"GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+"GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+"GET /static/admin/css/base.css HTTP/1.1" 500 59
+(0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'w3w42zafe1e6iszzrza6txg0lrxpk9ba' AND "django_session"."expire_date" > '2018-09-18 22:49:46.184000'); args=('w3w42zafe1e6iszzrza6txg0lrxpk9ba', u'2018-09-18 22:49:46.184000')
+(0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT COUNT(*) AS "__count" FROM "resdec_variabilityenvironmentdata"; args=()
+(0.000) SELECT COUNT(*) AS "__count" FROM "resdec_variabilityenvironmentdata"; args=()
+(0.000) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" ORDER BY "resdec_variabilityenvironmentdata"."id" DESC; args=()
+Exception while resolving variable 'errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [errors] in u'None'
+Exception while resolving variable 'show' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [show] in u"[{'False': False, 'None': None, 'True': True, 'csrf_token': <SimpleLazyObject: <function _get_val at 0x000000002A9AD048>>}]"
+Exception while resolving variable 'is_multipart' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [is_multipart] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+"GET /admin/resdec/variabilityenvironmentdata/ HTTP/1.1" 200 7731
+"GET /static/admin/css/changelists.css HTTP/1.1" 200 6170
+"GET /static/admin/js/core.js HTTP/1.1" 304 0
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+"GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+(0.002) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'w3w42zafe1e6iszzrza6txg0lrxpk9ba' AND "django_session"."expire_date" > '2018-09-18 22:49:46.297000'); args=('w3w42zafe1e6iszzrza6txg0lrxpk9ba', u'2018-09-18 22:49:46.297000')
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+"GET /admin/jsi18n/ HTTP/1.1" 200 3217
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u'<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'apps.resdec.urls' from 'C:\\Users\\HP\\Documents\\Programming\\Python\\Repositorios\\resdec-web-master\\apps\\resdec\\urls.pyc'> (resdec:resdec) ^resdec/>"
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2576
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'w3w42zafe1e6iszzrza6txg0lrxpk9ba' AND "django_session"."expire_date" > '2018-09-18 22:49:48.670000'); args=('w3w42zafe1e6iszzrza6txg0lrxpk9ba', u'2018-09-18 22:49:48.670000')
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) BEGIN; args=None
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment"; args=()
+Exception while resolving variable 'can_delete_related' in template 'admin/widgets/related_widget_wrapper.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [can_delete_related] in u'[{\'False\': False, \'None\': None, \'True\': True}, {u\'url_params\': u\'_to_field=id&_popup=1\', \'add_related_url\': u\'/admin/resdec/variabilityenvironment/add/\', u\'name\': \'variability_environment\', \'can_change_related\': True, \'can_add_related\': True, u\'model\': u\'variability environment\', \'change_related_template_url\': u\'/admin/resdec/variabilityenvironment/__fk__/change/\', u\'rendered_widget\': u\'<select name="variability_environment" required id="id_variability_environment">\\n  <option value="" selected>---------</option>\\n\\n  <option value="1">WordPress</option>\\n\\n  <option value="2">Android</option>\\n\\n</select>\'}, {\'block\': <Block Node: links. Contents: [<TextNode: u\'\\n        \'>, <django.template.defaulttags.SpacelessNode object at 0x000000002AA90630>, <TextNode: u\'\\n    \'>]>}]'
+"GET /admin/resdec/variabilityenvironmentdata/add/ HTTP/1.1" 200 10771
+"GET /static/admin/css/forms.css HTTP/1.1" 304 0
+(0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'w3w42zafe1e6iszzrza6txg0lrxpk9ba' AND "django_session"."expire_date" > '2018-09-18 22:49:48.744000'); args=('w3w42zafe1e6iszzrza6txg0lrxpk9ba', u'2018-09-18 22:49:48.744000')
+"GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+"GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+(0.002) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+"GET /static/admin/css/widgets.css HTTP/1.1" 200 10340
+"GET /admin/jsi18n/ HTTP/1.1" 200 3217
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u'<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'apps.resdec.urls' from 'C:\\Users\\HP\\Documents\\Programming\\Python\\Repositorios\\resdec-web-master\\apps\\resdec\\urls.pyc'> (resdec:resdec) ^resdec/>"
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2576
+(0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'w3w42zafe1e6iszzrza6txg0lrxpk9ba' AND "django_session"."expire_date" > '2018-09-18 22:50:09.824000'); args=('w3w42zafe1e6iszzrza6txg0lrxpk9ba', u'2018-09-18 22:50:09.824000')
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) BEGIN; args=None
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT (1) AS "a" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1 LIMIT 1; args=(1,)
+(0.043) INSERT INTO "resdec_variabilityenvironmentdata" ("variability_environment_id", "base_on", "name", "extension", "size", "number_records", "file", "pub_date", "status", "separator", "item_column", "user_column", "feature_column", "rating_column") VALUES (1, 'F', 'prueba', 'csv', 0, 0, 'user_data_uploaded/tumblr_nhgjoiad8H1s420s7o1_500.png', '2018-09-18 22:50:09.836000', 'A', '|', '', '', '', ''); args=[1, u'F', u'prueba', u'csv', 0, 0, u'user_data_uploaded/tumblr_nhgjoiad8H1s420s7o1_500.png', u'2018-09-18 22:50:09.836000', u'A', u'|', u'', u'', u'', u'']
+(0.000) INSERT INTO "django_admin_log" ("action_time", "user_id", "content_type_id", "object_id", "object_repr", "action_flag", "change_message") VALUES ('2018-09-18 22:50:09.880000', 1, 9, '19', 'prueba', 1, '[{"added": {}}]'); args=[u'2018-09-18 22:50:09.880000', 1, 9, u'19', u'prueba', 1, '[{"added": {}}]']
+"POST /admin/resdec/variabilityenvironmentdata/add/ HTTP/1.1" 302 0
+(0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'w3w42zafe1e6iszzrza6txg0lrxpk9ba' AND "django_session"."expire_date" > '2018-09-18 22:50:10.002000'); args=('w3w42zafe1e6iszzrza6txg0lrxpk9ba', u'2018-09-18 22:50:10.002000')
+(0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT COUNT(*) AS "__count" FROM "resdec_variabilityenvironmentdata"; args=()
+(0.000) SELECT COUNT(*) AS "__count" FROM "resdec_variabilityenvironmentdata"; args=()
+(0.000) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" ORDER BY "resdec_variabilityenvironmentdata"."id" DESC; args=()
+Exception while resolving variable 'errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [errors] in u'None'
+Exception while resolving variable 'show' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [show] in u"[{'False': False, 'None': None, 'True': True, 'csrf_token': <SimpleLazyObject: <function _get_val at 0x000000002A77CF98>>}]"
+Exception while resolving variable 'is_multipart' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [is_multipart] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+"GET /admin/resdec/variabilityenvironmentdata/ HTTP/1.1" 200 8197
+"GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+(0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'w3w42zafe1e6iszzrza6txg0lrxpk9ba' AND "django_session"."expire_date" > '2018-09-18 22:50:10.121000'); args=('w3w42zafe1e6iszzrza6txg0lrxpk9ba', u'2018-09-18 22:50:10.121000')
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+"GET /admin/jsi18n/ HTTP/1.1" 200 3217
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u'<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'apps.resdec.urls' from 'C:\\Users\\HP\\Documents\\Programming\\Python\\Repositorios\\resdec-web-master\\apps\\resdec\\urls.pyc'> (resdec:resdec) ^resdec/>"
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2576
+(0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'w3w42zafe1e6iszzrza6txg0lrxpk9ba' AND "django_session"."expire_date" > '2018-09-18 22:50:12.376000'); args=('w3w42zafe1e6iszzrza6txg0lrxpk9ba', u'2018-09-18 22:50:12.376000')
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) BEGIN; args=None
+(0.000) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE "resdec_variabilityenvironmentdata"."id" = 19; args=(19,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment"; args=()
+Exception while resolving variable 'can_delete_related' in template 'admin/widgets/related_widget_wrapper.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [can_delete_related] in u'[{\'False\': False, \'None\': None, \'True\': True}, {u\'url_params\': u\'_to_field=id&_popup=1\', \'add_related_url\': u\'/admin/resdec/variabilityenvironment/add/\', u\'name\': \'variability_environment\', \'can_change_related\': True, \'can_add_related\': True, u\'model\': u\'variability environment\', \'change_related_template_url\': u\'/admin/resdec/variabilityenvironment/__fk__/change/\', u\'rendered_widget\': u\'<select name="variability_environment" required id="id_variability_environment">\\n  <option value="">---------</option>\\n\\n  <option value="1" selected>WordPress</option>\\n\\n  <option value="2">Android</option>\\n\\n</select>\'}, {\'block\': <Block Node: links. Contents: [<TextNode: u\'\\n        \'>, <django.template.defaulttags.SpacelessNode object at 0x000000002AB8AD30>, <TextNode: u\'\\n    \'>]>}]'
+"GET /admin/resdec/variabilityenvironmentdata/19/change/ HTTP/1.1" 200 11200
+(0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'w3w42zafe1e6iszzrza6txg0lrxpk9ba' AND "django_session"."expire_date" > '2018-09-18 22:50:12.461000'); args=('w3w42zafe1e6iszzrza6txg0lrxpk9ba', u'2018-09-18 22:50:12.461000')
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+"GET /admin/jsi18n/ HTTP/1.1" 200 3217
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u'<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'apps.resdec.urls' from 'C:\\Users\\HP\\Documents\\Programming\\Python\\Repositorios\\resdec-web-master\\apps\\resdec\\urls.pyc'> (resdec:resdec) ^resdec/>"
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2576
+"GET /media/user_data_uploaded/tumblr_nhgjoiad8H1s420s7o1_500.png HTTP/1.1" 200 51056
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u'<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'apps.resdec.urls' from 'C:\\Users\\HP\\Documents\\Programming\\Python\\Repositorios\\resdec-web-master\\apps\\resdec\\urls.pyc'> (resdec:resdec) ^resdec/>"
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2576
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'w3w42zafe1e6iszzrza6txg0lrxpk9ba' AND "django_session"."expire_date" > '2018-09-18 22:50:18.065000'); args=('w3w42zafe1e6iszzrza6txg0lrxpk9ba', u'2018-09-18 22:50:18.065000')
+(0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) BEGIN; args=None
+(0.000) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE "resdec_variabilityenvironmentdata"."id" = 19; args=(19,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment"; args=()
+Exception while resolving variable 'can_delete_related' in template 'admin/widgets/related_widget_wrapper.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [can_delete_related] in u'[{\'False\': False, \'None\': None, \'True\': True}, {u\'url_params\': u\'_to_field=id&_popup=1\', \'add_related_url\': u\'/admin/resdec/variabilityenvironment/add/\', u\'name\': \'variability_environment\', \'can_change_related\': True, \'can_add_related\': True, u\'model\': u\'variability environment\', \'change_related_template_url\': u\'/admin/resdec/variabilityenvironment/__fk__/change/\', u\'rendered_widget\': u\'<select name="variability_environment" required id="id_variability_environment">\\n  <option value="">---------</option>\\n\\n  <option value="1" selected>WordPress</option>\\n\\n  <option value="2">Android</option>\\n\\n</select>\'}, {\'block\': <Block Node: links. Contents: [<TextNode: u\'\\n        \'>, <django.template.defaulttags.SpacelessNode object at 0x000000002AB708D0>, <TextNode: u\'\\n    \'>]>}]'
+"GET /admin/resdec/variabilityenvironmentdata/19/change/ HTTP/1.1" 200 11200
+(0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'w3w42zafe1e6iszzrza6txg0lrxpk9ba' AND "django_session"."expire_date" > '2018-09-18 22:50:21.340000'); args=('w3w42zafe1e6iszzrza6txg0lrxpk9ba', u'2018-09-18 22:50:21.340000')
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) BEGIN; args=None
+(0.000) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE "resdec_variabilityenvironmentdata"."id" = 19; args=(19,)
+"GET /admin/resdec/variabilityenvironmentdata/19/delete/ HTTP/1.1" 200 3167
+"GET /static/admin/js/cancel.js HTTP/1.1" 200 204
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u'<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'apps.resdec.urls' from 'C:\\Users\\HP\\Documents\\Programming\\Python\\Repositorios\\resdec-web-master\\apps\\resdec\\urls.pyc'> (resdec:resdec) ^resdec/>"
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2576
+(0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'w3w42zafe1e6iszzrza6txg0lrxpk9ba' AND "django_session"."expire_date" > '2018-09-18 22:50:23.134000'); args=('w3w42zafe1e6iszzrza6txg0lrxpk9ba', u'2018-09-18 22:50:23.134000')
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) BEGIN; args=None
+(0.001) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE "resdec_variabilityenvironmentdata"."id" = 19; args=(19,)
+(0.000) INSERT INTO "django_admin_log" ("action_time", "user_id", "content_type_id", "object_id", "object_repr", "action_flag", "change_message") VALUES ('2018-09-18 22:50:23.138000', 1, 9, '19', 'prueba', 3, ''); args=[u'2018-09-18 22:50:23.138000', 1, 9, u'19', u'prueba', 3, u'']
+(0.000) DELETE FROM "resdec_variabilityenvironmentdata" WHERE "resdec_variabilityenvironmentdata"."id" IN (19); args=(19,)
+"POST /admin/resdec/variabilityenvironmentdata/19/delete/ HTTP/1.1" 302 0
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'w3w42zafe1e6iszzrza6txg0lrxpk9ba' AND "django_session"."expire_date" > '2018-09-18 22:50:23.267000'); args=('w3w42zafe1e6iszzrza6txg0lrxpk9ba', u'2018-09-18 22:50:23.267000')
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT COUNT(*) AS "__count" FROM "resdec_variabilityenvironmentdata"; args=()
+(0.000) SELECT COUNT(*) AS "__count" FROM "resdec_variabilityenvironmentdata"; args=()
+(0.001) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" ORDER BY "resdec_variabilityenvironmentdata"."id" DESC; args=()
+Exception while resolving variable 'errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [errors] in u'None'
+Exception while resolving variable 'show' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [show] in u"[{'False': False, 'None': None, 'True': True, 'csrf_token': <SimpleLazyObject: <function _get_val at 0x000000002A77CF98>>}]"
+Exception while resolving variable 'is_multipart' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [is_multipart] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+Exception while resolving variable 'non_field_errors' in template 'admin/change_list.html'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [non_field_errors] in u'None'
+"GET /admin/resdec/variabilityenvironmentdata/ HTTP/1.1" 200 7900
+(0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'w3w42zafe1e6iszzrza6txg0lrxpk9ba' AND "django_session"."expire_date" > '2018-09-18 22:50:23.373000'); args=('w3w42zafe1e6iszzrza6txg0lrxpk9ba', u'2018-09-18 22:50:23.373000')
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+"GET /admin/jsi18n/ HTTP/1.1" 200 3217
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u'<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'apps.resdec.urls' from 'C:\\Users\\HP\\Documents\\Programming\\Python\\Repositorios\\resdec-web-master\\apps\\resdec\\urls.pyc'> (resdec:resdec) ^resdec/>"
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2576
+(0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+"GET /resdec/cold_start_all?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5 HTTP/1.1" 301 0
+(0.001) SELECT "resdec_relationshiptype"."id", "resdec_relationshiptype"."name", "resdec_relationshiptype"."status" FROM "resdec_relationshiptype" WHERE "resdec_relationshiptype"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.001) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE ("resdec_variabilityenvironmentdata"."base_on" LIKE '%R%' ESCAPE '\' AND "resdec_variabilityenvironmentdata"."variability_environment_id" = 1 AND "resdec_variabilityenvironmentdata"."status" LIKE '%A%' ESCAPE '\') ORDER BY "resdec_variabilityenvironmentdata"."pub_date" DESC LIMIT 1; args=(u'%R%', 1, u'%A%')
+Internal Server Error: /resdec/cold_start_all/
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python27-64\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27-64\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\HP\Documents\Programming\Python\Repositorios\resdec-web-master\apps\resdec\views.py", line 408, in cold_start_all
+    sep=str(variability_environment_data.separator))
+  File "C:\Python27-64\lib\site-packages\pandas\io\parsers.py", line 678, in parser_f
+    return _read(filepath_or_buffer, kwds)
+  File "C:\Python27-64\lib\site-packages\pandas\io\parsers.py", line 440, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "C:\Python27-64\lib\site-packages\pandas\io\parsers.py", line 787, in __init__
+    self._make_engine(self.engine)
+  File "C:\Python27-64\lib\site-packages\pandas\io\parsers.py", line 1014, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "C:\Python27-64\lib\site-packages\pandas\io\parsers.py", line 1708, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas\_libs\parsers.pyx", line 384, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas\_libs\parsers.pyx", line 695, in pandas._libs.parsers.TextReader._setup_parser_source
+IOError: File /media/user_data_uploaded/plugin_ratings_500i_10u.csv does not exist
+"GET /resdec/cold_start_all/?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5 HTTP/1.1" 500 108041
+(0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+"GET /resdec/cold_start_all?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5 HTTP/1.1" 301 0
+(0.001) SELECT "resdec_relationshiptype"."id", "resdec_relationshiptype"."name", "resdec_relationshiptype"."status" FROM "resdec_relationshiptype" WHERE "resdec_relationshiptype"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE ("resdec_variabilityenvironmentdata"."base_on" LIKE '%R%' ESCAPE '\' AND "resdec_variabilityenvironmentdata"."variability_environment_id" = 1 AND "resdec_variabilityenvironmentdata"."status" LIKE '%A%' ESCAPE '\') ORDER BY "resdec_variabilityenvironmentdata"."pub_date" DESC LIMIT 1; args=(u'%R%', 1, u'%A%')
+"GET /resdec/cold_start_all/?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5 HTTP/1.1" 200 326
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+"GET /resdec/cold_start_all?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5 HTTP/1.1" 301 0
+(0.001) SELECT "resdec_relationshiptype"."id", "resdec_relationshiptype"."name", "resdec_relationshiptype"."status" FROM "resdec_relationshiptype" WHERE "resdec_relationshiptype"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE ("resdec_variabilityenvironmentdata"."base_on" LIKE '%R%' ESCAPE '\' AND "resdec_variabilityenvironmentdata"."variability_environment_id" = 1 AND "resdec_variabilityenvironmentdata"."status" LIKE '%A%' ESCAPE '\') ORDER BY "resdec_variabilityenvironmentdata"."pub_date" DESC LIMIT 1; args=(u'%R%', 1, u'%A%')
+"GET /resdec/cold_start_all/?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5 HTTP/1.1" 200 326
+(0.002) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+"GET /resdec/cold_start_all?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5 HTTP/1.1" 301 0
+(0.001) SELECT "resdec_relationshiptype"."id", "resdec_relationshiptype"."name", "resdec_relationshiptype"."status" FROM "resdec_relationshiptype" WHERE "resdec_relationshiptype"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE ("resdec_variabilityenvironmentdata"."base_on" LIKE '%R%' ESCAPE '\' AND "resdec_variabilityenvironmentdata"."variability_environment_id" = 1 AND "resdec_variabilityenvironmentdata"."status" LIKE '%A%' ESCAPE '\') ORDER BY "resdec_variabilityenvironmentdata"."pub_date" DESC LIMIT 1; args=(u'%R%', 1, u'%A%')
+"GET /resdec/cold_start_all/?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5 HTTP/1.1" 200 326
+"GET /resdec/list_features?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5 HTTP/1.1" 301 0
+(0.001) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE ("resdec_variabilityenvironmentdata"."base_on" LIKE '%F%' ESCAPE '\' AND "resdec_variabilityenvironmentdata"."variability_environment_id" = 1 AND "resdec_variabilityenvironmentdata"."status" LIKE '%A%' ESCAPE '\') ORDER BY "resdec_variabilityenvironmentdata"."pub_date" DESC LIMIT 1; args=(u'%F%', 1, u'%A%')
+"GET /resdec/list_features/?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5 HTTP/1.1" 200 26819
+"GET /resdec/list_features_item?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact HTTP/1.1" 301 0
+(0.001) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE ("resdec_variabilityenvironmentdata"."base_on" LIKE '%F%' ESCAPE '\' AND "resdec_variabilityenvironmentdata"."variability_environment_id" = 1 AND "resdec_variabilityenvironmentdata"."status" LIKE '%A%' ESCAPE '\') ORDER BY "resdec_variabilityenvironmentdata"."pub_date" DESC LIMIT 1; args=(u'%F%', 1, u'%A%')
+"GET /resdec/list_features_item/?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact HTTP/1.1" 200 92
+"GET /resdec/list_features_item?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form HTTP/1.1" 301 0
+(0.001) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE ("resdec_variabilityenvironmentdata"."base_on" LIKE '%F%' ESCAPE '\' AND "resdec_variabilityenvironmentdata"."variability_environment_id" = 1 AND "resdec_variabilityenvironmentdata"."status" LIKE '%A%' ESCAPE '\') ORDER BY "resdec_variabilityenvironmentdata"."pub_date" DESC LIMIT 1; args=(u'%F%', 1, u'%A%')
+"GET /resdec/list_features_item/?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form HTTP/1.1" 200 97
+"GET /resdec/list_items?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5 HTTP/1.1" 301 0
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE ("resdec_variabilityenvironmentdata"."base_on" LIKE '%R%' ESCAPE '\' AND "resdec_variabilityenvironmentdata"."variability_environment_id" = 1 AND "resdec_variabilityenvironmentdata"."status" LIKE '%A%' ESCAPE '\') ORDER BY "resdec_variabilityenvironmentdata"."pub_date" DESC LIMIT 1; args=(u'%R%', 1, u'%A%')
+"GET /resdec/list_items/?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5 HTTP/1.1" 200 14194
+"GET /resdec/list_features_item?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form-7 HTTP/1.1" 301 0
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE ("resdec_variabilityenvironmentdata"."base_on" LIKE '%F%' ESCAPE '\' AND "resdec_variabilityenvironmentdata"."variability_environment_id" = 1 AND "resdec_variabilityenvironmentdata"."status" LIKE '%A%' ESCAPE '\') ORDER BY "resdec_variabilityenvironmentdata"."pub_date" DESC LIMIT 1; args=(u'%F%', 1, u'%A%')
+"GET /resdec/list_features_item/?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form-7 HTTP/1.1" 200 137
+"GET /resdec/list_last_items_used?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form-7&username=admin&number_items=5 HTTP/1.1" 301 0
+(0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" LIKE '%admin%' ESCAPE '\'; args=(u'%admin%',)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.001) SELECT "resdec_historyuseritems"."id", "resdec_historyuseritems"."user_id", "resdec_historyuseritems"."variability_environment_id", "resdec_historyuseritems"."item_name", "resdec_historyuseritems"."date_use" FROM "resdec_historyuseritems" WHERE ("resdec_historyuseritems"."variability_environment_id" = 1 AND "resdec_historyuseritems"."user_id" = 1) ORDER BY "resdec_historyuseritems"."date_use" DESC; args=(1, 1)
+"GET /resdec/list_last_items_used/?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form-7&username=admin&number_items=5 HTTP/1.1" 200 667
+(0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+"GET /resdec/list_last_items_used?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form-7&username=admin&number_items=5 HTTP/1.1" 301 0
+(0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" LIKE '%admin%' ESCAPE '\'; args=(u'%admin%',)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.001) SELECT "resdec_historyuseritems"."id", "resdec_historyuseritems"."user_id", "resdec_historyuseritems"."variability_environment_id", "resdec_historyuseritems"."item_name", "resdec_historyuseritems"."date_use" FROM "resdec_historyuseritems" WHERE ("resdec_historyuseritems"."variability_environment_id" = 1 AND "resdec_historyuseritems"."user_id" = 1) ORDER BY "resdec_historyuseritems"."date_use" DESC LIMIT 5; args=(1, 1)
+"GET /resdec/list_last_items_used/?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form-7&username=admin&number_items=5 HTTP/1.1" 200 131
+"GET /resdec/list_last_items_used?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form-7&username=admin&number_items=6 HTTP/1.1" 301 0
+(0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" LIKE '%admin%' ESCAPE '\'; args=(u'%admin%',)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.001) SELECT "resdec_historyuseritems"."id", "resdec_historyuseritems"."user_id", "resdec_historyuseritems"."variability_environment_id", "resdec_historyuseritems"."item_name", "resdec_historyuseritems"."date_use" FROM "resdec_historyuseritems" WHERE ("resdec_historyuseritems"."variability_environment_id" = 1 AND "resdec_historyuseritems"."user_id" = 1) ORDER BY "resdec_historyuseritems"."date_use" DESC LIMIT 6; args=(1, 1)
+"GET /resdec/list_last_items_used/?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form-7&username=admin&number_items=6 HTTP/1.1" 200 131
+(0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+"GET /resdec/list_last_items_used?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form-7&username=admin&number_items=6 HTTP/1.1" 301 0
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" LIKE '%admin%' ESCAPE '\'; args=(u'%admin%',)
+(0.001) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.002) SELECT "resdec_historyuseritems"."id", "resdec_historyuseritems"."user_id", "resdec_historyuseritems"."variability_environment_id", "resdec_historyuseritems"."item_name", "resdec_historyuseritems"."date_use" FROM "resdec_historyuseritems" WHERE ("resdec_historyuseritems"."variability_environment_id" = 1 AND "resdec_historyuseritems"."user_id" = 1) ORDER BY "resdec_historyuseritems"."date_use" DESC; args=(1, 1)
+Internal Server Error: /resdec/list_last_items_used/
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python27-64\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27-64\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\HP\Documents\Programming\Python\Repositorios\resdec-web-master\apps\resdec\views.py", line 282, in list_last_items_used
+    for h in arr_item[:number_items]:
+TypeError: slice indices must be integers or None or have an __index__ method
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.001) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.001) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.001) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+"GET /resdec/list_last_items_used/?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form-7&username=admin&number_items=6 HTTP/1.1" 500 76383
+(0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+"GET /resdec/list_last_items_used?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form-7&username=admin&number_items=6 HTTP/1.1" 301 0
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" LIKE '%admin%' ESCAPE '\'; args=(u'%admin%',)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.002) SELECT "resdec_historyuseritems"."id", "resdec_historyuseritems"."user_id", "resdec_historyuseritems"."variability_environment_id", "resdec_historyuseritems"."item_name", "resdec_historyuseritems"."date_use" FROM "resdec_historyuseritems" WHERE ("resdec_historyuseritems"."variability_environment_id" = 1 AND "resdec_historyuseritems"."user_id" = 1) ORDER BY "resdec_historyuseritems"."date_use" DESC; args=(1, 1)
+Internal Server Error: /resdec/list_last_items_used/
+Traceback (most recent call last):
+  File "C:\Python27-64\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python27-64\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27-64\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\HP\Documents\Programming\Python\Repositorios\resdec-web-master\apps\resdec\views.py", line 282, in list_last_items_used
+    for h in arr_item[0:number_items]:
+TypeError: slice indices must be integers or None or have an __index__ method
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.001) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.001) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+"GET /resdec/list_last_items_used/?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form-7&username=admin&number_items=6 HTTP/1.1" 500 76385
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+"GET /resdec/list_last_items_used?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form-7&username=admin&number_items=6 HTTP/1.1" 301 0
+(0.002) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" LIKE '%admin%' ESCAPE '\'; args=(u'%admin%',)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.002) SELECT "resdec_historyuseritems"."id", "resdec_historyuseritems"."user_id", "resdec_historyuseritems"."variability_environment_id", "resdec_historyuseritems"."item_name", "resdec_historyuseritems"."date_use" FROM "resdec_historyuseritems" WHERE ("resdec_historyuseritems"."variability_environment_id" = 1 AND "resdec_historyuseritems"."user_id" = 1) ORDER BY "resdec_historyuseritems"."date_use" DESC; args=(1, 1)
+"GET /resdec/list_last_items_used/?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form-7&username=admin&number_items=6 HTTP/1.1" 200 667
+(0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+"GET /resdec/list_last_items_used?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form-7&username=admin&number_items=6 HTTP/1.1" 301 0
+(0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" LIKE '%admin%' ESCAPE '\'; args=(u'%admin%',)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.002) SELECT "resdec_historyuseritems"."id", "resdec_historyuseritems"."user_id", "resdec_historyuseritems"."variability_environment_id", "resdec_historyuseritems"."item_name", "resdec_historyuseritems"."date_use" FROM "resdec_historyuseritems" WHERE ("resdec_historyuseritems"."variability_environment_id" = 1 AND "resdec_historyuseritems"."user_id" = 1) ORDER BY "resdec_historyuseritems"."date_use" DESC; args=(1, 1)
+"GET /resdec/list_last_items_used/?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form-7&username=admin&number_items=6 HTTP/1.1" 200 171
+"GET /resdec/cold_start_all?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form-7&username=admin&number_items=6 HTTP/1.1" 301 0
+(0.001) SELECT "resdec_relationshiptype"."id", "resdec_relationshiptype"."name", "resdec_relationshiptype"."status" FROM "resdec_relationshiptype" WHERE "resdec_relationshiptype"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.001) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE ("resdec_variabilityenvironmentdata"."base_on" LIKE '%R%' ESCAPE '\' AND "resdec_variabilityenvironmentdata"."variability_environment_id" = 1 AND "resdec_variabilityenvironmentdata"."status" LIKE '%A%' ESCAPE '\') ORDER BY "resdec_variabilityenvironmentdata"."pub_date" DESC LIMIT 1; args=(u'%R%', 1, u'%A%')
+"GET /resdec/cold_start_all/?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form-7&username=admin&number_items=6 HTTP/1.1" 200 326
+"GET /resdec/cold_start_interest?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form-7&username=admin&number_items=6&interest_id=1 HTTP/1.1" 301 0
+(0.001) SELECT "resdec_relationshiptype"."id", "resdec_relationshiptype"."name", "resdec_relationshiptype"."status" FROM "resdec_relationshiptype" WHERE "resdec_relationshiptype"."id" = 1; args=(1,)
+(0.001) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_interest"."id", "resdec_interest"."name", "resdec_interest"."status", "resdec_interest"."variability_environment_id" FROM "resdec_interest" WHERE "resdec_interest"."id" = 1; args=(1,)
+(0.001) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE ("resdec_variabilityenvironmentdata"."base_on" LIKE '%R%' ESCAPE '\' AND "resdec_variabilityenvironmentdata"."variability_environment_id" = 1 AND "resdec_variabilityenvironmentdata"."status" LIKE '%A%' ESCAPE '\') ORDER BY "resdec_variabilityenvironmentdata"."pub_date" DESC LIMIT 1; args=(u'%R%', 1, u'%A%')
+(0.000) SELECT "resdec_interestitemsnames"."id", "resdec_interestitemsnames"."interest_id", "resdec_interestitemsnames"."item_name" FROM "resdec_interestitemsnames" WHERE "resdec_interestitemsnames"."interest_id" = 1; args=(1,)
+"GET /resdec/cold_start_interest/?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form-7&username=admin&number_items=6&interest_id=1 HTTP/1.1" 200 136
+"GET /resdec/cold_start_features?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form-7&username=admin&number_items=6&interest_id=1&selected_features%5B%5D=contact HTTP/1.1" 301 0
+(0.001) SELECT "resdec_relationshiptype"."id", "resdec_relationshiptype"."name", "resdec_relationshiptype"."status" FROM "resdec_relationshiptype" WHERE "resdec_relationshiptype"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE ("resdec_variabilityenvironmentdata"."base_on" LIKE '%F%' ESCAPE '\' AND "resdec_variabilityenvironmentdata"."variability_environment_id" = 1 AND "resdec_variabilityenvironmentdata"."status" LIKE '%A%' ESCAPE '\') ORDER BY "resdec_variabilityenvironmentdata"."pub_date" DESC LIMIT 1; args=(u'%F%', 1, u'%A%')
+(0.000) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE ("resdec_variabilityenvironmentdata"."base_on" LIKE '%R%' ESCAPE '\' AND "resdec_variabilityenvironmentdata"."variability_environment_id" = 1 AND "resdec_variabilityenvironmentdata"."status" LIKE '%A%' ESCAPE '\') ORDER BY "resdec_variabilityenvironmentdata"."pub_date" DESC LIMIT 1; args=(u'%R%', 1, u'%A%')
+"GET /resdec/cold_start_features/?relationship_type_id=1&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item=contact-form-7&username=admin&number_items=6&interest_id=1&selected_features%5B%5D=contact HTTP/1.1" 200 289
+(0.001) SELECT "resdec_relationshiptype"."id", "resdec_relationshiptype"."name", "resdec_relationshiptype"."status" FROM "resdec_relationshiptype" WHERE "resdec_relationshiptype"."id" = 2; args=(2,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_algorithm"."id", "resdec_algorithm"."name", "resdec_algorithm"."status", "resdec_algorithm"."relationship_type_id" FROM "resdec_algorithm" WHERE "resdec_algorithm"."id" = 11; args=(11,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" LIKE '%admin%' ESCAPE '\'; args=(u'%admin%',)
+(0.001) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE ("resdec_variabilityenvironmentdata"."base_on" LIKE '%R%' ESCAPE '\' AND "resdec_variabilityenvironmentdata"."variability_environment_id" = 1 AND "resdec_variabilityenvironmentdata"."status" LIKE '%A%' ESCAPE '\') ORDER BY "resdec_variabilityenvironmentdata"."pub_date" DESC LIMIT 1; args=(u'%R%', 1, u'%A%')
+(0.000) BEGIN; args=None
+(0.024) INSERT INTO "resdec_historyuseritems" ("user_id", "variability_environment_id", "item_name", "date_use") VALUES (1, 1, 'contact-form-7', '2018-09-19 18:53:26.822000'); args=[1, 1, u'contact-form-7', u'2018-09-19 18:53:26.822000']
+"GET /resdec/transition_components_based_ratings?relationship_type_id=2&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item_evaluated=contact-form-7&username=admin&number_items=6&interest_id=1&selected_features%5B%5D=contact&algorithm_id=11 HTTP/1.1" 200 323
+(0.001) SELECT "resdec_relationshiptype"."id", "resdec_relationshiptype"."name", "resdec_relationshiptype"."status" FROM "resdec_relationshiptype" WHERE "resdec_relationshiptype"."id" = 2; args=(2,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_algorithm"."id", "resdec_algorithm"."name", "resdec_algorithm"."status", "resdec_algorithm"."relationship_type_id" FROM "resdec_algorithm" WHERE "resdec_algorithm"."id" = 13; args=(13,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" LIKE '%admin%' ESCAPE '\'; args=(u'%admin%',)
+(0.000) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE ("resdec_variabilityenvironmentdata"."base_on" LIKE '%R%' ESCAPE '\' AND "resdec_variabilityenvironmentdata"."variability_environment_id" = 1 AND "resdec_variabilityenvironmentdata"."status" LIKE '%A%' ESCAPE '\') ORDER BY "resdec_variabilityenvironmentdata"."pub_date" DESC LIMIT 1; args=(u'%R%', 1, u'%A%')
+(0.000) BEGIN; args=None
+(0.001) INSERT INTO "resdec_historyuseritems" ("user_id", "variability_environment_id", "item_name", "date_use") VALUES (1, 1, 'contact-form-7', '2018-09-19 18:53:41.477000'); args=[1, 1, u'contact-form-7', u'2018-09-19 18:53:41.477000']
+"GET /resdec/transition_components_based_ratings?relationship_type_id=2&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item_evaluated=contact-form-7&username=admin&number_items=6&interest_id=1&selected_features%5B%5D=contact&algorithm_id=13 HTTP/1.1" 200 292
+(0.001) SELECT "resdec_relationshiptype"."id", "resdec_relationshiptype"."name", "resdec_relationshiptype"."status" FROM "resdec_relationshiptype" WHERE "resdec_relationshiptype"."id" = 2; args=(2,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.000) SELECT "resdec_algorithm"."id", "resdec_algorithm"."name", "resdec_algorithm"."status", "resdec_algorithm"."relationship_type_id" FROM "resdec_algorithm" WHERE "resdec_algorithm"."id" = 14; args=(14,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" LIKE '%admin%' ESCAPE '\'; args=(u'%admin%',)
+(0.001) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE ("resdec_variabilityenvironmentdata"."base_on" LIKE '%R%' ESCAPE '\' AND "resdec_variabilityenvironmentdata"."variability_environment_id" = 1 AND "resdec_variabilityenvironmentdata"."status" LIKE '%A%' ESCAPE '\') ORDER BY "resdec_variabilityenvironmentdata"."pub_date" DESC LIMIT 1; args=(u'%R%', 1, u'%A%')
+(0.000) BEGIN; args=None
+(0.001) INSERT INTO "resdec_historyuseritems" ("user_id", "variability_environment_id", "item_name", "date_use") VALUES (1, 1, 'contact-form-7', '2018-09-19 18:54:36.616000'); args=[1, 1, u'contact-form-7', u'2018-09-19 18:54:36.616000']
+"GET /resdec/transition_components_based_ratings?relationship_type_id=2&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item_evaluated=contact-form-7&username=admin&number_items=6&interest_id=1&selected_features%5B%5D=contact&algorithm_id=14 HTTP/1.1" 200 292
+(0.001) SELECT "resdec_relationshiptype"."id", "resdec_relationshiptype"."name", "resdec_relationshiptype"."status" FROM "resdec_relationshiptype" WHERE "resdec_relationshiptype"."id" = 3; args=(3,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.001) SELECT "resdec_algorithm"."id", "resdec_algorithm"."name", "resdec_algorithm"."status", "resdec_algorithm"."relationship_type_id" FROM "resdec_algorithm" WHERE "resdec_algorithm"."id" = 14; args=(14,)
+(0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" LIKE '%admin%' ESCAPE '\'; args=(u'%admin%',)
+(0.001) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE ("resdec_variabilityenvironmentdata"."base_on" LIKE '%F%' ESCAPE '\' AND "resdec_variabilityenvironmentdata"."variability_environment_id" = 1 AND "resdec_variabilityenvironmentdata"."status" LIKE '%A%' ESCAPE '\') ORDER BY "resdec_variabilityenvironmentdata"."pub_date" DESC LIMIT 1; args=(u'%F%', 1, u'%A%')
+(0.000) BEGIN; args=None
+(0.001) INSERT INTO "resdec_historyuseritems" ("user_id", "variability_environment_id", "item_name", "date_use") VALUES (1, 1, 'contact-form-7', '2018-09-19 18:54:51.272000'); args=[1, 1, u'contact-form-7', u'2018-09-19 18:54:51.272000']
+"GET /resdec/transition_components_based_features?relationship_type_id=3&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item_evaluated=contact-form-7&username=admin&number_items=6&interest_id=1&selected_features%5B%5D=contact&algorithm_id=14 HTTP/1.1" 200 83
+(0.000) SELECT "resdec_relationshiptype"."id", "resdec_relationshiptype"."name", "resdec_relationshiptype"."status" FROM "resdec_relationshiptype" WHERE "resdec_relationshiptype"."id" = 3; args=(3,)
+(0.000) SELECT "resdec_variabilityenvironment"."id", "resdec_variabilityenvironment"."name", "resdec_variabilityenvironment"."status" FROM "resdec_variabilityenvironment" WHERE "resdec_variabilityenvironment"."id" = 1; args=(1,)
+(0.001) SELECT "resdec_algorithm"."id", "resdec_algorithm"."name", "resdec_algorithm"."status", "resdec_algorithm"."relationship_type_id" FROM "resdec_algorithm" WHERE "resdec_algorithm"."id" = 16; args=(16,)
+(0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" LIKE '%admin%' ESCAPE '\'; args=(u'%admin%',)
+(0.001) SELECT "resdec_variabilityenvironmentdata"."id", "resdec_variabilityenvironmentdata"."variability_environment_id", "resdec_variabilityenvironmentdata"."base_on", "resdec_variabilityenvironmentdata"."name", "resdec_variabilityenvironmentdata"."extension", "resdec_variabilityenvironmentdata"."size", "resdec_variabilityenvironmentdata"."number_records", "resdec_variabilityenvironmentdata"."file", "resdec_variabilityenvironmentdata"."pub_date", "resdec_variabilityenvironmentdata"."status", "resdec_variabilityenvironmentdata"."separator", "resdec_variabilityenvironmentdata"."item_column", "resdec_variabilityenvironmentdata"."user_column", "resdec_variabilityenvironmentdata"."feature_column", "resdec_variabilityenvironmentdata"."rating_column" FROM "resdec_variabilityenvironmentdata" WHERE ("resdec_variabilityenvironmentdata"."base_on" LIKE '%F%' ESCAPE '\' AND "resdec_variabilityenvironmentdata"."variability_environment_id" = 1 AND "resdec_variabilityenvironmentdata"."status" LIKE '%A%' ESCAPE '\') ORDER BY "resdec_variabilityenvironmentdata"."pub_date" DESC LIMIT 1; args=(u'%F%', 1, u'%A%')
+(0.000) BEGIN; args=None
+(0.000) INSERT INTO "resdec_historyuseritems" ("user_id", "variability_environment_id", "item_name", "date_use") VALUES (1, 1, 'contact-form-7', '2018-09-19 18:55:09.928000'); args=[1, 1, u'contact-form-7', u'2018-09-19 18:55:09.928000']
+"GET /resdec/transition_components_based_features?relationship_type_id=3&var_environment_id=1&selected_features%5B%5D=contact&number_recommendations=5&item_evaluated=contact-form-7&username=admin&number_items=6&interest_id=1&selected_features%5B%5D=contact&algorithm_id=16 HTTP/1.1" 200 325

@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth import authenticate, logout
 from django.contrib.auth.models import User
 from django.core.files.storage import default_storage
@@ -178,7 +179,7 @@ def list_features(request):
     if str(variability_environment_data.file) != '':
         print("List Features >> Variability Environment Data: " + str(variability_environment_data.file))
         # DataFrame from reading the csv
-        df = pd.read_csv(str(variability_environment_data.file),
+        df = pd.read_csv('media/' + str(variability_environment_data.file),
                          encoding='latin-1',
                          sep=str(variability_environment_data.separator))
         # Features distinct.
@@ -221,7 +222,7 @@ def list_features_item(request):
         print("List features of item>> Variability Environment Data: " + str(variability_environment_data.file))
 
         # DataFrame from reading the csv
-        df = pd.read_csv(str(variability_environment_data.file),
+        df = pd.read_csv('media/' + str(variability_environment_data.file),
                          encoding='latin-1',
                          sep=str(variability_environment_data.separator),
                          names=['plugins', 'tags'])
@@ -278,7 +279,7 @@ def list_last_items_used(request):
 
         # Items to respond
         x = 0
-        for h in arr_item:
+        for h in arr_item[:int(number_items)]:
             x += 1
             dict_history_user_items[x] = h
 
@@ -315,7 +316,7 @@ def list_items(request):
     if str(variability_environment_data.file) != '':
         print("List Items >> Variability Environment Data: " + str(variability_environment_data.file))
         # DataFrame from reading the csv
-        df = pd.read_csv(str(variability_environment_data.file),
+        df = pd.read_csv('media/' + str(variability_environment_data.file),
                          encoding='latin-1',
                          sep=str(variability_environment_data.separator))
         # Items distinct
@@ -402,7 +403,7 @@ def cold_start_all(request):
     possible_interest_recommendations = {}
     if str(variability_environment_data.name) != '':
         # DataFrame from reading the csv
-        df = pd.read_csv(str(variability_environment_data.file),
+        df = pd.read_csv('media/' + str(variability_environment_data.file),
                          encoding='latin-1',
                          sep=str(variability_environment_data.separator))
         # Distinct items in the cvs
@@ -418,7 +419,7 @@ def cold_start_all(request):
         number_recommendations = int(number_recommendations)
 
         # Calling to the ColdStart class
-        cs = ColdStart(file_rating_path=str(variability_environment_data.file),
+        cs = ColdStart(file_rating_path='media/' + str(variability_environment_data.file),
                        delimiter=variability_environment_data.separator,
                        dict_items=dict_items,
                        number_recommendations=number_recommendations + 4)
@@ -471,7 +472,7 @@ def cold_start_interest(request):
         number_recommendations = int(number_recommendations)
 
         # Calling to the ColdStart class
-        cs = ColdStart(file_rating_path=str(variability_environment_data.file),
+        cs = ColdStart(file_rating_path='media/' + str(variability_environment_data.file),
                        delimiter=variability_environment_data.separator,
                        dict_items=dict_items,
                        number_recommendations=number_recommendations + 4)
@@ -515,7 +516,7 @@ def cold_start_features(request):
           str(variability_environment_data_features.file))
 
     # Getting data file with the features.
-    arr_data_fea_csv = np.genfromtxt(str(variability_environment_data_features.file),
+    arr_data_fea_csv = np.genfromtxt('media/' + str(variability_environment_data_features.file),
                                      delimiter=str(variability_environment_data_features.separator),
                                      dtype=None)
 
@@ -542,7 +543,7 @@ def cold_start_features(request):
     number_recommendations = int(number_recommendations)
 
     # Calling to the ColdStart class
-    cs = ColdStart(file_rating_path=str(variability_environment_data_rating.file),
+    cs = ColdStart(file_rating_path='media/' + str(variability_environment_data_rating.file),
                    delimiter=variability_environment_data_rating.separator,
                    dict_items=dict_items,
                    number_recommendations=number_recommendations + 4)
@@ -596,19 +597,19 @@ def transition_components_based_ratings(request):
     if str(variability_environment_data.name) != '':
         if algorithm.pk == 11:
             recommendations = \
-                tcbr(file_path=str(variability_environment_data.file),
+                tcbr(file_path='media/' + str(variability_environment_data.file),
                      delimiter=variability_environment_data.separator,
                      item_evaluated=item_evaluated,
                      number_recommendations=number_recommendations + 4).svd()
         elif algorithm.pk == 13:
             recommendations = \
-                tcbr(file_path=str(variability_environment_data.file),
+                tcbr(file_path='media/' + str(variability_environment_data.file),
                      delimiter=variability_environment_data.separator,
                      item_evaluated=item_evaluated,
                      number_recommendations=number_recommendations + 4).knn_basic()
         elif algorithm.pk == 14:
             recommendations = \
-                tcbr(file_path=str(variability_environment_data.file),
+                tcbr(file_path='media/' + str(variability_environment_data.file),
                      delimiter=variability_environment_data.separator,
                      item_evaluated=item_evaluated,
                      number_recommendations=number_recommendations + 4).knn_centered()
@@ -667,7 +668,7 @@ def transition_components_based_features(request):
     if str(variability_environment_data.name) != '':
         # Calling the algorithm
         if algorithm.pk == 16:
-            tran_comp_bas_fea = tcbf(file_path=str(variability_environment_data.file),
+            tran_comp_bas_fea = tcbf(file_path='media/' + str(variability_environment_data.file),
                                      delimiter=variability_environment_data.separator,
                                      item_evaluated=item_evaluated,
                                      number_recommendations=number_recommendations + 4)
