@@ -1,2 +1,2 @@
-# resdec-web
-Resdec Solution ambiente Web.
+# resdec-solution-backend
+Resdec Solution BackEnd.
