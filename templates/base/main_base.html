@@ -1,0 +1,131 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+  <title>{% block title %} Resdec {% endblock %}</title>
+
+  <style>
+    .side-nav{
+      width: 350px !important;
+    }
+    #main_container{
+      width: 90% !important;
+    }
+  </style>
+
+  {# Contenedor del header para demás recursos #}
+  {% block header %}
+  {% endblock %}
+</head>
+<body>
+    <!-- Dropdown Structure -->
+    <ul id='dropdown1' class='dropdown-content'>
+        <li><a href="#!"><i class="material-icons">exit_to_app</i>Exit</a></li>
+    </ul>
+    <nav class="red darken-4">
+        <!-- Lista que se oculta -->
+        <ul id="slide-out" class="side-nav">
+            <li><div class="user-view">
+                <div class="background" style="text-align: center">
+                    <img style="width: 60%" src="{% static 'images/resdec-logo.jpg' %}">
+                </div><br><br><br>
+{#                <a href="#!user"><img class="circle" src="{% static 'images/sho.jpg'%}"></a>#}
+{#                <a href="#!name"><span class="white-text name">{{ user.first_name }}</span></a>#}
+{#                <a href="#!email"><span class="white-text email">{{ user.email }}</span></a>#}
+            </div></li>
+            <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+                    <li><a href="{% url 'index' %}" class="collapsible-header waves-effect waves-cyan">
+                            <i class="material-icons">home</i>
+                            <span class="nav-text">Home</span>
+                        </a>
+                    </li>
+                    <li><a class="collapsible-header waves-effect waves-cyan">
+                            <i class="material-icons">widgets</i>
+                            <span class="nav-text">Recommender Environment</span>
+                        </a>
+                        <div class="collapsible-body">
+                            <ul>
+                            <li><a href="#!">User</a></li>
+                            </ul>
+                          <ul>
+                            <li><a href="#!">Product</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a class="collapsible-header waves-effect waves-cyan">
+                            <i class="material-icons">insert_chart</i>
+                            <span class="nav-text">Recommender Manager</span>
+                        </a>
+                        <div class="collapsible-body">
+                          <ul>
+                            <li><a href="{% url 'resdec:cold_start_form' %}">Cold Start</a></li>
+                          </ul>
+                          <ul>
+                            <li><a href="{% url 'resdec:algorithms' 2 %}">Transition of components based on ratings</a></li>
+                          </ul>
+                          <ul>
+                            <li><a href="{% url 'resdec:algorithms' 3 %}">Transition of components Based on features</a></li>
+                          </ul>
+                        </div>
+                    </li>
+                    <li><div class="divider"></div></li>
+                    <li><a href="{% url 'logout' %}" class="collapsible-header waves-effect waves-cyan">
+                        <i class="material-icons">exit_to_app</i>Salir</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- Lista de botones del NAV -->
+{#        <ul class="right hide-on-med-and-down">#}
+{#            <li><a href="sass.html"><i class="material-icons">search</i></a></li>#}
+{#            <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>#}
+{#            <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>#}
+{#            <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>#}
+{#            <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Inicio<i class="material-icons right">arrow_drop_down</i></a></li>#}
+{#        </ul>#}
+        <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">cloud</i></a>
+        <a href="" style="font-style: italic; font-weight: bold; font-size: large">Resdec Recommender System</a>
+    </nav>
+
+    {#  Contenedor del body  #}
+    <div id="main_container" class="container">
+    {% block content %}
+    {% endblock %}
+    </div>
+
+    {#  JS al final del body  #}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function() {
+        jQuery('select').material_select();
+          $('select').on('contentChanged', function() {
+          $(this).material_select();
+          {% block js_document_ready %}
+          {% endblock %}
+        });
+      });
+    </script>
+    <script type="text/javascript">
+      jQuery('.button-collapse').sideNav({
+        menuWidth: 300, // Default is 240
+        edge: 'left', // Choose the horizontal origin
+        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      });
+      jQuery('.collapsible').collapsible();
+    </script>
+
+    {#  Bloque adicional a ser llamado  #}
+    {% block javascript %}
+    {% endblock %}
+
+    {#  Bloque del footer  #}
+    {% block footer %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,252 @@
+{% extends 'base/main_base.html' %}
+{% load staticfiles %}
+
+{% block header %}
+  <script src="{% static 'js/highcharts.js' %}"></script>
+  <script src="https://code.highcharts.com/modules/data.js"></script>
+  <script src="{% static 'js/exporting.js' %}"></script>
+  <script src="{% static 'js/export-data.js' %}"></script>
+  <style>
+    #SectionMain{
+      width: 100% !important;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <div id="SectionMain" class="container" style="padding-top: 50px">
+    <div class="row">
+      <!-- Filters Card Panel -->
+      <div class="col s12 m6 l6">
+        <div class="card-panel grey lighten-5 z-depth-3">
+          <h5>Define attributes to use:</h5><br>
+          <div class="row">
+            <div class="col s6">
+              <div class="row">
+                <div class="input-field col s12">
+                  <select id="selRelTypes" onchange="relTypAlgorithms()" disabled>
+                    <option value="{{ rel_type.pk }}">{{ rel_type.name }}</option>
+                  </select>
+                  <label>Relationship Type</label>
+                </div>
+              </div>
+            </div>
+            <div class="col s6">
+              <div class="row">
+                <div class="input-field col s12">
+                  <select id="selVarEnvironment" onchange="varEnvData()">
+                    <option value="" selected>-- Select --</option>
+                    {% for ve in var_environments %}
+                      <option value="{{ ve.id }}">{{ ve.name }}</option>
+                    {% endfor %}
+                  </select>
+                  <label>Variability Environment</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s6">
+              <div class="row">
+                <div class="input-field col s12">
+                  <select id="selData">
+                    <option value="" selected>-- Select --</option>
+                    {% for ved in varEnvData %}
+                      <option value="{{ ved.id }}">{{ ved.name }}</option>
+                    {% endfor %}
+                  </select>
+                  <label>Data</label>
+                </div>
+              </div>
+            </div>
+            <div class="col s6">
+              <div class="row">
+                <div class="input-field col s12">
+                  <select id="selAlgorithms">
+                    <option value="" selected>-- Select --</option>
+                  </select>
+                  <label>Algorithm</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="waves-effect waves-light btn teal darken-3" href="#" onclick="calculate_algorithm()">Calculate</a>
+        </div>
+      </div>
+
+      <!-- Chart Container -->
+      <div class="col s12 m6 l6">
+        <div id="container"></div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Table -->
+      <div class="col s12 l6 m6">
+        <div class="card grey lighten-5 z-depth-3">
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Table of results</span>
+            <table id="datatable" class="striped">
+              <thead>
+                <tr>
+                  <th>{{ rel_type }}</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>N/D</th>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-action">
+            <a href="#">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% block javascript %}
+    <script src="{% static 'js/algorithms.js' %}"></script>
+    <script type="text/javascript">
+      function relTypAlgorithms(){
+        var relationType = $("#selRelTypes").val(); //   Get the relationship type.
+        var select = document.getElementById('selAlgorithms');
+        console.log("Searching algorithms for the relationship type: " + relationType);
+        if (relationType!=''){
+          $.get('{% url "resdec:relationshipTypeAlgorithms" %}',
+                  {relationType: relationType}, function(data){
+
+            select = document.getElementById('selAlgorithms');
+            select.options.length = 0;
+            select.options.add(new Option("-- Select --", ""));
+
+            var json = JSON.parse(data);
+
+            $.each(json, function (key, value) {
+              select.options.add(new Option(value.fields.name, value.pk));
+            });
+
+            $('select').trigger('contentChanged');  //  Callback to the Materialize listener.
+          });
+        }else{
+          select.options.length = 0;
+          select.options.add(new Option("-- Select --", ""));
+          $('select').trigger('contentChanged');  //  Callback to the Materialize listener.
+        }
+      }
+    </script>
+    <script type="text/javascript">
+      function varEnvData(){
+        var variabilityEnvironment = $("#selVarEnvironment").val(); //  Get the variability environment
+        console.log("INFO: Searching data to use with the variability environment: " + variabilityEnvironment);
+        $.get('{% url "resdec:variabilityEnvironmentData" %}', {variabilityEnvironment: variabilityEnvironment}, function(data){
+          console.log(data);
+          var select;
+          select = document.getElementById('selData');
+          select.options.length = 0;
+          select.options.add(new Option("-- Select --", ""));
+          $('select').trigger('contentChanged');  //  Callback to the Materilize listener.
+        });
+      }
+    </script>
+    <script type="text/javascript">
+      window.onload = function() {
+        relTypAlgorithms();
+      };
+    </script>
+    <script type="text/javascript">
+      function calculate_algorithm(){
+        var relationship_type = $("#selRelTypes").val();
+        var variability_environment = $("#selVarEnvironment").val();
+        var algorithm_data = $("#selData").val();
+        var algorithm_id = $("#selAlgorithms").val();
+        var algorithm_str = $("#selAlgorithms option:selected").text();
+
+        console.log("INFO: Relationship Type: " + relationship_type);
+        console.log("INFO: Varibility Environment: " + variability_environment);
+        console.log("INFO: Data: " + algorithm_data);
+        console.log("INFO: Algorith: " + algorithm_id);
+        console.log("Calculating...");
+
+        $.get('{% url "resdec:calling_algorithm" %}', {
+          algorithm_rel_typ: relationship_type,
+          algorithm_var_env: variability_environment,
+          algorithm_data: algorithm_data,
+          algorithm_id: algorithm_id,
+          algorithm_str: algorithm_str,
+        }, function(data){
+          var html_table = data['html_response_table'];
+
+          console.log("INFO: Result table form the backend " + html_table);
+          console.log("INFO: Deleting head and body");
+
+          $("#datatable thead").remove();
+          $("#datatable tbody").remove();
+          $("#datatable").append(html_table);
+
+          console.log("INFO: Updating chart");
+
+          update_chart();
+        });
+      }
+    </script>
+    <script type="text/javascript">
+      function update_chart() {
+        var str_variability = $("#selVarEnvironment option:selected").text();
+        var str_algorithm = $("#selAlgorithms option:selected").text();
+
+        //  Function to update the series1 in the chart.
+        var complete = function(options) {
+            var series1 = algorithm_chart.get('series1');
+            series1.setData(options.series[0].data, false);
+            algorithm_chart.redraw();
+        };
+
+        //  Updating Highchart's data
+        Highcharts.data({
+            table : document.getElementById('datatable'),
+            complete : complete
+        });
+
+        //  Updating Highchart's subitle
+        algorithm_chart.setSubtitle({
+          text : 'Variability Environment: ' + str_variability + '; Algorithm: ' + str_algorithm
+        });
+      }
+    </script>
+    <script type="text/javascript">
+      var algorithm_chart = Highcharts.chart('container', {
+        data: {
+          table: 'datatable'
+        },
+        chart: {
+          type: 'column'
+        },
+        title: {
+          text: '{{ rel_type.name }}'
+        },
+        subtitle:{
+          text: 'Calculation results'
+        },
+        yAxis: {
+          allowDecimals: false,
+          title: {
+              text: 'Units'
+          }
+        },
+        tooltip: {
+          formatter: function () {
+            return '<b>' + this.series.name + '</b><br/>' +
+                this.point.y + ' ' + this.point.name.toLowerCase();
+          }
+        },
+        series : [{ id: 'series1' }]
+      });
+    </script>
+  {% endblock %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

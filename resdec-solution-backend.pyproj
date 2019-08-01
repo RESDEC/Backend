@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ad1808ac-8f82-438b-b725-ffc19a49222b}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Django launcher</LaunchProvider>
+    <InterpreterId>CondaEnv|CondaEnv|resdec</InterpreterId>
+    <WebBrowserUrl>http://localhost</WebBrowserUrl>
+    <DjangoSettingsModule>ResdecSolution.settings</DjangoSettingsModule>
+    <IsWindowsApplication>False</IsWindowsApplication>
+    <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="apps\resdec\admin.py" />
+    <Compile Include="apps\resdec\apps.py" />
+    <Compile Include="apps\resdec\migrations\0001_initial.py" />
+    <Compile Include="apps\resdec\migrations\0002_auto_20180716_1133.py" />
+    <Compile Include="apps\resdec\migrations\0003_auto_20180717_1630.py" />
+    <Compile Include="apps\resdec\migrations\0004_auto_20180724_1740.py" />
+    <Compile Include="apps\resdec\migrations\0005_auto_20180727_1207.py" />
+    <Compile Include="apps\resdec\migrations\0006_auto_20180812_0028.py" />
+    <Compile Include="apps\resdec\migrations\0007_remove_variabilityenvironmentdata_relationship_type.py" />
+    <Compile Include="apps\resdec\migrations\0008_auto_20180828_1526.py" />
+    <Compile Include="apps\resdec\migrations\0009_userprofile.py" />
+    <Compile Include="apps\resdec\migrations\0010_auto_20180914_1204.py" />
+    <Compile Include="apps\resdec\migrations\0011_auto_20180917_1106.py" />
+    <Compile Include="apps\resdec\migrations\0012_auto_20180917_1153.py" />
+    <Compile Include="apps\resdec\migrations\0013_auto_20180917_1155.py" />
+    <Compile Include="apps\resdec\migrations\0014_auto_20180917_1511.py" />
+    <Compile Include="apps\resdec\migrations\0015_auto_20180917_1526.py" />
+    <Compile Include="apps\resdec\migrations\__init__.py" />
+    <Compile Include="apps\resdec\models.py" />
+    <Compile Include="apps\resdec\tests.py" />
+    <Compile Include="apps\resdec\urls.py" />
+    <Compile Include="apps\resdec\views.py" />
+    <Compile Include="apps\resdec\__init__.py" />
+    <Compile Include="apps\__init__.py" />
+    <Compile Include="manage.py" />
+    <Compile Include="modules\utils.py" />
+    <Compile Include="modules\__init__.py" />
+    <Compile Include="ResdecSolution\settings.py" />
+    <Compile Include="ResdecSolution\urls.py" />
+    <Compile Include="ResdecSolution\views.py" />
+    <Compile Include="ResdecSolution\wsgi.py" />
+    <Compile Include="ResdecSolution\__init__.py" />
+    <Compile Include="resdec_algorithms\based_features.py" />
+    <Compile Include="resdec_algorithms\based_ratings.py" />
+    <Compile Include="resdec_algorithms\cold_start.py" />
+    <Compile Include="resdec_algorithms\util\manipulate.py" />
+    <Compile Include="resdec_algorithms\util\__init__.py" />
+    <Compile Include="resdec_algorithms\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="apps" />
+    <Folder Include="apps\resdec" />
+    <Folder Include="apps\resdec\migrations" />
+    <Folder Include="media\" />
+    <Folder Include="media\user_data_uploaded\" />
+    <Folder Include="media\user_photos\" />
+    <Folder Include="modules" />
+    <Folder Include="log\" />
+    <Folder Include="ResdecSolution" />
+    <Folder Include="resdec_algorithms" />
+    <Folder Include="resdec_algorithms\util" />
+    <Folder Include="static\" />
+    <Folder Include="static\admin\" />
+    <Folder Include="static\admin\css\" />
+    <Folder Include="static\admin\fonts\" />
+    <Folder Include="static\admin\img\" />
+    <Folder Include="static\admin\img\gis\" />
+    <Folder Include="static\admin\js\" />
+    <Folder Include="static\admin\js\admin\" />
+    <Folder Include="static\admin\js\vendor\" />
+    <Folder Include="static\admin\js\vendor\jquery\" />
+    <Folder Include="static\admin\js\vendor\xregexp\" />
+    <Folder Include="static\css\" />
+    <Folder Include="static\css\font-awesome\" />
+    <Folder Include="static\css\fonts\" />
+    <Folder Include="static\fonts\" />
+    <Folder Include="static\fonts\roboto\" />
+    <Folder Include="static\images\" />
+    <Folder Include="static\images\slider\" />
+    <Folder Include="static\js\" />
+    <Folder Include="static\material\" />
+    <Folder Include="static\material\css\" />
+    <Folder Include="static\material\fonts\" />
+    <Folder Include="static\material\fonts\material-design-icons\" />
+    <Folder Include="static\material\fonts\roboto\" />
+    <Folder Include="static\material\fonts\roboto\fonts\" />
+    <Folder Include="static\material\imgs\" />
+    <Folder Include="static\material\js\" />
+    <Folder Include="static\material\sass\" />
+    <Folder Include="templates\" />
+    <Folder Include="templates\base\" />
+    <Folder Include="templates\resdec\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="db.sqlite3" />
+    <Content Include="Dockerfile" />
+    <Content Include="media\user_data_uploaded\plugin_ratings.csv" />
+    <Content Include="media\user_data_uploaded\plugin_ratings_100i_10u.csv" />
+    <Content Include="media\user_data_uploaded\plugin_ratings_10i_10u.csv" />
+    <Content Include="media\user_data_uploaded\plugin_ratings_500i_10u.csv" />
+    <Content Include="media\user_data_uploaded\plugin_ratings_500i_20u.csv" />
+    <Content Include="media\user_data_uploaded\plugin_ratings_500i_25u.csv" />
+    <Content Include="media\user_data_uploaded\plugin_ratings_real.csv" />
+    <Content Include="media\user_data_uploaded\plugin_tags.csv" />
+    <Content Include="media\user_data_uploaded\plugin_tags_100i_10u.csv" />
+    <Content Include="media\user_data_uploaded\plugin_tags_10i_10u.csv" />
+    <Content Include="media\user_data_uploaded\plugin_tags_500i_10u.csv" />
+    <Content Include="media\user_data_uploaded\plugin_tags_500i_20u.csv" />
+    <Content Include="media\user_data_uploaded\plugin_tags_500i_25u.csv" />
+    <Content Include="media\user_data_uploaded\plugin_tags_real.csv" />
+    <Content Include="media\user_photos\2012-06-26_13.20.42.jpg" />
+    <Content Include="media\user_photos\tumblr_nhgjoiad8H1s420s7o1_500.png" />
+    <Content Include="requirements.txt" />
+    <Content Include="static\admin\css\base.css" />
+    <Content Include="static\admin\css\changelists.css" />
+    <Content Include="static\admin\css\dashboard.css" />
+    <Content Include="static\admin\css\fonts.css" />
+    <Content Include="static\admin\css\forms.css" />
+    <Content Include="static\admin\css\login.css" />
+    <Content Include="static\admin\css\rtl.css" />
+    <Content Include="static\admin\css\widgets.css" />
+    <Content Include="static\admin\fonts\LICENSE.txt" />
+    <Content Include="static\admin\fonts\README.txt" />
+    <Content Include="static\admin\fonts\Roboto-Bold-webfont.woff" />
+    <Content Include="static\admin\fonts\Roboto-Light-webfont.woff" />
+    <Content Include="static\admin\fonts\Roboto-Regular-webfont.woff" />
+    <Content Include="static\admin\img\calendar-icons.svg" />
+    <Content Include="static\admin\img\gis\move_vertex_off.svg" />
+    <Content Include="static\admin\img\gis\move_vertex_on.svg" />
+    <Content Include="static\admin\img\icon-addlink.svg" />
+    <Content Include="static\admin\img\icon-alert.svg" />
+    <Content Include="static\admin\img\icon-calendar.svg" />
+    <Content Include="static\admin\img\icon-changelink.svg" />
+    <Content Include="static\admin\img\icon-clock.svg" />
+    <Content Include="static\admin\img\icon-deletelink.svg" />
+    <Content Include="static\admin\img\icon-no.svg" />
+    <Content Include="static\admin\img\icon-unknown-alt.svg" />
+    <Content Include="static\admin\img\icon-unknown.svg" />
+    <Content Include="static\admin\img\icon-yes.svg" />
+    <Content Include="static\admin\img\inline-delete.svg" />
+    <Content Include="static\admin\img\LICENSE" />
+    <Content Include="static\admin\img\README.txt" />
+    <Content Include="static\admin\img\search.svg" />
+    <Content Include="static\admin\img\selector-icons.svg" />
+    <Content Include="static\admin\img\sorting-icons.svg" />
+    <Content Include="static\admin\img\tooltag-add.svg" />
+    <Content Include="static\admin\img\tooltag-arrowright.svg" />
+    <Content Include="static\admin\js\actions.js" />
+    <Content Include="static\admin\js\actions.min.js" />
+    <Content Include="static\admin\js\admin\DateTimeShortcuts.js" />
+    <Content Include="static\admin\js\admin\RelatedObjectLookups.js" />
+    <Content Include="static\admin\js\calendar.js" />
+    <Content Include="static\admin\js\cancel.js" />
+    <Content Include="static\admin\js\change_form.js" />
+    <Content Include="static\admin\js\collapse.js" />
+    <Content Include="static\admin\js\collapse.min.js" />
+    <Content Include="static\admin\js\core.js" />
+    <Content Include="static\admin\js\inlines.js" />
+    <Content Include="static\admin\js\inlines.min.js" />
+    <Content Include="static\admin\js\jquery.init.js" />
+    <Content Include="static\admin\js\popup_response.js" />
+    <Content Include="static\admin\js\prepopulate.js" />
+    <Content Include="static\admin\js\prepopulate.min.js" />
+    <Content Include="static\admin\js\prepopulate_init.js" />
+    <Content Include="static\admin\js\SelectBox.js" />
+    <Content Include="static\admin\js\SelectFilter2.js" />
+    <Content Include="static\admin\js\timeparse.js" />
+    <Content Include="static\admin\js\urlify.js" />
+    <Content Include="static\admin\js\vendor\jquery\jquery.js" />
+    <Content Include="static\admin\js\vendor\jquery\jquery.min.js" />
+    <Content Include="static\admin\js\vendor\jquery\LICENSE-JQUERY.txt" />
+    <Content Include="static\admin\js\vendor\xregexp\LICENSE-XREGEXP.txt" />
+    <Content Include="static\admin\js\vendor\xregexp\xregexp.js" />
+    <Content Include="static\admin\js\vendor\xregexp\xregexp.min.js" />
+    <Content Include="static\css\font-awesome\font-awesome.min.css" />
+    <Content Include="static\css\fonts\fontawesome-webfont.eot" />
+    <Content Include="static\css\fonts\fontawesome-webfont.svg" />
+    <Content Include="static\css\fonts\fontawesome-webfont.ttf" />
+    <Content Include="static\css\fonts\fontawesome-webfont.woff" />
+    <Content Include="static\css\js_composer.css" />
+    <Content Include="static\css\layerslider.css" />
+    <Content Include="static\css\materialize.css" />
+    <Content Include="static\css\materialize.min.css" />
+    <Content Include="static\css\responsive.min.css" />
+    <Content Include="static\css\style.css" />
+    <Content Include="static\css\stylesheet.min.css" />
+    <Content Include="static\css\style_dynamic.css" />
+    <Content Include="static\css\style_dynamic_responsive.css" />
+    <Content Include="static\fonts\roboto\Roboto-Bold.woff" />
+    <Content Include="static\fonts\roboto\Roboto-Bold.woff2" />
+    <Content Include="static\fonts\roboto\Roboto-Light.woff" />
+    <Content Include="static\fonts\roboto\Roboto-Light.woff2" />
+    <Content Include="static\fonts\roboto\Roboto-Medium.woff" />
+    <Content Include="static\fonts\roboto\Roboto-Medium.woff2" />
+    <Content Include="static\fonts\roboto\Roboto-Regular.woff" />
+    <Content Include="static\fonts\roboto\Roboto-Regular.woff2" />
+    <Content Include="static\fonts\roboto\Roboto-Thin.woff" />
+    <Content Include="static\fonts\roboto\Roboto-Thin.woff2" />
+    <Content Include="static\images\icon-security-circle.svg" />
+    <Content Include="static\images\logo.png" />
+    <Content Include="static\images\resdec-barner.jpg" />
+    <Content Include="static\images\resdec-logo.jpg" />
+    <Content Include="static\images\slider\image-1.jpg" />
+    <Content Include="static\images\Super-Abstract-Wallpaper-380x250.jpg" />
+    <Content Include="static\js\ajax.min.js" />
+    <Content Include="static\js\algorithms.js" />
+    <Content Include="static\js\custom_js.js" />
+    <Content Include="static\js\default.min.js" />
+    <Content Include="static\js\default_dyamic.js" />
+    <Content Include="static\js\export-data.js" />
+    <Content Include="static\js\exporting.js" />
+    <Content Include="static\js\highcharts.js" />
+    <Content Include="static\js\jquery.carouFredSel-6.2.1.min.js" />
+    <Content Include="static\js\jquery.fullPage.min.js" />
+    <Content Include="static\js\jquery.js" />
+    <Content Include="static\js\jquery.mousewheel.min.js" />
+    <Content Include="static\js\jquery.touchSwipe.min.js" />
+    <Content Include="static\js\js_composer_front.js" />
+    <Content Include="static\js\layerslider.kreaturamedia.jquery.js" />
+    <Content Include="static\js\layerslider.transitions.js" />
+    <Content Include="static\js\lemmon-slider.min.js" />
+    <Content Include="static\js\materialize.js" />
+    <Content Include="static\js\materialize.min.js" />
+    <Content Include="static\js\plugins.js" />
+    <Content Include="static\js\scripts.js" />
+    <Content Include="static\js\ScrollToPlugin.min.js" />
+    <Content Include="static\js\smoothPageScroll.js" />
+    <Content Include="static\js\toolbar.js" />
+    <Content Include="static\material\css\fixedHeader.dataTables.css" />
+    <Content Include="static\material\css\jquery.datetimepicker.css" />
+    <Content Include="static\material\css\material.forms.css" />
+    <Content Include="static\material\css\materialize.admin.css" />
+    <Content Include="static\material\css\materialize.css" />
+    <Content Include="static\material\css\materialize.forms.css" />
+    <Content Include="static\material\css\materialize.frontend.css" />
+    <Content Include="static\material\css\materialize.frontend.min.css" />
+    <Content Include="static\material\css\perfect-scrollbar.css" />
+    <Content Include="static\material\css\responsive.dataTables.css" />
+    <Content Include="static\material\fonts\material-design-icons\codepoints" />
+    <Content Include="static\material\fonts\material-design-icons\material-icons.css" />
+    <Content Include="static\material\fonts\material-design-icons\MaterialIcons-Regular.eot" />
+    <Content Include="static\material\fonts\material-design-icons\MaterialIcons-Regular.ijmap" />
+    <Content Include="static\material\fonts\material-design-icons\MaterialIcons-Regular.svg" />
+    <Content Include="static\material\fonts\material-design-icons\MaterialIcons-Regular.ttf" />
+    <Content Include="static\material\fonts\material-design-icons\MaterialIcons-Regular.woff" />
+    <Content Include="static\material\fonts\material-design-icons\MaterialIcons-Regular.woff2" />
+    <Content Include="static\material\fonts\material-design-icons\README.md" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Black.eot" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Black.ttf" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Black.woff" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Black.woff2" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-BlackItalic.eot" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-BlackItalic.ttf" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-BlackItalic.woff" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-BlackItalic.woff2" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Bold.eot" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Bold.ttf" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Bold.woff" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Bold.woff2" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-BoldItalic.eot" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-BoldItalic.ttf" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-BoldItalic.woff" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-BoldItalic.woff2" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Italic.eot" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Italic.ttf" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Italic.woff" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Italic.woff2" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Light.eot" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Light.ttf" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Light.woff" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Light.woff2" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-LightItalic.eot" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-LightItalic.ttf" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-LightItalic.woff" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-LightItalic.woff2" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Medium.eot" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Medium.ttf" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Medium.woff" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Medium.woff2" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-MediumItalic.eot" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-MediumItalic.ttf" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-MediumItalic.woff" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-MediumItalic.woff2" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Regular.eot" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Regular.ttf" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Regular.woff" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Regular.woff2" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Thin.eot" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Thin.ttf" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Thin.woff" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-Thin.woff2" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-ThinItalic.eot" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-ThinItalic.ttf" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-ThinItalic.woff" />
+    <Content Include="static\material\fonts\roboto\fonts\Roboto-ThinItalic.woff2" />
+    <Content Include="static\material\fonts\roboto\roboto-black-italic.css" />
+    <Content Include="static\material\fonts\roboto\roboto-black.css" />
+    <Content Include="static\material\fonts\roboto\roboto-bold-italic.css" />
+    <Content Include="static\material\fonts\roboto\roboto-bold.css" />
+    <Content Include="static\material\fonts\roboto\roboto-italic.css" />
+    <Content Include="static\material\fonts\roboto\roboto-light-italic.css" />
+    <Content Include="static\material\fonts\roboto\roboto-light.css" />
+    <Content Include="static\material\fonts\roboto\roboto-medium-italic.css" />
+    <Content Include="static\material\fonts\roboto\roboto-medium.css" />
+    <Content Include="static\material\fonts\roboto\roboto-thin-italic.css" />
+    <Content Include="static\material\fonts\roboto\roboto-thin.css" />
+    <Content Include="static\material\fonts\roboto\roboto.css" />
+    <Content Include="static\material\fonts\roboto\style.css" />
+    <Content Include="static\material\fonts\roboto\style.scss" />
+    <Content Include="static\material\imgs\background.svg" />
+    <Content Include="static\material\imgs\favicon.png" />
+    <Content Include="static\material\imgs\logo.png" />
+    <Content Include="static\material\imgs\sidenav.svg" />
+    <Content Include="static\material\imgs\user.png" />
+    <Content Include="static\material\js\dataTables.fixedHeader.js" />
+    <Content Include="static\material\js\dataTables.responsive.js" />
+    <Content Include="static\material\js\jquery.activeNavigation.js" />
+    <Content Include="static\material\js\jquery.dataTables.js" />
+    <Content Include="static\material\js\jquery.datetimepicker.full.js" />
+    <Content Include="static\material\js\jquery.formset.js" />
+    <Content Include="static\material\js\jquery.js" />
+    <Content Include="static\material\js\materialize.forms.js" />
+    <Content Include="static\material\js\materialize.frontend.js" />
+    <Content Include="static\material\js\materialize.frontend.min.js" />
+    <Content Include="static\material\js\materialize.js" />
+    <Content Include="static\material\js\perfect-scrollbar.jquery.js" />
+    <Content Include="static\material\js\turbolinks.js" />
+    <Content Include="static\material\sass\materialize.admin.scss" />
+    <Content Include="static\material\sass\materialize.forms.scss" />
+    <Content Include="static\material\sass\materialize.frontend.scss" />
+    <Content Include="static\material\sass\materialize.scss" />
+    <Content Include="static\material\sass\_variables.scss" />
+    <Content Include="templates\base\main_base.html" />
+    <Content Include="templates\index.html" />
+    <Content Include="templates\index_old.html" />
+    <Content Include="templates\login.html" />
+    <Content Include="templates\resdec\algorithms.html" />
+    <Content Include="templates\resdec\cold_start.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="CondaEnv|CondaEnv|resdec" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
